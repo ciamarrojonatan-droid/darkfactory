@@ -1,0 +1,48 @@
+{
+  "project_id": "soviet_glitch_1983",
+  "title": "The 1983 Soviet Glitch That Almost Ended Humanity",
+  "niche": "Cold War Military & Tech History",
+  "target_market": "US / UK / Canada (English)",
+  "voice_engine": {
+    "provider": "RunningHub CosyVoice 3 Instruct 2",
+    "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2118531898170486785",
+    "workflow_id": "2118531898170486785",
+    "execution_mode": "lite_plus",
+    "base_persona": "Authoritative BBC/Netflix Historical Documentary Narrator, Deep Baritone"
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "hook_category": "Pattern Interrupt / In Medias Res",
+      "audio_text": "At 12:15 AM on September 26, 1983, a red siren illuminated a top-secret Soviet bunker outside Moscow. The radar screens confirmed what every officer dreaded: five American nuclear warheads were already in the air.",
+      "cosyvoice_instruct": "Speak with controlled urgency and mounting dread, deep authoritative baritone documentary tone, crisp articulation, ominous cadence.",
+      "estimated_duration_sec": 13.5,
+      "visual_target_model": "RunningHub Wan 2.2 / MiniMax h3",
+      "visual_prompt": "Cinematic 1980s Soviet military command bunker interior, Serpukhov-15, rotating emergency red alarm beacon casting harsh shadows on industrial brushed steel bulkheads, glowing monochrome green CRT radar screens displaying rising missile trajectories, cigarette smoke drifting through anamorphic lens flare, photorealistic 8k, 35mm film grain, volumetric fog --ar 16:9",
+      "camera_direction": "Slow dramatic push-in towards the glowing green radar terminal",
+      "sound_design": "Subtle deep industrial hum, muted recurring alarm pulse, distant tape drive clicking"
+    },
+    {
+      "scene_id": 2,
+      "hook_category": "Existential Stakes Escalation",
+      "audio_text": "Soviet protocol gave Lieutenant Colonel Stanislav Petrov exactly twenty minutes to authorize a retaliatory strike that would wipe three hundred million people off the face of the Earth.",
+      "cosyvoice_instruct": "Slow down pace, speak in a grim, somber, heavy baritone, emphasizing the tragic existential weight of three hundred million lives.",
+      "estimated_duration_sec": 11.0,
+      "visual_target_model": "RunningHub MiniMax h3",
+      "visual_prompt": "Macro cinematic portrait of a 44-year-old Soviet military officer Stanislav Petrov, beads of sweat on forehead, intense trembling gaze fixed on a black secure rotary telephone, dim ambient red and amber instrument lights, hyper-realistic facial pores, dramatic chiaroscuro shadows, authentic 1983 Soviet officer uniform with medals, 35mm cinema lens --ar 16:9",
+      "camera_direction": "Subtle slow creep-in on his eyes capturing psychological panic",
+      "sound_design": "Muffled heartbeat thumping in bass, ticking mechanical timer"
+    },
+    {
+      "scene_id": 3,
+      "hook_category": "The Dilemma & Open Loop",
+      "audio_text": "He had a direct line to the Kremlin. His finger hovered over the confirmation switch. But instead of following orders... Petrov decided to trust a hunch.",
+      "cosyvoice_instruct": "Intense cinematic suspense, hushed dramatic delivery, deliberate pause after orders, delivering the cliffhanger with chilling mystery.",
+      "estimated_duration_sec": 12.0,
+      "visual_target_model": "RunningHub Wan 2.2",
+      "visual_prompt": "Low angle extreme close-up of a military officer's trembling hand hovering inches above a heavy industrial red authorization button, retro Soviet control console, metallic switchboard with Cyrillic stencils, dusty light beams cutting through darkness, high tension cinematic thriller aesthetic, 8k resolution --ar 16:9",
+      "camera_direction": "Rack focus from the red button to the tense fingers hovering above it",
+      "sound_design": "Sudden drop in ambient room noise, heavy breathing, sharp electronic switch click"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+file 'C:/Users/WDAGUtilityAccount/Downloads/Nova pasta/darkfactory/data/audio/mastered/scene_1_mastered.mp3'
+file 'C:/Users/WDAGUtilityAccount/Downloads/Nova pasta/darkfactory/data/audio/mastered/scene_2_mastered.mp3'
+file 'C:/Users/WDAGUtilityAccount/Downloads/Nova pasta/darkfactory/data/audio/mastered/scene_3_mastered.mp3'
