@@ -27,15 +27,21 @@ def test_multilingual_localizations_generation():
     assert "es" in localizations
     assert "pt-BR" in localizations
     assert "de" in localizations
+    assert "ja" in localizations
+    assert "ko" in localizations
+    assert "zh-Hans" in localizations
 
     assert "El Error Soviético" in localizations["es"]["title"]
     assert "O Erro Soviético" in localizations["pt-BR"]["title"]
     assert "Der Sowjet-Fehler" in localizations["de"]["title"]
+    assert "1983年ソ連核警報誤報事件" in localizations["ja"]["title"]
+    assert "1983년 소련 핵 오보 사건" in localizations["ko"]["title"]
+    assert "1983年苏联核警报假警事件" in localizations["zh-Hans"]["title"]
 
     for lang, meta in localizations.items():
         assert len(meta["title"]) <= 100
         assert len(meta["description"]) <= 5000
-        assert "RECREACIÓN" in meta["description"] or "RECONSTITUIÇÃO" in meta["description"] or "REKONSTRUKTION" in meta["description"]
+        assert any(keyword in meta["description"] for keyword in ["RECREACIÓN", "RECONSTITUIÇÃO", "REKONSTRUKTION", "歴史アーカイブ再現", "역사적 아카이브 재구성", "历史档案还原"])
 
 
 def test_multilingual_subtitles_generation(tmp_path):
@@ -53,6 +59,9 @@ def test_multilingual_subtitles_generation(tmp_path):
     assert "en" in tracks
     assert "es" in tracks
     assert "pt-BR" in tracks
+    assert "ja" in tracks
+    assert "ko" in tracks
+    assert "zh-Hans" in tracks
 
     es_file = tracks["es"]
     assert es_file.exists()
@@ -63,6 +72,18 @@ def test_multilingual_subtitles_generation(tmp_path):
     assert pt_file.exists()
     pt_content = pt_file.read_text(encoding="utf-8")
     assert "Às 00h15 de 26 de setembro de 1983" in pt_content
+
+    ja_file = tracks["ja"]
+    assert ja_file.exists()
+    assert "1983年9月26日午前0時15分" in ja_file.read_text(encoding="utf-8")
+
+    ko_file = tracks["ko"]
+    assert ko_file.exists()
+    assert "1983년 9월 26일 오전 0시 15분" in ko_file.read_text(encoding="utf-8")
+
+    zh_file = tracks["zh-Hans"]
+    assert zh_file.exists()
+    assert "1983年9月26日凌晨0点15分" in zh_file.read_text(encoding="utf-8")
 
 
 def test_cards_and_end_screens_blueprint():
