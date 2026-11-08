@@ -38,7 +38,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Pilot Production Orchestrator")
     parser.add_argument(
         "--step",
-        choices=["direct", "research", "flow", "tts", "tts-local", "master", "sound", "video", "shorts", "qc", "publish", "all", "all-local"],
+        choices=["direct", "research", "flow", "tts", "tts-local", "master", "sound", "video", "shorts", "qc", "boost", "publish", "all", "all-local"],
         default="all",
         help="Step to execute (default: all)"
     )
@@ -70,6 +70,8 @@ def main() -> None:
         steps = ["shorts_generator.py"]
     elif args.step == "qc":
         steps = ["youtube_compliance_qc.py"]
+    elif args.step == "boost":
+        steps = ["youtube_algorithm_booster.py"]
     elif args.step == "publish":
         steps = ["youtube_publisher.py"]
     elif args.step == "all":
@@ -82,6 +84,7 @@ def main() -> None:
             "render_pilot_video.py",
             "shorts_generator.py",
             "youtube_compliance_qc.py",
+            "youtube_algorithm_booster.py",
         ]
     elif args.step == "all-local":
         steps = [
@@ -93,6 +96,7 @@ def main() -> None:
             "render_pilot_video.py",
             "shorts_generator.py",
             "youtube_compliance_qc.py",
+            "youtube_algorithm_booster.py",
         ]
 
     for s in steps:

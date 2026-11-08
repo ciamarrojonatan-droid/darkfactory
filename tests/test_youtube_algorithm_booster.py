@@ -133,3 +133,123 @@ def test_build_complete_algorithm_package(tmp_path):
 
     saved_pkg_file = pkg_dir / "pilot_test_algorithm_package.json"
     assert saved_pkg_file.exists()
+
+
+def test_video_chapters_generation():
+    booster = YouTubeAlgorithmBooster()
+
+    # Test short video (< 60s)
+    short_chapters = booster.generate_video_chapters(video_duration_sec=40.0)
+    assert len(short_chapters) >= 3
+    assert short_chapters[0]["timestamp"] == "00:00"
+    assert short_chapters[0]["time_sec"] == 0.0
+    for i in range(1, len(short_chapters)):
+        assert short_chapters[i]["time_sec"] - short_chapters[i - 1]["time_sec"] >= 10.0
+
+    # Test long video (> 60s)
+    long_chapters = booster.generate_video_chapters(video_duration_sec=600.0)
+    assert len(long_chapters) >= 3
+    assert long_chapters[0]["timestamp"] == "00:00"
+    for ch in long_chapters:
+        assert "title_en" in ch
+        assert "title_es" in ch
+        assert "title_pt" in ch
+        assert "title_ja" in ch
+        assert "title_ko" in ch
+        assert "title_zh" in ch
+
+
+def test_video_chapters_formatting():
+    booster = YouTubeAlgorithmBooster()
+    chapters = booster.generate_video_chapters(video_duration_sec=40.0)
+
+    desc_en = booster.format_chapters_for_description(chapters, lang="en")
+    assert "⏱️ CHAPTERS" in desc_en
+    assert "00:00 Prologue" in desc_en
+
+    desc_ja = booster.format_chapters_for_description(chapters, lang="ja")
+    assert "⏱️ チャプター" in desc_ja
+    assert "00:00 プロローグ" in desc_ja
+
+    desc_pt = booster.format_chapters_for_description(chapters, lang="pt-BR")
+    assert "⏱️ CAPÍTULOS" in desc_pt
+    assert "00:00 Prólogo" in desc_pt
+
+
+def test_multilingual_dubbing_manifest(tmp_path):
+    dub_dir = tmp_path / "dubbing"
+    booster = YouTubeAlgorithmBooster(dubbing_dir=dub_dir)
+
+    dummy_audio = tmp_path / "master.mp3"
+    dummy_audio.write_bytes(b"dummy_mp3_audio_bytes")
+
+    manifest = booster.generate_multilingual_dubbing_manifest(
+        project_id="pilot_audio_test",
+        base_audio_file=dummy_audio,
+        output_dir=dub_dir,
+    )
+
+    assert "en" in manifest
+    assert "es" in manifest
+    assert "pt-BR" in manifest
+    assert "de" in manifest
+    assert "ja" in manifest
+    assert "ko" in manifest
+    assert "zh-Hans" in manifest
+
+    for lang, track in manifest.items():
+        assert track["target_lufs"] == -14.0
+        assert track["true_peak_max_dbtp"] == -1.0
+        assert track["sample_rate_hz"] == 48000
+        assert track["channels"] == 2
+        assert Path(track["file_path"]).exists()
+
+
+def test_pinned_engagement_comment():
+    booster = YouTubeAlgorithmBooster()
+    comment_en = booster.generate_pinned_engagement_comment("test_proj", "The 1983 Soviet Glitch", "en")
+    assert "HISTORICAL DILEMMA" in comment_en
+    assert "Subscribe to DarkFactory" in comment_en
+
+    comment_pt = booster.generate_pinned_engagement_comment("test_proj", "The 1983 Soviet Glitch", "pt-BR")
+    assert "DILEMA HISTÓRICO" in comment_pt
+    assert "Tenente-Coronel Petrov" in comment_pt
+
+    comment_ja = booster.generate_pinned_engagement_comment("test_proj", "The 1983 Soviet Glitch", "ja")
+    assert "ペトロフ中佐" in comment_ja
+
+
+def test_community_post_blueprint():
+    booster = YouTubeAlgorithmBooster()
+    poll = booster.generate_community_post_blueprint("test_proj", "The 1983 Soviet Glitch")
+    assert poll["poll_type"] == "INTERACTIVE_DEBATE_POLL"
+    assert len(poll["options"]) == 4
+    assert any("Petrov" in opt for opt in poll["options"])
+
+
+def test_top_hashtags():
+    booster = YouTubeAlgorithmBooster()
+    tags_en = booster.generate_top_hashtags("en")
+    assert len(tags_en) == 3
+    assert "#ColdWar" in tags_en
+
+    tags_ja = booster.generate_top_hashtags("ja")
+    assert len(tags_ja) == 3
+    assert "#冷戦" in tags_ja
+
+
+def test_google_search_key_moments_json_ld():
+    booster = YouTubeAlgorithmBooster()
+    chapters = booster.generate_video_chapters(video_duration_sec=100.0)
+    json_ld = booster.generate_key_moments_json_ld(
+        project_id="test_key_moments",
+        title="1983 Soviet Crisis",
+        description="Historic documentary",
+        duration_sec=100.0,
+        chapters=chapters,
+        video_url="https://youtu.be/test_key_moments",
+    )
+    assert json_ld["@type"] == "VideoObject"
+    assert len(json_ld["hasPart"]) == len(chapters)
+    assert json_ld["hasPart"][0]["@type"] == "Clip"
+    assert json_ld["hasPart"][0]["startOffset"] == 0

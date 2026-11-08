@@ -117,6 +117,10 @@ class YouTubePublisher:
         auto_boost: bool = True,
         localizations: Optional[Dict[str, Dict[str, str]]] = None,
         caption_tracks: Optional[Dict[str, Path]] = None,
+        audio_tracks: Optional[Dict[str, Any]] = None,
+        chapters: Optional[List[Dict[str, Any]]] = None,
+        pinned_comment_text: Optional[str] = None,
+        allow_audio_remixing: bool = True,
     ) -> Dict[str, Any]:
         """Uploads a video to YouTube with resumable chunked transfer gated by Compliance QC and Algorithm Booster."""
         if not video_path.exists():
@@ -150,13 +154,20 @@ class YouTubePublisher:
             if qc_report.remediated_description:
                 description = qc_report.remediated_description
 
-        # YouTube Algorithm Booster (Multi-Language SEO Localizations)
-        if auto_boost and not localizations:
+        # YouTube Algorithm Booster (Multi-Language SEO, Dubbing Audio, Chapters, Pinned Comment)
+        if auto_boost:
             try:
                 booster = YouTubeAlgorithmBooster()
-                localizations = booster.generate_multilingual_localizations(title, description)
+                if not chapters:
+                    chapters = booster.generate_video_chapters(video_duration_sec=60.0)
+                if not localizations:
+                    localizations = booster.generate_multilingual_localizations(title, description, chapters=chapters)
+                if not audio_tracks:
+                    audio_tracks = booster.generate_multilingual_dubbing_manifest(video_path.stem)
+                if not pinned_comment_text:
+                    pinned_comment_text = booster.generate_pinned_engagement_comment(video_path.stem, title)
             except Exception as e:
-                logger.warning(f"Could not generate automatic localizations: {e}")
+                logger.warning(f"Could not generate automatic algorithm booster metadata: {e}")
 
         if dry_run:
             logger.info(f"[DRY-RUN] Simulating upload of '{video_path.name}' as '{privacy_status}'")
@@ -173,6 +184,10 @@ class YouTubePublisher:
                 "compliance_status": qc_report.status.value if qc_report else "SKIPPED",
                 "multilingual_localizations": list(localizations.keys()) if localizations else [],
                 "caption_tracks_registered": list(caption_tracks.keys()) if caption_tracks else [],
+                "multilingual_audio_tracks": list(audio_tracks.keys()) if audio_tracks else [],
+                "chapters_count": len(chapters) if chapters else 0,
+                "allow_audio_remixing": allow_audio_remixing,
+                "pinned_comment_preview": pinned_comment_text[:120] if pinned_comment_text else "",
             }
             self.record_upload(record)
             return record
@@ -231,6 +246,14 @@ class YouTubePublisher:
             except Exception as e:
                 logger.warning(f"Could not upload custom thumbnail: {e}")
 
+        # Post Pinned Engagement Comment if provided
+        if pinned_comment_text and video_id:
+            try:
+                self.add_pinned_comment(video_id, pinned_comment_text)
+                logger.info(f"✅ Pinned engagement comment posted to video {video_id}")
+            except Exception as e:
+                logger.warning(f"Could not post pinned comment: {e}")
+
         result_record = {
             "video_id": video_id,
             "video_url": video_url,
@@ -239,6 +262,11 @@ class YouTubePublisher:
             "uploaded_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "file_path": str(video_path),
             "is_dry_run": False,
+            "multilingual_localizations": list(localizations.keys()) if localizations else [],
+            "caption_tracks_registered": list(caption_tracks.keys()) if caption_tracks else [],
+            "multilingual_audio_tracks": list(audio_tracks.keys()) if audio_tracks else [],
+            "chapters_count": len(chapters) if chapters else 0,
+            "allow_audio_remixing": allow_audio_remixing,
         }
         self.record_upload(result_record)
         return result_record

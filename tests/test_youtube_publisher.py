@@ -102,3 +102,25 @@ def test_upload_video_mocked_service(mock_media, mock_get_service, tmp_path):
     assert record["video_url"] == "https://youtu.be/real_yt_abc123"
     assert record["privacy_status"] == "unlisted"
     assert mock_service.videos().insert.called
+
+
+def test_upload_dry_run_with_audio_tracks_and_chapters(tmp_path):
+    history_file = tmp_path / "history_full.json"
+    pub = YouTubePublisher(history_file=history_file)
+    dummy_video = tmp_path / "sample_pilot_full.mp4"
+    dummy_video.write_bytes(b"dummy_mp4_bytes")
+
+    record = pub.upload_video(
+        video_path=dummy_video,
+        title="1983 Soviet Glitch Extended",
+        description="A Cold War documentary with chapters and audio dubbing.",
+        privacy_status="unlisted",
+        dry_run=True,
+        auto_boost=True,
+    )
+
+    assert record["is_dry_run"] is True
+    assert record["chapters_count"] >= 3
+    assert len(record["multilingual_audio_tracks"]) >= 5
+    assert record["allow_audio_remixing"] is True
+    assert len(record["pinned_comment_preview"]) > 0
