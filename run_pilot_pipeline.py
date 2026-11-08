@@ -38,9 +38,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Pilot Production Orchestrator")
     parser.add_argument(
         "--step",
-        choices=["direct", "research", "tts", "tts-local", "master", "sound", "video", "all", "all-local"],
+        choices=["direct", "research", "flow", "tts", "tts-local", "master", "sound", "video", "shorts", "publish", "all", "all-local"],
         default="all",
-        help="Step to execute: direct, research, tts, tts-local, master, sound, video, all, or all-local (default: all)"
+        help="Step to execute (default: all)"
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Run in dry-run mode for API / browser services",
     )
     args = parser.parse_args()
 
@@ -49,6 +54,8 @@ def main() -> None:
         steps = ["nolan_director.py"]
     elif args.step == "research":
         steps = ["research_engine.py"]
+    elif args.step == "flow":
+        steps = ["google_flow_bot.py"]
     elif args.step == "tts":
         steps = ["generate_pilot_audio.py"]
     elif args.step == "tts-local":
@@ -59,6 +66,10 @@ def main() -> None:
         steps = ["audio_mixer_master.py"]
     elif args.step == "video":
         steps = ["render_pilot_video.py"]
+    elif args.step == "shorts":
+        steps = ["shorts_generator.py"]
+    elif args.step == "publish":
+        steps = ["youtube_publisher.py"]
     elif args.step == "all":
         steps = [
             "nolan_director.py",
@@ -66,7 +77,8 @@ def main() -> None:
             "generate_pilot_audio.py",
             "cosyvoice_master.py",
             "audio_mixer_master.py",
-            "render_pilot_video.py"
+            "render_pilot_video.py",
+            "shorts_generator.py"
         ]
     elif args.step == "all-local":
         steps = [
@@ -75,7 +87,8 @@ def main() -> None:
             "kokoro_fallback.py",
             "cosyvoice_master.py",
             "audio_mixer_master.py",
-            "render_pilot_video.py"
+            "render_pilot_video.py",
+            "shorts_generator.py"
         ]
 
     for s in steps:
