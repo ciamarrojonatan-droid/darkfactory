@@ -138,3 +138,28 @@ def test_youtube_publisher_blocks_on_compliance_failure(tmp_path):
             skip_qc=False,
         )
     assert "UPLOAD BLOCKED by YouTube Compliance QC" in str(exc_info.value)
+
+
+def test_self_certification_manifest_generation():
+    qc = YouTubeComplianceQC()
+    manifest = qc.generate_self_certification_manifest(
+        project_id="test_cert",
+        title="The 1983 Soviet Nuclear Alert",
+        description="Historical documentary analyzing Serpukhov-15 declassified telemetry.",
+    )
+    assert manifest["project_id"] == "test_cert"
+    assert "Green Dollar Sign" in manifest["projected_monetization_status"]
+    assert "inappropriate_language" in manifest["self_certification_questionnaire"]
+    assert manifest["self_certification_questionnaire"]["altered_or_synthetic_content"]["disclosure_checkbox"] is True
+
+
+def test_edsa_framing_evaluation():
+    qc = YouTubeComplianceQC()
+    res = qc.evaluate_edsa_framing(
+        title="The Classified Cold War Incident",
+        description="Historical archival documentary and analysis of the 1983 Soviet radar telemetry.",
+    )
+    assert res["has_edsa_protection"] is True
+    assert res["status"] == "EDSA_PROTECTED"
+    assert "documentary" in res["anchors_detected"]
+

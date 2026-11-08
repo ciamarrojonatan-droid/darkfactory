@@ -253,3 +253,41 @@ def test_google_search_key_moments_json_ld():
     assert len(json_ld["hasPart"]) == len(chapters)
     assert json_ld["hasPart"][0]["@type"] == "Clip"
     assert json_ld["hasPart"][0]["startOffset"] == 0
+
+
+def test_seamless_outro_validation():
+    booster = YouTubeAlgorithmBooster()
+    bad_script = "Petrov saved the world. In conclusion, thank you for watching, and see you next time!"
+    res = booster.validate_and_enforce_seamless_outro(bad_script)
+    assert res["has_retention_risk"] is True
+    assert len(res["exit_cues_detected"]) >= 2
+    assert "SEAMLESS BINGE BRIDGE" in res["remediated_script_outro"]
+
+    good_script = "The clock ticked down to zero, leaving humanity's survival suspended in silence."
+    res_good = booster.validate_and_enforce_seamless_outro(good_script)
+    assert res_good["has_retention_risk"] is False
+
+
+def test_official_series_playlist_metadata():
+    booster = YouTubeAlgorithmBooster()
+    res = booster.generate_official_series_playlist_metadata(
+        series_id="cold_war_nuclear",
+        series_title="Cold War Declassified",
+        episode_index=1,
+        total_episodes=6,
+    )
+    assert res["is_official_series"] is True
+    assert res["episode_position"] == 1
+    assert "Suggested Videos" in res["algorithmic_benefit"]
+
+
+def test_codec_readiness_check():
+    booster = YouTubeAlgorithmBooster()
+    res_4k = booster.verify_youtube_codec_readiness(width=3840, height=2160)
+    assert res_4k["is_4k_or_1440p"] is True
+    assert "VP09 / AV01" in res_4k["allocated_youtube_codec"]
+
+    res_1080p = booster.verify_youtube_codec_readiness(width=1920, height=1080)
+    assert res_1080p["is_4k_or_1440p"] is False
+    assert "AVC1" in res_1080p["allocated_youtube_codec"]
+
