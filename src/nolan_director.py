@@ -503,6 +503,14 @@ class NolanHistoryDirector:
             json.dump(manifest.to_dict(), f, indent=2, ensure_ascii=False)
         tmp_target.replace(output_path)
         logger.info(f"Nolan Director manifest exported atomically to: {output_path}")
+        if "soviet_glitch" in output_path.name:
+            alias_path = output_path.parent / "pilot_soviet_glitch.json"
+            if alias_path != output_path:
+                try:
+                    import shutil
+                    shutil.copy2(output_path, alias_path)
+                except Exception:
+                    pass
 
         # 1. Export Google Flow Video Queues (Omni Flash 1.2 and Veo 3 / 3.1)
         omni_q, veo3_q = self.generate_google_flow_queues(manifest)

@@ -44,11 +44,18 @@ async def main() -> None:
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
     SUBS_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not SCRIPT_FILE.exists():
+    target_file = SCRIPT_FILE
+    if not target_file.exists():
+        target_file = SCRIPTS_DIR / "nolan_soviet_glitch.json"
+    if not target_file.exists():
+        candidates = list(SCRIPTS_DIR.glob("*soviet_glitch.json"))
+        if candidates:
+            target_file = candidates[0]
+    if not target_file.exists():
         print(f"Error: Script file not found: {SCRIPT_FILE}", file=sys.stderr)
         sys.exit(1)
 
-    with open(SCRIPT_FILE, "r", encoding="utf-8") as f:
+    with open(target_file, "r", encoding="utf-8") as f:
         script_data = json.load(f)
 
     scenes = script_data.get("scenes", [])

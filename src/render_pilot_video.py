@@ -413,6 +413,12 @@ def main() -> None:
     ensure_cinematic_lut()
 
     script_path = SCRIPTS_DIR / "pilot_soviet_glitch.json"
+    if not script_path.exists():
+        script_path = SCRIPTS_DIR / "nolan_soviet_glitch.json"
+    if not script_path.exists():
+        candidates = list(SCRIPTS_DIR.glob("*soviet_glitch.json"))
+        if candidates:
+            script_path = candidates[0]
     with open(script_path, "r", encoding="utf-8") as f:
         script_data = json.load(f)
 
