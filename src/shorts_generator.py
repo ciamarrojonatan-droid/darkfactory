@@ -18,7 +18,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List, Dict, Any
 
 # ADR-01: Force UTF-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -132,6 +132,83 @@ def generate_vertical_short(
     temp_output.replace(output_short)
     logger.info(f"✅ Vertical Short successfully generated: {output_short.name}")
     return True
+
+
+def generate_funnel_shorts_package(
+    video_input: Path,
+    master_video_id: str = "PENDING_MASTER_UPLOAD",
+    srt_input: Optional[Path] = None,
+    output_dir: Optional[Path] = None,
+    ffmpeg_bin: Optional[str] = None,
+) -> List[Dict[str, Any]]:
+    """Generates the multi-slice Shorts-to-Long-Form funnel package.
+
+    Extracts 3 distinct 50-second micro-mysteries from the master documentary,
+    each calibrated with a cliffhanger designed to convert mobile feed viewers into
+    long-form watch time via the native YouTube Studio 'Related Video' selector.
+    """
+    target_dir = output_dir or SHORTS_DIR
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    slices_config = [
+        {
+            "slice_id": "short_01_hook",
+            "title": "The Night Soviet Radar Turned Red",
+            "start_time": 0.0,
+            "duration": 50.0,
+            "narrative_focus": "The Cold Open: Emergency siren blaring in Serpukhov-15 bunker.",
+            "cta_hook": "Watch the full classified investigation linked below.",
+        },
+        {
+            "slice_id": "short_02_radar",
+            "title": "Why the Computer Swore World War 3 Started",
+            "start_time": 35.0,
+            "duration": 50.0,
+            "narrative_focus": "Tactical telemetry: 5 incoming ballistic missiles confirmed by satellite.",
+            "cta_hook": "Tap the linked video on screen to see what happened next.",
+        },
+        {
+            "slice_id": "short_03_dilemma",
+            "title": "His Finger Hovered Over the Nuclear Switch",
+            "start_time": 70.0,
+            "duration": 50.0,
+            "narrative_focus": "The 20-minute launch countdown and Petrov's decision to trust gut instinct.",
+            "cta_hook": "The full declassified documentary is linked right here.",
+        },
+    ]
+
+    results = []
+    base_stem = video_input.stem
+    for cfg in slices_config:
+        out_file = target_dir / f"{base_stem}_{cfg['slice_id']}.mp4"
+        success = False
+        if video_input.exists():
+            success = generate_vertical_short(
+                video_input=video_input,
+                output_short=out_file,
+                srt_input=srt_input,
+                start_time=cfg["start_time"],
+                duration_sec=cfg["duration"],
+                ffmpeg_bin=ffmpeg_bin,
+            )
+
+        results.append({
+            "slice_id": cfg["slice_id"],
+            "title": cfg["title"],
+            "start_time": cfg["start_time"],
+            "duration": cfg["duration"],
+            "output_file": str(out_file),
+            "generated": success,
+            "related_video_binding": {
+                "target_master_video_id": master_video_id,
+                "studio_selector": "YouTube Studio -> Video Details -> Related Video",
+                "purpose": "Directs mobile Shorts viewers directly into the long-form watch time pool.",
+            },
+            "cta_hook": cfg["cta_hook"],
+        })
+
+    logger.info(f"Generated {len(results)} Shorts-to-Long funnel slices in {target_dir.name}")
+    return results
 
 
 def main() -> None:

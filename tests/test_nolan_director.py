@@ -39,6 +39,11 @@ def test_generate_packaging():
     assert "thumbnail_concept" in packaging
     assert "title_overlay_text" in packaging["thumbnail_concept"]
     assert "IMAX" in packaging["thumbnail_concept"]["visual_composition"]
+    assert "tri_variant_thumbnails" in packaging
+    assert len(packaging["tri_variant_thumbnails"]) == 3
+    assert any("Thumbnail A" in t["variant"] for t in packaging["tri_variant_thumbnails"])
+
+
 
 
 def test_generate_timeline_architecture():

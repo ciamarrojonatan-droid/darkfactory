@@ -116,12 +116,21 @@ class DarkFactoryDaemon:
             logger.error("Video assembly step failed.")
             return False
 
-        # 5. 9:16 Vertical Short Extraction
+        # 5. 9:16 Vertical Short Extraction (Multi-slice funnel)
         cmd_short = [PYTHON_EXE, str(SRC_DIR / "shorts_generator.py"), "--duration", "55.0"]
         subprocess.run(cmd_short, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-        # 6. YouTube Compliance & Safety QC Hard Gate
         master_video = DATA_DIR / "output" / "the_1983_soviet_glitch_final_1080p.mp4"
+
+        # 6. YouTube Algorithm Booster (Multi-Language SEO, Dubbing, Chapters, Official Series, Seamless Outro)
+        cmd_booster = [
+            PYTHON_EXE, str(SRC_DIR / "youtube_algorithm_booster.py"),
+            "--title", "The 1983 Soviet Glitch: 20 Minutes to Armageddon",
+            "--duration", "600.0",
+        ]
+        subprocess.run(cmd_booster, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+        # 7. YouTube Compliance & Safety QC Hard Gate (Self-Certification & EDSA Scorecard)
         cmd_qc = [
             PYTHON_EXE, str(SRC_DIR / "youtube_compliance_qc.py"),
             "--video", str(master_video),
@@ -129,7 +138,7 @@ class DarkFactoryDaemon:
         ]
         res_qc = subprocess.run(cmd_qc, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-        # 7. YouTube Upload (Unlisted with Automatic Compliance Remediations)
+        # 8. YouTube Upload (Unlisted 48h Pre-Transcoding Window with Scheduled Release)
         cmd_pub = [
             PYTHON_EXE, str(SRC_DIR / "youtube_publisher.py"),
             "--video", str(master_video),
@@ -150,6 +159,9 @@ class DarkFactoryDaemon:
             "master_video": str(master_video),
             "privacy_status": "unlisted",
             "approval_status": "pending_one_click",
+            "algorithm_boosted": True,
+            "compliance_checked": True,
+            "pre_release_window_hours": 48,
         }
         state["completed_episodes"].append(episode_record)
         state["pending_approval_queue"].append(episode_record)

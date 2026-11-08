@@ -14,7 +14,12 @@ SRC_DIR = Path(__file__).resolve().parent.parent / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from shorts_generator import build_shorts_filter_chain, generate_vertical_short, get_ffmpeg_binary
+from shorts_generator import (
+    build_shorts_filter_chain,
+    generate_funnel_shorts_package,
+    generate_vertical_short,
+    get_ffmpeg_binary,
+)
 
 
 def test_get_ffmpeg_binary():
@@ -82,3 +87,26 @@ def test_generate_vertical_short_mocked(mock_run, tmp_path):
     assert "-t" in cmd
     assert "45.00" in cmd
     assert "libx264" in cmd
+
+
+@patch("shorts_generator.generate_vertical_short")
+def test_generate_funnel_shorts_package(mock_generate, tmp_path):
+    mock_generate.return_value = True
+
+    in_video = tmp_path / "master_doc.mp4"
+    in_video.write_bytes(b"dummy")
+    out_dir = tmp_path / "shorts_output"
+
+    results = generate_funnel_shorts_package(
+        video_input=in_video,
+        master_video_id="TEST_MASTER_123",
+        output_dir=out_dir,
+    )
+
+    assert len(results) == 3
+    assert mock_generate.call_count == 3
+    for slice_res in results:
+        assert slice_res["generated"] is True
+        assert slice_res["related_video_binding"]["target_master_video_id"] == "TEST_MASTER_123"
+        assert "YouTube Studio" in slice_res["related_video_binding"]["studio_selector"]
+

@@ -114,10 +114,47 @@ class NolanHistoryDirector:
             "focal_contrast": "Human insignificance vs massive technological apocalypse machine",
         }
 
+        # YouTube Test & Compare Tri-Variant Packaging
+        tri_variant_test_and_compare = [
+            {
+                "variant": "Thumbnail A (The Psychological Human Dread)",
+                "archetype": "human_chiaroscuro_dread",
+                "hypothesis": "Maximum emotional empathy via terrified human eye contact in high-contrast chiaroscuro.",
+                "composition": "Extreme close-up on officer's sweating face reflecting red alarm beacon.",
+                "text_overlay": "20 MINUTES TO MIDNIGHT",
+                "word_count": 4,
+            },
+            {
+                "variant": "Thumbnail B (The Tactical Hardware Tension)",
+                "archetype": "tactical_macro_evidence",
+                "hypothesis": "Appeals to military and tech history buffs looking for authentic Cold War apparatus.",
+                "composition": "Macro probe shot on glowing green CRT radar grid showing 5 missile vectors.",
+                "text_overlay": "5 MISSILES DETECTED",
+                "word_count": 3,
+            },
+            {
+                "variant": "Thumbnail C (The High-Stakes Geopolitical Dilemma)",
+                "archetype": "colossal_existential_scale",
+                "hypothesis": "Creates curiosity gap through an ethical paradox and colossal architectural scale.",
+                "composition": "Silhouette of hand hovering 1 inch above massive red Soviet launch switch against gargantuan concrete bunker.",
+                "text_overlay": "WHY HE REFUSED",
+                "word_count": 3,
+            },
+        ]
+
+        # Mobile-optimized high-CTR titles (<45 chars to prevent truncation on mobile devices)
+        mobile_titles = [
+            "Why One Officer Refused to Launch",
+            "The 20 Minutes That Saved Humanity",
+            "The Nuclear Alarm That Was a Glitch",
+        ]
+
         return {
             "logline": logline,
             "titles": titles,
+            "mobile_titles": mobile_titles,
             "thumbnail_concept": thumbnail,
+            "tri_variant_thumbnails": tri_variant_test_and_compare,
         }
 
     def generate_timeline_architecture(self, research: ResearchReport) -> Dict[str, str]:
