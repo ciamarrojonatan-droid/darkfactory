@@ -1,0 +1,133 @@
+{
+  "project_id": "1983_soviet_nuclear_false_alar",
+  "title": "The Classified Seconds That Almost Ended Humanity: 1983 Soviet nuclear false alarm incident",
+  "logline": "At the height of the Cold War, early-warning satellites reported five incoming nuclear warheads — leaving one Soviet officer with twenty minutes to obey military protocol or risk three hundred million lives.",
+  "niche": "Cold War Military & Tech History",
+  "target_market": "US / UK / Canada (English Documentary Audience)",
+  "packaging": {
+    "logline": "At the height of the Cold War, early-warning satellites reported five incoming nuclear warheads — leaving one Soviet officer with twenty minutes to obey military protocol or risk three hundred million lives.",
+    "titles": [
+      "The Classified Seconds That Almost Ended Humanity: 1983 Soviet nuclear false alarm incident",
+      "Why Soviet Protocol Ordered a Nuclear Strike — And One Man Refused",
+      "The 1983 Glitch: 20 Minutes to Armageddon"
+    ],
+    "thumbnail_concept": {
+      "title_overlay_text": "20 MINUTES TO MIDNIGHT",
+      "visual_composition": "IMAX 70mm composition: Extreme chiaroscuro. In foreground, trembling silhouette of a military officer's hand hovering inches above a glowing crimson authorization switch. In background, massive glowing green CRT radar showing five ascending trajectory vectors. Harsh red alarm strobe reflection, thick drifting cigarette smoke, cold green and crimson color contrast.",
+      "focal_contrast": "Human insignificance vs massive technological apocalypse machine"
+    }
+  },
+  "timeline_architecture": {
+    "thread_a": "The Slow Clock (Genesis: 11 years before — the classified satellite sensors and flawed optical designs)",
+    "thread_b": "The Rapid Clock (The Crisis: 12:15 AM to 12:35 AM — the 20-minute launch authorization countdown)",
+    "thread_c": "The Aftermath (The Silence: Decades of top-secret burial and the quiet recognition of Stanislav Petrov)",
+    "convergence_point": "Act III: The moment the radar count reaches zero and the human eye confirms radar absence"
+  },
+  "voice_engine": {
+    "provider": "RunningHub CosyVoice 3 Instruct 2 (Workflow 2118531898170486785)",
+    "fallback_local": "Kokoro-82M (am_adam / am_fenrir / am_onyx)",
+    "execution_mode": "lite_plus",
+    "persona": "Authoritative Christopher Nolan Historical Documentary Narrator, Deep Baritone"
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "timeline_thread": "Thread B: The Rapid Clock (00:00 - T-Minus 20 Minutes)",
+      "timestamp_marker": "12:15:00 AM | SERPUKHOV-15 BUNKER",
+      "hook_category": "In Medias Res / Existential Threat",
+      "audio_text": "At 12:15 AM on September 26, 1983, a red siren illuminated a top-secret Soviet bunker outside Moscow. The radar screens confirmed what every officer dreaded: five American nuclear warheads were already in the air.",
+      "cosyvoice_instruct": "Speak with controlled urgency and mounting dread, deep authoritative baritone documentary tone, crisp articulation, ominous cadence.",
+      "estimated_duration_sec": 14.5,
+      "sound_design": {
+        "sfx_triggers": [
+          "braam_sub_bass",
+          "55hz_industrial_hum",
+          "periodic_alarm_pulse"
+        ],
+        "ost_cues": "Sustained analog synthesizer cello note ascending a semitone every 5 seconds (Shepard Tone inception)"
+      },
+      "camera_direction": "Slow dramatic push-in towards the glowing green radar terminal under flashing red strobe",
+      "dual_shot": {
+        "shot_a": {
+          "name": "Psychological Panic Close-Up",
+          "target_model": "MiniMax H3 / Wan 2.2",
+          "camera_direction": "Slow push-in dolly track on officer eyes",
+          "prompt": "Cinematic portrait of a 44-year-old Soviet military officer Stanislav Petrov, beads of sweat glistening under harsh rotating emergency red alarm beacon, dim ambient lighting, 35mm anamorphic cinema lens, Hoyte van Hoytema chiaroscuro photography, photorealistic 8k, IMAX film grain --ar 16:9"
+        },
+        "shot_b": {
+          "name": "Tactical Macro Radar Display",
+          "target_model": "Google Veo 2 / MiniMax H3",
+          "camera_direction": "Macro probe lens tracking across CRT screen grid",
+          "prompt": "Extreme macro close-up of a glowing monochrome green CRT radar screen inside Serpukhov-15 bunker, five rising missile trajectory vectors flashing in Cyrillic, cigarette smoke drifting through anamorphic lens flare, Kodak Vision3 500T 5219 texture --ar 16:9"
+        }
+      },
+      "verified_fact_note": "Oko satellite early-warning system triggered on 26 September 1983."
+    },
+    {
+      "scene_id": 2,
+      "timeline_thread": "Thread A & B Crosscutting: The Fatal Clock (T-Minus 14 Minutes)",
+      "timestamp_marker": "12:21:30 AM | THE EXCLUSION PROTOCOL",
+      "hook_category": "Existential Stakes Escalation & Crosscut",
+      "audio_text": "Soviet protocol gave Lieutenant Colonel Stanislav Petrov exactly twenty minutes to authorize a retaliatory strike that would wipe three hundred million people off the face of the Earth. (pausa: 2s) The machine demanded retaliation. The satellite algorithms swore the missiles were real.",
+      "cosyvoice_instruct": "Slow down pace, speak in a grim, somber, heavy baritone, emphasizing the tragic existential weight of three hundred million lives.",
+      "estimated_duration_sec": 16.0,
+      "sound_design": {
+        "sfx_triggers": [
+          "heartbeat_sub_bass",
+          "mechanical_ticking_clock",
+          "sub_bass_pulse"
+        ],
+        "ost_cues": "Shepard Tone accelerating in pitch, low brass dissonant swell"
+      },
+      "camera_direction": "Subtle slow creep-in on Petrov's trembling hand resting on the secure red telephone",
+      "dual_shot": {
+        "shot_a": {
+          "name": "Claustrophobic Face Chiaroscuro",
+          "target_model": "MiniMax H3 / Wan 2.2",
+          "camera_direction": "Slow 35mm drift around officer profile",
+          "prompt": "Low angle medium cinematic close-up of Stanislav Petrov holding a heavy black Bakelite Soviet telephone receiver, shadows cutting across his weathered face, authentic military medals reflecting red alarm glow, 35mm film grain, shallow depth of field, Hoyte van Hoytema aesthetic --ar 16:9"
+        },
+        "shot_b": {
+          "name": "Hardware Tension Macro",
+          "target_model": "Google Veo 2 / MiniMax H3",
+          "camera_direction": "Rack focus from ticking Soviet military wall clock to glowing confirmation panel",
+          "prompt": "Cinematic macro shot of an industrial Soviet mechanical wall clock with red second hand ticking forward, dust motes floating in spotlight, rack focus to red Cyrillic warning stencil on metallic steel bulkhead, 8k resolution, photorealistic cinematic lighting --ar 16:9"
+        }
+      },
+      "verified_fact_note": "Petrov was the duty officer at the command center for the Oko satellite system."
+    },
+    {
+      "scene_id": 3,
+      "timeline_thread": "Convergence Point: The Decision of Disobedience (T-Minus 0)",
+      "timestamp_marker": "12:29:45 AM | THE ZERO POINT",
+      "hook_category": "The Dilemma & Sudden Silence Drop",
+      "audio_text": "He had a direct line to the Kremlin. His finger hovered over the confirmation switch. But instead of following orders... (pausa: 2s) Petrov decided to trust a hunch. If the United States was going to start World War Three... why send only five missiles?",
+      "cosyvoice_instruct": "Intense cinematic suspense, hushed dramatic delivery, deliberate pause after orders, delivering the revelation with chilling philosophical mystery.",
+      "estimated_duration_sec": 17.5,
+      "sound_design": {
+        "sfx_triggers": [
+          "silence_drop",
+          "heavy_industrial_switch_click",
+          "distant_reverberant_sub_boom"
+        ],
+        "ost_cues": "Sudden complete silence drop for 1.8 seconds, followed by profound low cello resolution (Hans Zimmer Time style)"
+      },
+      "camera_direction": "Extreme low angle rack focus from the heavy red button to the tense fingers hovering above it",
+      "dual_shot": {
+        "shot_a": {
+          "name": "The Finger Above the Button",
+          "target_model": "Wan 2.2 / MiniMax H3",
+          "camera_direction": "Slow Dutch-angle push-in on trembling finger",
+          "prompt": "Low angle extreme close-up of a military officer's trembling hand hovering inches above a heavy industrial red authorization button, retro Soviet control console, metallic switchboard with Cyrillic stencils, dusty light beams cutting through darkness, high tension cinematic thriller aesthetic, 8k resolution --ar 16:9"
+        },
+        "shot_b": {
+          "name": "Cosmic Truth / The High Altitude Glitch",
+          "target_model": "Google Veo 2 / MiniMax H3",
+          "camera_direction": "Ethereal orbital slow tilt down to sunlight hitting cloud peaks",
+          "prompt": "Cinematic high-altitude view from an early Soviet reconnaissance satellite orbit, blinding morning sunlight reflecting off high-altitude storm clouds over North Dakota, anamorphic golden lens flare, IMAX 70mm, hyper-realistic Earth curvature, breathtaking optical beauty --ar 16:9"
+        }
+      },
+      "verified_fact_note": "Investigation later determined false alarm was caused by rare alignment of sunlight on high-altitude clouds."
+    }
+  ]
+}

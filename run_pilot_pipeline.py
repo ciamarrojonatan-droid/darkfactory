@@ -2,11 +2,12 @@
 """DarkFactory Pilot Production Orchestrator.
 
 One-click command center to produce the pilot documentary:
-  - Step 0: Research Engine (Wikipedia Ground-Truth Extraction)
-  - Step 1: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
-  - Step 2: Broadcast Studio Mastering & SRT Synchronization
-  - Step 3: Procedural Historical Sound Design Synthesis
-  - Step 4: Video B-Roll Rendering & Final 1080p Master Assembly
+  - Step 0: Direct (Nolan Dark History Director Screenplay Synthesis)
+  - Step 1: Research Engine (Wikipedia Ground-Truth Extraction)
+  - Step 2: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
+  - Step 3: Broadcast Studio Mastering & SRT Synchronization
+  - Step 4: Procedural Historical Sound Design Synthesis
+  - Step 5: Video B-Roll Rendering & Final 1080p Master Assembly
 """
 import argparse
 import subprocess
@@ -37,14 +38,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Pilot Production Orchestrator")
     parser.add_argument(
         "--step",
-        choices=["research", "tts", "tts-local", "master", "sound", "video", "all", "all-local"],
+        choices=["direct", "research", "tts", "tts-local", "master", "sound", "video", "all", "all-local"],
         default="all",
-        help="Step to execute: research, tts, tts-local, master, sound, video, all, or all-local (default: all)"
+        help="Step to execute: direct, research, tts, tts-local, master, sound, video, all, or all-local (default: all)"
     )
     args = parser.parse_args()
 
     steps = []
-    if args.step == "research":
+    if args.step == "direct":
+        steps = ["nolan_director.py"]
+    elif args.step == "research":
         steps = ["research_engine.py"]
     elif args.step == "tts":
         steps = ["generate_pilot_audio.py"]
@@ -65,6 +68,7 @@ def main() -> None:
         ]
     elif args.step == "all-local":
         steps = [
+            "nolan_director.py",
             "research_engine.py",
             "kokoro_fallback.py",
             "cosyvoice_master.py",
