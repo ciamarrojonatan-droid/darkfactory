@@ -113,3 +113,61 @@ def test_export_manifest_atomic(tmp_path):
         data = json.load(f)
     assert data["project_id"] == "test_episode"
     assert data["title"] == "Test Episode Title"
+
+
+def test_google_flow_queues_generation_and_export(tmp_path):
+    director = NolanHistoryDirector()
+    mock_manifest = NolanEpisodeManifest(
+        project_id="test_soviet_glitch",
+        title="The 1983 Soviet Glitch",
+        logline="One man against nuclear annihilation.",
+        niche="Cold War History",
+        target_market="US",
+        packaging={"titles": ["Title 1"]},
+        timeline_architecture={"thread_a": "Slow", "thread_b": "Fast"},
+        voice_engine={"provider": "Kokoro-82M"},
+        sound_package={
+            "google_flow_ost_prompt": "Cinematic drone score",
+            "runninghub_mmaudio": {"scenes": []},
+            "runninghub_whoosh_sfx": {"prompts": []},
+        },
+        scenes=[
+            {
+                "scene_id": 1,
+                "estimated_duration_sec": 14.5,
+                "camera_direction": "Slow push-in dolly track",
+                "sound_design": {"ost_cues": "Ascending cello Shepard Tone"},
+                "dual_shot": {
+                    "shot_a": {"name": "Psychological Panic", "prompt": "Stanislav Petrov close-up"},
+                    "shot_b": {"name": "Tactical Radar", "prompt": "Green CRT radar screen", "camera_direction": "Macro probe lens"},
+                },
+            }
+        ],
+    )
+
+    omni_q, veo3_q = director.generate_google_flow_queues(mock_manifest)
+    assert omni_q["model_target"] == "Gemini Omni Flash 1.2"
+    assert omni_q["generation_parameters"]["max_duration_sec"] == 15.0
+    assert len(omni_q["scenes"]) == 1
+    assert len(omni_q["scenes"][0]["historical_reference_slots"]) == 6
+
+    assert veo3_q["model_target"] == "Google DeepMind Veo 3 / 3.1 (Cinema Flagship)"
+    assert "4K" in veo3_q["generation_parameters"]["target_resolution"]
+    assert veo3_q["generation_parameters"]["max_duration_sec"] == 8.0
+    assert len(veo3_q["scenes"]) == 1
+
+    out_file = tmp_path / "nolan_manifest.json"
+    director.export_manifest(mock_manifest, out_file)
+
+    omni_file = tmp_path / "google_flow_omni_queue.json"
+    veo3_file = tmp_path / "google_flow_veo3_queue.json"
+    assert omni_file.exists()
+    assert veo3_file.exists()
+
+    with open(omni_file, "r", encoding="utf-8") as f:
+        saved_omni = json.load(f)
+    assert saved_omni["model_id"] == "gemini-omni-flash-1.2"
+
+    with open(veo3_file, "r", encoding="utf-8") as f:
+        saved_veo3 = json.load(f)
+    assert saved_veo3["model_id"] == "veo-3.1-generate-4k"

@@ -19,7 +19,7 @@ import re
 import sys
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 # ADR-01: Windows UTF-8 stdout/stderr reconfiguration
 if hasattr(sys.stdout, "reconfigure"):
@@ -361,8 +361,105 @@ class NolanHistoryDirector:
 
         return manifest
 
+    def generate_google_flow_queues(self, manifest: NolanEpisodeManifest) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+        """Generates specialized generation queues for Google Flow (flow.google.com):
+        1. Gemini Omni Flash 1.2: Long-form continuity takes (12-15s), 6 reference image slots, conversational multi-turn editing.
+        2. Google DeepMind Veo 3 / 3.1: 4K native hero shots (6-8s), Hoyte van Hoytema IMAX 70mm, 48kHz synced audio, zero morphing.
+        """
+        omni_queue = {
+            "studio": "Google Flow (flow.google.com)",
+            "model_target": "Gemini Omni Flash 1.2",
+            "model_id": "gemini-omni-flash-1.2",
+            "project_title": manifest.title,
+            "architecture_role": "Long-form continuity & historical character consistency (Up to 15s)",
+            "generation_parameters": {
+                "aspect_ratio": "16:9",
+                "max_duration_sec": 15.0,
+                "max_reference_images": 6,
+                "multi_turn_conversational_editing": True,
+                "native_audio_generation": True,
+            },
+            "scenes": [],
+        }
+
+        veo3_queue = {
+            "studio": "Google Flow (flow.google.com)",
+            "model_target": "Google DeepMind Veo 3 / 3.1 (Cinema Flagship)",
+            "model_id": "veo-3.1-generate-4k",
+            "project_title": manifest.title,
+            "architecture_role": "High-impact Hero Shots, 4K native texture, advanced optical physics (6-8s)",
+            "generation_parameters": {
+                "target_resolution": "4K UHD (3840x2160)",
+                "frame_rate": 24,
+                "max_duration_sec": 8.0,
+                "optical_profile": "Panavision C-Series Anamorphic Prime / IMAX 70mm",
+                "lighting_profile": "Hoyte van Hoytema Chiaroscuro Low-Key",
+                "synced_audio_sample_rate": "48kHz stereo",
+                "morphing_reduction_rate": "60% over Veo 2",
+            },
+            "scenes": [],
+        }
+
+        for sc in manifest.scenes:
+            s_id = sc.get("scene_id", 1)
+            dual_shot = sc.get("dual_shot", {})
+            shot_a = dual_shot.get("shot_a", {"name": f"Scene {s_id} Drama", "prompt": sc.get("audio_text", "")})
+            shot_b = dual_shot.get("shot_b", {"name": f"Scene {s_id} Tactical Macro", "prompt": sc.get("audio_text", "")})
+            sound_design = sc.get("sound_design", {})
+
+            # Omni Flash 1.2 focuses on Shot A (Character / Continuity / Long take up to 15s)
+            omni_scene = {
+                "scene_id": s_id,
+                "shot_role": "Continuity Character Take (Shot A)",
+                "shot_name": shot_a.get("name", f"Scene {s_id} Drama"),
+                "target_duration_sec": min(15.0, float(sc.get("estimated_duration_sec", 14.5))),
+                "camera_trajectory": sc.get("camera_direction", "Slow cinematic push-in"),
+                "prompt": shot_a.get("prompt", sc.get("audio_text", "")),
+                "historical_reference_slots": [
+                    {"slot": 1, "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"},
+                    {"slot": 2, "description": "Serpukhov-15 command bunker interior architectural layout"},
+                    {"slot": 3, "description": "Vintage Soviet Bakelite black telephone receiver and wiring"},
+                    {"slot": 4, "description": "Authentic Soviet military service medals and collar rank insignias"},
+                    {"slot": 5, "description": "Cold War steel control console panels with Cyrillic nomenclature"},
+                    {"slot": 6, "description": "Subdued greenish-red ambient illumination profile"},
+                ],
+                "conversational_edit_instructions": [
+                    "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+                    "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+                    "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'.",
+                ],
+                "native_audio_cue": sound_design.get("ost_cues", "Ambient historical room tone"),
+            }
+            omni_queue["scenes"].append(omni_scene)
+
+            # Veo 3 / 3.1 focuses on Shot B (Hero Macro / Tactical Tension / 4K Physics)
+            prompt_b = shot_b.get("prompt", sc.get("audio_text", ""))
+            veo3_scene = {
+                "scene_id": s_id,
+                "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+                "shot_name": shot_b.get("name", f"Scene {s_id} Tactical Macro"),
+                "target_duration_sec": 8.0,
+                "camera_direction": shot_b.get("camera_direction", "Macro probe lens tracking"),
+                "prompt": (
+                    f"{prompt_b} Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, "
+                    f"zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography."
+                ),
+                "physical_simulation_cues": [
+                    "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+                    "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+                    "Realistic metallic specular highlights and micro-scratches on steel console bulkheads",
+                ],
+                "native_48khz_audio_prompt": (
+                    f"Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, "
+                    f"metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+                ),
+            }
+            veo3_queue["scenes"].append(veo3_scene)
+
+        return omni_queue, veo3_queue
+
     def export_manifest(self, manifest: NolanEpisodeManifest, output_path: Path) -> Path:
-        """Saves episode manifest and audio queues atomically to disk per ADR-02."""
+        """Saves episode manifest and audio/video queues atomically to disk per ADR-02."""
         output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_target = output_path.with_suffix(f".tmp.{os.getpid()}")
         with open(tmp_target, "w", encoding="utf-8") as f:
@@ -370,15 +467,32 @@ class NolanHistoryDirector:
         tmp_target.replace(output_path)
         logger.info(f"Nolan Director manifest exported atomically to: {output_path}")
 
-        # Export dedicated audio files for Google Flow and RunningHub
+        # 1. Export Google Flow Video Queues (Omni Flash 1.2 and Veo 3 / 3.1)
+        omni_q, veo3_q = self.generate_google_flow_queues(manifest)
+
+        omni_json = output_path.parent / "google_flow_omni_queue.json"
+        tmp_omni = omni_json.with_suffix(f".tmp.{os.getpid()}")
+        with open(tmp_omni, "w", encoding="utf-8") as f:
+            json.dump(omni_q, f, indent=2, ensure_ascii=False)
+        tmp_omni.replace(omni_json)
+        logger.info(f"Google Flow Omni Flash 1.2 queue exported to: {omni_json.name}")
+
+        veo3_json = output_path.parent / "google_flow_veo3_queue.json"
+        tmp_veo3 = veo3_json.with_suffix(f".tmp.{os.getpid()}")
+        with open(tmp_veo3, "w", encoding="utf-8") as f:
+            json.dump(veo3_q, f, indent=2, ensure_ascii=False)
+        tmp_veo3.replace(veo3_json)
+        logger.info(f"Google Flow Veo 3 / 3.1 4K queue exported to: {veo3_json.name}")
+
+        # 2. Export dedicated audio files for Google Flow and RunningHub
         if manifest.sound_package:
-            # 1. Google Flow Music Prompt
+            # A. Google Flow Music Prompt
             ost_txt = output_path.parent / "google_flow_music_prompt.txt"
             with open(ost_txt, "w", encoding="utf-8") as f:
                 f.write(manifest.sound_package.get("google_flow_ost_prompt", "") + "\n")
             logger.info(f"Google Flow Music prompt exported to: {ost_txt.name}")
 
-            # 2. RunningHub MMAudio Foley Prompts (Workflow 2119239526823604226)
+            # B. RunningHub MMAudio Foley Prompts (Workflow 2119239526823604226)
             mmaudio_json = output_path.parent / "runninghub_mmaudio_prompts.json"
             tmp_mmaudio = mmaudio_json.with_suffix(f".tmp.{os.getpid()}")
             with open(tmp_mmaudio, "w", encoding="utf-8") as f:
@@ -386,7 +500,7 @@ class NolanHistoryDirector:
             tmp_mmaudio.replace(mmaudio_json)
             logger.info(f"RunningHub MMAudio queue exported to: {mmaudio_json.name}")
 
-            # 3. RunningHub Whoosh / SFX Prompts (Workflow 2119239626330701825)
+            # C. RunningHub Whoosh / SFX Prompts (Workflow 2119239626330701825)
             sfx_json = output_path.parent / "runninghub_whoosh_prompts.json"
             tmp_sfx = sfx_json.with_suffix(f".tmp.{os.getpid()}")
             with open(tmp_sfx, "w", encoding="utf-8") as f:
@@ -441,6 +555,9 @@ def main() -> None:
         print(f"  [Cena {s_id}] {sc['timestamp_marker']}")
         print(f"          Dual-Shot: Shot A ({shot_a}) + Shot B ({shot_b})")
         print(f"          Audio: {sfx} | {sc['estimated_duration_sec']}s")
+    print(f"\nArquivos de Fila Google Flow Exportados para:")
+    print(f"  • Google Flow Omni Flash 1.2: {out_path.parent / 'google_flow_omni_queue.json'}")
+    print(f"  • Google Flow Veo 3 / 3.1 4K: {out_path.parent / 'google_flow_veo3_queue.json'}")
     print(f"\nArquivos de Áudio Exportados para:")
     print(f"  • Google Flow Music:  {out_path.parent / 'google_flow_music_prompt.txt'}")
     print(f"  • RunningHub MMAudio: {out_path.parent / 'runninghub_mmaudio_prompts.json'}")

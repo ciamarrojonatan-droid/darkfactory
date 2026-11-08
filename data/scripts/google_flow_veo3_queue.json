@@ -1,0 +1,60 @@
+{
+  "studio": "Google Flow (flow.google.com)",
+  "model_target": "Google DeepMind Veo 3 / 3.1 (Cinema Flagship)",
+  "model_id": "veo-3.1-generate-4k",
+  "project_title": "The Classified Seconds That Almost Ended Humanity: 1983 Soviet nuclear false alarm incident",
+  "architecture_role": "High-impact Hero Shots, 4K native texture, advanced optical physics (6-8s)",
+  "generation_parameters": {
+    "target_resolution": "4K UHD (3840x2160)",
+    "frame_rate": 24,
+    "max_duration_sec": 8.0,
+    "optical_profile": "Panavision C-Series Anamorphic Prime / IMAX 70mm",
+    "lighting_profile": "Hoyte van Hoytema Chiaroscuro Low-Key",
+    "synced_audio_sample_rate": "48kHz stereo",
+    "morphing_reduction_rate": "60% over Veo 2"
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Tactical Macro Radar Display",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro probe lens tracking across CRT screen grid",
+      "prompt": "Extreme macro close-up of a glowing monochrome green CRT radar screen inside Serpukhov-15 bunker, five rising missile trajectory vectors flashing in Cyrillic, cigarette smoke drifting through anamorphic lens flare, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 2,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Hardware Tension Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Rack focus from ticking Soviet military wall clock to glowing confirmation panel",
+      "prompt": "Cinematic macro shot of an industrial Soviet mechanical wall clock with red second hand ticking forward, dust motes floating in spotlight, rack focus to red Cyrillic warning stencil on metallic steel bulkhead, 8k resolution, photorealistic cinematic lighting --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 3,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Cosmic Truth / The High Altitude Glitch",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Ethereal orbital slow tilt down to sunlight hitting cloud peaks",
+      "prompt": "Cinematic high-altitude view from an early Soviet reconnaissance satellite orbit, blinding morning sunlight reflecting off high-altitude storm clouds over North Dakota, anamorphic golden lens flare, IMAX 70mm, hyper-realistic Earth curvature, breathtaking optical beauty --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    }
+  ]
+}
