@@ -19,11 +19,13 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-# Try importing YouTubeComplianceQC
+# Try importing YouTubeComplianceQC and YouTubeAlgorithmBooster
 try:
+    from youtube_algorithm_booster import YouTubeAlgorithmBooster
     from youtube_compliance_qc import ComplianceStatus, YouTubeComplianceQC
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from youtube_algorithm_booster import YouTubeAlgorithmBooster
     from youtube_compliance_qc import ComplianceStatus, YouTubeComplianceQC
 
 # ADR-01: UTF-8 stdout/stderr
@@ -112,8 +114,11 @@ class YouTubePublisher:
         thumbnail_path: Optional[Path] = None,
         dry_run: bool = False,
         skip_qc: bool = False,
+        auto_boost: bool = True,
+        localizations: Optional[Dict[str, Dict[str, str]]] = None,
+        caption_tracks: Optional[Dict[str, Path]] = None,
     ) -> Dict[str, Any]:
-        """Uploads a video to YouTube with resumable chunked transfer gated by Compliance QC."""
+        """Uploads a video to YouTube with resumable chunked transfer gated by Compliance QC and Algorithm Booster."""
         if not video_path.exists():
             raise FileNotFoundError(f"Video file to upload does not exist: {video_path}")
 
@@ -145,6 +150,14 @@ class YouTubePublisher:
             if qc_report.remediated_description:
                 description = qc_report.remediated_description
 
+        # YouTube Algorithm Booster (Multi-Language SEO Localizations)
+        if auto_boost and not localizations:
+            try:
+                booster = YouTubeAlgorithmBooster()
+                localizations = booster.generate_multilingual_localizations(title, description)
+            except Exception as e:
+                logger.warning(f"Could not generate automatic localizations: {e}")
+
         if dry_run:
             logger.info(f"[DRY-RUN] Simulating upload of '{video_path.name}' as '{privacy_status}'")
             simulated_id = f"simulated_yt_{int(time.time())}"
@@ -158,6 +171,8 @@ class YouTubePublisher:
                 "is_dry_run": True,
                 "compliance_score": qc_report.compliance_score if qc_report else 100,
                 "compliance_status": qc_report.status.value if qc_report else "SKIPPED",
+                "multilingual_localizations": list(localizations.keys()) if localizations else [],
+                "caption_tracks_registered": list(caption_tracks.keys()) if caption_tracks else [],
             }
             self.record_upload(record)
             return record
@@ -166,18 +181,25 @@ class YouTubePublisher:
 
         service = self.get_authenticated_service()
 
-        body = {
+        body: Dict[str, Any] = {
             "snippet": {
                 "title": title[:100],  # YouTube title limit is 100 chars
                 "description": description[:5000],  # Description limit is 5000 chars
                 "tags": tags[:50],
                 "categoryId": category_id,
+                "defaultLanguage": "en",
+                "defaultAudioLanguage": "en",
             },
             "status": {
                 "privacyStatus": privacy_status,
                 "selfDeclaredMadeForKids": False,
             },
         }
+
+        parts = "snippet,status"
+        if localizations:
+            body["localizations"] = localizations
+            parts += ",localizations"
 
         media = MediaFileUpload(
             str(video_path),
@@ -187,7 +209,7 @@ class YouTubePublisher:
         )
 
         logger.info(f"Starting resumable upload of '{video_path.name}' (Title: {title})...")
-        request = service.videos().insert(part="snippet,status", body=body, media_body=media)
+        request = service.videos().insert(part=parts, body=body, media_body=media)
 
         response = None
         while response is None:
