@@ -120,12 +120,20 @@ class DarkFactoryDaemon:
         cmd_short = [PYTHON_EXE, str(SRC_DIR / "shorts_generator.py"), "--duration", "55.0"]
         subprocess.run(cmd_short, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-        # 6. YouTube Upload (Unlisted)
+        # 6. YouTube Compliance & Safety QC Hard Gate
         master_video = DATA_DIR / "output" / "the_1983_soviet_glitch_final_1080p.mp4"
+        cmd_qc = [
+            PYTHON_EXE, str(SRC_DIR / "youtube_compliance_qc.py"),
+            "--video", str(master_video),
+            "--title", "The 1983 Soviet Glitch: 20 Minutes to Armageddon",
+        ]
+        res_qc = subprocess.run(cmd_qc, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+        # 7. YouTube Upload (Unlisted with Automatic Compliance Remediations)
         cmd_pub = [
             PYTHON_EXE, str(SRC_DIR / "youtube_publisher.py"),
             "--video", str(master_video),
-            "--title", f"The 1983 Soviet Glitch: 20 Minutes to Armageddon",
+            "--title", "The 1983 Soviet Glitch: 20 Minutes to Armageddon",
             "--privacy", "unlisted",
             "--dry-run" if self.dry_run else "",
         ]

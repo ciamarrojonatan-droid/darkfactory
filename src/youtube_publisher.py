@@ -19,6 +19,13 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+# Try importing YouTubeComplianceQC
+try:
+    from youtube_compliance_qc import ComplianceStatus, YouTubeComplianceQC
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from youtube_compliance_qc import ComplianceStatus, YouTubeComplianceQC
+
 # ADR-01: UTF-8 stdout/stderr
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -104,12 +111,39 @@ class YouTubePublisher:
         category_id: str = "27",  # 27 = Education, 1 = Film & Animation
         thumbnail_path: Optional[Path] = None,
         dry_run: bool = False,
+        skip_qc: bool = False,
     ) -> Dict[str, Any]:
-        """Uploads a video to YouTube with resumable chunked transfer."""
+        """Uploads a video to YouTube with resumable chunked transfer gated by Compliance QC."""
         if not video_path.exists():
             raise FileNotFoundError(f"Video file to upload does not exist: {video_path}")
 
         tags = tags or ["documentary", "history", "cold war", "cinema", "untold history"]
+
+        # YouTube Compliance & Safety Hard Gate
+        qc_report = None
+        if not skip_qc:
+            qc = YouTubeComplianceQC()
+            project_id = video_path.stem[:30]
+            qc_report = qc.evaluate_full_episode(
+                project_id=project_id,
+                title=title,
+                description=description,
+                tags=tags,
+                video_path=video_path,
+                thumbnail_path=thumbnail_path,
+            )
+            if qc_report.status == ComplianceStatus.BLOCKED_QUARANTINE:
+                err_msg = (
+                    f"🚨 UPLOAD BLOCKED by YouTube Compliance QC (Score: {qc_report.compliance_score}/100)! "
+                    f"Asset moved to quarantine: {qc_report.quarantine_path}"
+                )
+                logger.error(err_msg)
+                raise RuntimeError(err_msg)
+
+            if qc_report.remediated_title:
+                title = qc_report.remediated_title
+            if qc_report.remediated_description:
+                description = qc_report.remediated_description
 
         if dry_run:
             logger.info(f"[DRY-RUN] Simulating upload of '{video_path.name}' as '{privacy_status}'")
@@ -122,6 +156,8 @@ class YouTubePublisher:
                 "uploaded_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                 "file_path": str(video_path),
                 "is_dry_run": True,
+                "compliance_score": qc_report.compliance_score if qc_report else 100,
+                "compliance_status": qc_report.status.value if qc_report else "SKIPPED",
             }
             self.record_upload(record)
             return record

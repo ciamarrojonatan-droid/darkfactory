@@ -21,3 +21,8 @@ Desktop.ini
 # Audio stems
 data/audio/*.wav
 data/audio/*.raw
+
+# Local Quarantine
+data/quarantine/
+data/processed/dispute_kits/*
+
