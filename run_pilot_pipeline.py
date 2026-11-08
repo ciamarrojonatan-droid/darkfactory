@@ -2,7 +2,8 @@
 """DarkFactory Pilot Production Orchestrator.
 
 One-click command center to produce the pilot documentary:
-  - Step 1: TTS / Audio Ingestion (CosyVoice 3 Instruct 2 or Fallback)
+  - Step 0: Research Engine (Wikipedia Ground-Truth Extraction)
+  - Step 1: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
   - Step 2: Broadcast Studio Mastering & SRT Synchronization
   - Step 3: Procedural Historical Sound Design Synthesis
   - Step 4: Video B-Roll Rendering & Final 1080p Master Assembly
@@ -36,15 +37,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Pilot Production Orchestrator")
     parser.add_argument(
         "--step",
-        choices=["tts", "master", "sound", "video", "all"],
+        choices=["research", "tts", "tts-local", "master", "sound", "video", "all", "all-local"],
         default="all",
-        help="Step to execute: tts, master, sound, video, or all (default: all)"
+        help="Step to execute: research, tts, tts-local, master, sound, video, all, or all-local (default: all)"
     )
     args = parser.parse_args()
 
     steps = []
-    if args.step == "tts":
+    if args.step == "research":
+        steps = ["research_engine.py"]
+    elif args.step == "tts":
         steps = ["generate_pilot_audio.py"]
+    elif args.step == "tts-local":
+        steps = ["kokoro_fallback.py"]
     elif args.step == "master":
         steps = ["cosyvoice_master.py"]
     elif args.step == "sound":
@@ -54,6 +59,14 @@ def main() -> None:
     elif args.step == "all":
         steps = [
             "generate_pilot_audio.py",
+            "cosyvoice_master.py",
+            "generate_sound_design.py",
+            "render_pilot_video.py"
+        ]
+    elif args.step == "all-local":
+        steps = [
+            "research_engine.py",
+            "kokoro_fallback.py",
             "cosyvoice_master.py",
             "generate_sound_design.py",
             "render_pilot_video.py"
