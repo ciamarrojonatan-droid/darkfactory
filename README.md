@@ -18,7 +18,7 @@
 
 ---
 
-## 📑 Sumário Executivo
+## <img src="docs/icons/book.svg" width="20" height="20" /> Sumário Executivo
 
 1. [Visão Geral do Sistema & Propósito Industrial](#-visão-geral-do-sistema--propósito-industrial)
 2. [Arquitetura de Alto Nível & Topologia da Esteira](#-arquitetura-de-alto-nível--topologia-da-esteira)
@@ -40,7 +40,7 @@
 
 ---
 
-## 🎬 Visão Geral do Sistema & Propósito Industrial
+## <img src="docs/icons/film.svg" width="20" height="20" /> Visão Geral do Sistema & Propósito Industrial
 
 O **DarkFactory** é uma plataforma autônoma de engenharia de mídia de ponta a ponta projetada para transformar eventos históricos reais, documentos desclassificados de inteligência (KGB, CIA, MI6) e momentos de tensão geopolítica extrema em **thrillers cinematográficos de padrão Netflix / BBC** para canais dark no YouTube.
 
@@ -54,7 +54,7 @@ Diferente de canais automatizados convencionais baseados em "AI slop" (slideshow
 
 ---
 
-## 🏛️ Arquitetura de Alto Nível & Topologia da Esteira
+## <img src="docs/icons/layers.svg" width="20" height="20" /> Arquitetura de Alto Nível & Topologia da Esteira
 
 ```mermaid
 flowchart TD
@@ -100,7 +100,7 @@ flowchart TD
 
 ---
 
-## 🧠 Mapa Mental da Máquina de Retenção & Monetização
+## <img src="docs/icons/mindmap.svg" width="20" height="20" /> Mapa Mental da Máquina de Retenção & Monetização
 
 A operação do DarkFactory foi arquitetada para maximizar a **Taxa de Retenção Média (AVD > 55%)**, o **CTR de Embalagem (CTR > 10%)** e a geração de receita em **4 vias independentes de fluxo de caixa**:
 
@@ -127,7 +127,7 @@ flowchart LR
 
 ---
 
-## 🎥 O Método Christopher Nolan (Os 6 Pilares Cinematográficos)
+## <img src="docs/icons/camera.svg" width="20" height="20" /> O Método Christopher Nolan (Os 6 Pilares Cinematográficos)
 
 Todo episódio gerado pelo DarkFactory é estruturado seguindo as diretrizes autorais de Christopher Nolan:
 
@@ -152,7 +152,7 @@ flowchart TD
 
 ---
 
-## 📚 DarkFactory Master Knowledge Vault (Os 27 Livros Canônicos)
+## <img src="docs/icons/database.svg" width="20" height="20" /> DarkFactory Master Knowledge Vault (Os 27 Livros Canônicos)
 
 O DarkFactory possui um motor de conhecimento destilado a partir de **27 obras de referência mundiais** localizadas em `livros/`, traduzidas em código executável em `src/video/master_knowledge.py` e `src/video/story_validator.py`:
 
@@ -168,7 +168,7 @@ O DarkFactory possui um motor de conhecimento destilado a partir de **27 obras d
 
 ---
 
-## ⚙️ Detalhamento Técnico das 5 Fases da Fábrica
+## <img src="docs/icons/gear.svg" width="20" height="20" /> Detalhamento Técnico das 5 Fases da Fábrica
 
 ### Fase 1: Concepção Factual & Research Ground-Truth Engine
 - **Módulos Centrais**: `src/research_engine.py`, `src/nolan_director.py`
@@ -231,7 +231,7 @@ O DarkFactory possui um motor de conhecimento destilado a partir de **27 obras d
 
 ---
 
-## 🖥️ Dashboard Web SPA Nativo (iOS 27 Liquid Glass Cinema Edition :8502)
+## <img src="docs/icons/desktop.svg" width="20" height="20" /> Dashboard Web SPA Nativo (iOS 27 Liquid Glass Cinema Edition :8502)
 
 O DarkFactory dispõe de um estúdio web completo rodando em **FastAPI na porta 8502** (`http://localhost:8502`), construído sob o design system Apple HIG iOS 27 Liquid Glass:
 
@@ -259,7 +259,7 @@ run_dashboard.bat
 
 ---
 
-## 📱 Multiplicador de Tráfego: Gerador de Shorts Verticais 9:16
+## <img src="docs/icons/mobile.svg" width="20" height="20" /> Multiplicador de Tráfego: Gerador de Shorts Verticais 9:16
 
 Para cada documentário longo (12 a 18 minutos), o módulo `src/shorts_generator.py` extrai automaticamente **3 micro-thrillers verticais (9:16)** de 30 a 58 segundos:
 1. **Dynamic Smart Crop**: Rastreamento facial e reenquadramento automático do formato 2.39:1 para 9:16 vertical sem distorção.
@@ -272,7 +272,7 @@ python -m src.shorts_generator --video data/final/videos/master_pilot.mp4 --num-
 
 ---
 
-## 🤖 Daemon Autônomo 24/7 & Watchdog de Produção
+## <img src="docs/icons/robot.svg" width="20" height="20" /> Daemon Autônomo 24/7 & Watchdog de Produção
 
 O motor contínuo (`src/daemon_darkfactory.py`) executa a fábrica sem intervenção humana:
 - **Heartbeat Atômico**: Persistência do estado de produção em `daemon_state.json`.
@@ -285,7 +285,7 @@ python -m src.daemon_darkfactory --interval 3600
 
 ---
 
-## 📄 Contratos de Dados (Data Schemas Tipados)
+## <img src="docs/icons/file-text.svg" width="20" height="20" /> Contratos de Dados (Data Schemas Tipados)
 
 ### 1. Manifesto de Cena DarkFactory (`darkfactory_scene_manifest.json`)
 ```json
@@ -341,7 +341,7 @@ python -m src.daemon_darkfactory --interval 3600
 
 ---
 
-## 🛠️ Instalação, Configuração & Execução CLI
+## <img src="docs/icons/tool.svg" width="20" height="20" /> Instalação, Configuração & Execução CLI
 
 ### 1. Pré-Requisitos
 - Python 3.11+ de 64 bits.
@@ -389,7 +389,7 @@ RUNNINGHUB_API_KEY=""
 
 ---
 
-## 🛡️ Resiliência Operacional & Decisões Arquiteturais (ADRs)
+## <img src="docs/icons/shield.svg" width="20" height="20" /> Resiliência Operacional & Decisões Arquiteturais (ADRs)
 
 ### ADR-01: Arquitetura Temporal Não-Linear em 3 Fios (Crosscutting Nolaniano)
 - **Contexto**: Documentários cronológicos tradicionais perdem até 60% dos espectadores nos primeiros 2 minutos.

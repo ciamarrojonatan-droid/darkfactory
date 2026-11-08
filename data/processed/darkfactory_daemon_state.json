@@ -1,9 +1,15 @@
 {
   "status": "idle",
-  "last_heartbeat": "2026-11-08T08:44:17.381894+00:00",
+  "last_heartbeat": "2026-11-08T08:58:17.027349+00:00",
   "current_topic": null,
   "current_topic_index": 0,
   "completed_episodes": [
+    {
+      "video_id": "test_video_pilot_01",
+      "published_at": "1794090070.7862327",
+      "visibility": "unlisted",
+      "selected_thumbnail": "variant_a"
+    },
     {
       "video_id": "test_video_pilot_01",
       "published_at": "1794090070.7862327",
