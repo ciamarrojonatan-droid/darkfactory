@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarkFactory Cinema Studio — Faceless YouTube Production Cockpit</title>
+  <meta name="theme-color" content="#050608">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/cinema_dash.css?v=1.0.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ── Global SVG Defs & Glass Glow Filters ─────────────────── -->
+  <svg style="display:none;" aria-hidden="true">
+    <defs>
+      <filter id="glow-gold" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#FFD700" flood-opacity="0.45" />
+      </filter>
+      <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#BF5AF2" flood-opacity="0.45" />
+      </filter>
+      <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#30D158" flood-opacity="0.45" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ── Header Bar ───────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-left">
+      <div class="brand-container">
+        <svg class="brand-icon-3d" viewBox="0 0 44 44" width="36" height="36">
+          <rect x="2" y="2" width="40" height="40" rx="10" fill="#0C0E14" stroke="#FFD700" stroke-width="1.6" />
+          <path d="M8 12 L36 12 L34 18 L6 18 Z" fill="#FFD700" />
+          <line x1="14" y1="12" x2="11" y2="18" stroke="#000" stroke-width="2" />
+          <line x1="23" y1="12" x2="20" y2="18" stroke="#000" stroke-width="2" />
+          <line x1="32" y1="12" x2="29" y2="18" stroke="#000" stroke-width="2" />
+          <circle cx="22" cy="28" r="9" fill="none" stroke="#FF9F0A" stroke-width="1.4" />
+          <circle cx="22" cy="28" r="4" fill="#FF453A" />
+        </svg>
+        <div>
+          <h1 class="logo">DarkFactory <span class="logo-highlight">Cinema</span></h1>
+          <span class="tagline">Autonomous Faceless YouTube Production Cockpit • Nolan Method v2.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workspace Cross-Link: StockCont ⇄ DarkFactory -->
+    <div class="workspace-switcher">
+      <a href="http://localhost:8501" target="_blank" class="workspace-link" title="Abrir StockCont Microstock Dashboard (:8501)">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="2" width="12" height="12" rx="2" />
+          <circle cx="5.5" cy="5.5" r="1.5" />
+          <path d="M2.5 12.5l3.5-3.5 2.5 2.5 3-4 2 2.5" />
+        </svg>
+        <span>StockCont Microstock (:8501)</span>
+      </a>
+      <a href="/" class="workspace-link active-darkfactory" title="DarkFactory Cinema Studio Ativo (:8502)">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polygon points="4,2 14,8 4,14" fill="currentColor" stroke="none" />
+        </svg>
+        <span>DarkFactory Cinema (:8502)</span>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <span id="daemon-status-pill" class="pill">
+        <span id="daemon-led" class="pulse-led pulse-led-ok"></span>
+        <span id="daemon-status-label" class="mono">DAEMON 24/7 ONLINE</span>
+      </span>
+      <button class="btn btn-sm" onclick="refreshAllData()" title="Sincronizar telemetria">
+        <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M14 8A6 6 0 1 1 12.2 3.8L14 2v4h-4" />
+        </svg>
+        <span>SYNC</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Global Toast Notice ──────────────────────────────────── -->
+  <div id="global-toast" style="display:none; position:fixed; top:70px; right:28px; z-index:999; background:linear-gradient(135deg, #FF9F0A, #E08700); color:#000; padding:10px 18px; border-radius:10px; font-weight:700; box-shadow:0 8px 24px rgba(255,159,10,0.4);">
+    Ação registrada.
+  </div>
+
+  <!-- ── Top KPI Cockpit Cards ────────────────────────────────── -->
+  <section class="kpi-row">
+    <!-- KPI 1: Productions -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:var(--cinema-gold);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polygon points="10,8 16,12 10,16" fill="currentColor" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">E2E CICLOS</span>
+      </div>
+      <div class="kpi-value mono" id="kpi-productions">—</div>
+      <div class="kpi-label">Produções Disparadas</div>
+    </div>
+
+    <!-- KPI 2: Completed -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:#00D2FF;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">MASTERS 4K</span>
+      </div>
+      <div class="kpi-value mono" id="kpi-completed">—</div>
+      <div class="kpi-label">Episódios Renderizados</div>
+    </div>
+
+    <!-- KPI 3: Approval Queue -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:var(--cinema-amber);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12,6 12,12 16,14" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">1-CLICK GATE</span>
+      </div>
+      <div class="kpi-value mono" id="kpi-pending">—</div>
+      <div class="kpi-label">Fila de Aprovação Humana</div>
+    </div>
+
+    <!-- KPI 4: Green Dollar -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:#30D158;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v12M15 9.5a3 3 0 0 0-6 0c0 3 6 2 6 5a3 3 0 0 1-6 0" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">EDSA 100%</span>
+      </div>
+      <div class="kpi-value mono" id="kpi-greendollar">—</div>
+      <div class="kpi-label">Monetização Green Dollar</div>
+    </div>
+
+    <!-- KPI 5: Google Flow Quota -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:var(--cinema-purple);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">FLOW QUOTA</span>
+      </div>
+      <div class="kpi-value mono" style="font-size:18px;">
+        Omni: <span id="flow-omni-usage" style="color:#00D2FF;">—</span> | Veo: <span id="flow-veo-usage" style="color:#FFD700;">—</span>
+      </div>
+      <div class="kpi-label">Consumo de GPU Google AI Pro</div>
+    </div>
+
+    <!-- KPI 6: Quarantine -->
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <div class="kpi-icon" style="color:var(--cinema-crimson);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+        </div>
+        <span class="kpi-badge mono">QC REJECT</span>
+      </div>
+      <div class="kpi-value mono" id="kpi-quarantine">—</div>
+      <div class="kpi-label">Em Quarentena / Refação</div>
+    </div>
+  </section>
+
+  <!-- ── 6-Tab Tactile Capsule Navigation ─────────────────────── -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="cockpit">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="2" y="2" width="5" height="5" rx="1" />
+        <rect x="9" y="2" width="5" height="5" rx="1" />
+        <rect x="2" y="9" width="5" height="5" rx="1" />
+        <rect x="9" y="9" width="5" height="5" rx="1" />
+      </svg>
+      <span>Cockpit Geral</span>
+    </button>
+
+    <button class="tab-btn" data-tab="screenplay">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M3 2h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
+        <line x1="5" y1="5" x2="11" y2="5" />
+        <line x1="5" y1="8" x2="11" y2="8" />
+        <line x1="5" y1="11" x2="9" y2="11" />
+      </svg>
+      <span>Roteiro 3 Fios (Nolan)</span>
+    </button>
+
+    <button class="tab-btn" data-tab="visual">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <polygon points="2,3 14,3 14,13 2,13" />
+        <polygon points="6,6 11,8 6,10" fill="currentColor" stroke="none" />
+      </svg>
+      <span>Fila Visual (Veo / Omni)</span>
+    </button>
+
+    <button class="tab-btn" data-tab="soundlab">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <line x1="4" y1="2" x2="4" y2="14" />
+        <line x1="8" y1="2" x2="8" y2="14" />
+        <line x1="12" y1="2" x2="12" y2="14" />
+        <circle cx="4" cy="6" r="2" fill="currentColor" />
+        <circle cx="8" cy="11" r="2" fill="currentColor" />
+        <circle cx="12" cy="4" r="2" fill="currentColor" />
+      </svg>
+      <span>Sound Lab (4-Stems)</span>
+    </button>
+
+    <button class="tab-btn" data-tab="approval">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="8" cy="8" r="6" />
+        <polyline points="6,8 7.5,9.5 10.5,6.5" />
+      </svg>
+      <span>Central 1-Click Approval</span>
+    </button>
+
+    <button class="tab-btn" data-tab="terminal">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <polyline points="3,5 6,8 3,11" />
+        <line x1="8" y1="11" x2="13" y2="11" />
+      </svg>
+      <span>Daemon 24/7 & Logs SSE</span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 1: COCKPIT GERAL & DISPARO                             -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <main class="tab-content active" id="tab-cockpit">
+    <div class="cockpit-grid">
+      <!-- Painel Disparo de Tópico -->
+      <div class="glass-panel">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="color:var(--cinema-gold);"><polygon points="3,2 14,8 3,14"/></svg>
+            Disparador Autônomo de Episódio
+          </h2>
+          <span class="section-sub mono">NOLAN ENGINE v2.0</span>
+        </div>
+        <p style="color:var(--label-secondary); font-size:13px;">
+          Insira qualquer incidente histórico, mistério militar ou crise desclassificada para gerar um documentário completo de 15 minutos em 4K IMAX.
+        </p>
+        <div class="input-group">
+          <input type="text" id="input-topic" class="input-text" placeholder="Ex: 1983 Soviet nuclear false alarm incident..." value="1983 Soviet nuclear false alarm incident">
+          <button class="btn btn-primary" onclick="triggerNewTopic()">Disparar Produção E2E</button>
+        </div>
+
+        <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--liquid-glass-border);">
+          <span style="font-size:11px; font-weight:700; color:var(--label-secondary); text-transform:uppercase;">Disparo de Fases Individuais:</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+            <button class="btn btn-sm" onclick="triggerPhase(1)">Fase 1: Pesquisa Factual</button>
+            <button class="btn btn-sm" onclick="triggerPhase(2)">Fase 2: Roteiro Nolan</button>
+            <button class="btn btn-sm" onclick="triggerPhase(3)">Fase 3: Render Vídeo</button>
+            <button class="btn btn-sm" onclick="triggerPhase(4)">Fase 4: Áudio 4-Stem</button>
+            <button class="btn btn-sm" onclick="triggerPhase(5)">Fase 5: SEO Booster</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Painel Controle do Daemon 24/7 -->
+      <div class="glass-panel">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="color:var(--cinema-radar-green);"><circle cx="8" cy="8" r="6"/></svg>
+            Supervisor 24/7 Autônomo
+          </h2>
+          <span class="section-sub mono">GOLDEN SCHEDULE</span>
+        </div>
+        <p style="color:var(--label-secondary); font-size:13px; line-height:1.6;">
+          O supervisor opera em background com heartbeat atômico e agenda semanal de ouro:
+          <strong>Terças e Sextas</strong> para documentários longos de 15 min, e <strong>Segundas, Quartas e Sábados</strong> para Shorts 9:16 de alavancagem.
+        </p>
+        <div style="display:flex; gap:10px; margin-top:20px;">
+          <button class="btn btn-success" onclick="daemonAction('start')">Ligar Daemon 24/7</button>
+          <button class="btn btn-danger" onclick="daemonAction('stop')">Parar Daemon</button>
+          <button class="btn btn-purple" onclick="daemonAction('run_once')">Rodar 1 Ciclo Piloto</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 2: ROTEIRO 3 FIOS (NOLAN DIRECTOR)                      -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section class="tab-content" id="tab-screenplay">
+    <div class="glass-panel">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="current-script-title">Carregando Roteiro…</h2>
+          <span class="section-sub" id="current-script-logline">Aguarde extração do dossiê factual…</span>
+        </div>
+        <span class="pill" style="border-color:var(--cinema-gold); color:var(--cinema-gold);">CHRISTOPHER NOLAN SHOWRUNNER</span>
+      </div>
+
+      <div class="timeline-cards">
+        <div class="thread-card">
+          <div class="thread-header">
+            <span class="thread-title thread-badge-a">
+              <span style="font-size:16px;">⏱️</span> Fio A: O Relógio Lento
+            </span>
+            <span class="pill mono btn-sm">GÊNESE / PALETA FRIA</span>
+          </div>
+          <p class="thread-desc" id="thread-a-desc">
+            As decisões silenciosas, reuniões secretas e falhas de engenharia ocorridas anos ou meses antes da catástrofe.
+          </p>
+        </div>
+
+        <div class="thread-card">
+          <div class="thread-header">
+            <span class="thread-title thread-badge-b">
+              <span style="font-size:16px;">⚡</span> Fio B: O Relógio Rápido
+            </span>
+            <span class="pill mono btn-sm">CRISE EM TEMPO REAL</span>
+          </div>
+          <p class="thread-desc" id="thread-b-desc">
+            Os 20 minutos ou 60 segundos do colapso. Tensão extrema em tempo real e cortes dinâmicos.
+          </p>
+        </div>
+
+        <div class="thread-card">
+          <div class="thread-header">
+            <span class="thread-title thread-badge-c">
+              <span style="font-size:16px;">⚖️</span> Fio C: O Pós-Impacto
+            </span>
+            <span class="pill mono btn-sm">JULGAMENTO / DESCLASSIFICADOS</span>
+          </div>
+          <p class="thread-desc" id="thread-c-desc">
+            Testemunhos em salas fechadas, comissões secretas e as cicatrizes permanentes deixadas na história.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; padding-top:18px; border-top:1px solid var(--liquid-glass-border);">
+        <h3 style="font-size:14px; font-weight:700; color:var(--cinema-gold); margin-bottom:8px;">Títulos Alternativos de Alto CTR (YouTube Algorithm Booster):</h3>
+        <ul id="alt-titles-list" style="padding-left:20px; font-size:13px; line-height:1.6;">
+          <li>Carregando títulos…</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 3: FILA VISUAL (GOOGLE FLOW & RUNNINGHUB)               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section class="tab-content" id="tab-visual">
+    <div class="glass-panel" style="margin-bottom:20px;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="color:var(--cinema-gold);"><rect x="2" y="2" width="12" height="12" rx="2"/></svg>
+          Google Veo 3.1 4K UHD — Fila de Hero Shots (8s • Anamórfico 2.39:1)
+        </h2>
+        <span class="mono" id="veo-queue-count" style="color:var(--cinema-gold);">0 Prompts</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:60px;">#</th>
+            <th style="width:120px;">Cena</th>
+            <th>Direção Cinematográfica / Prompt Hoyte van Hoytema</th>
+            <th style="width:140px;">Proporção</th>
+          </tr>
+        </thead>
+        <tbody id="veo-queue-tbody">
+          <tr><td colspan="4" style="text-align:center; padding:16px;">Carregando fila Veo 3.1…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="glass-panel">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="color:#00D2FF;"><rect x="2" y="2" width="12" height="12" rx="2"/></svg>
+          Gemini Omni Flash 1.2 — Tomadas de Continuidade (15s)
+        </h2>
+        <span class="mono" id="omni-queue-count" style="color:#00D2FF;">0 Tomadas</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:60px;">#</th>
+            <th style="width:120px;">Clip ID</th>
+            <th>Sequência Narrativa</th>
+            <th style="width:140px;">Motor</th>
+          </tr>
+        </thead>
+        <tbody id="omni-queue-tbody">
+          <tr><td colspan="4" style="text-align:center; padding:16px;">Carregando fila Omni Flash…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 4: SOUND LAB (MIXER WEB AUDIO API 4-STEMS)             -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section class="tab-content" id="tab-soundlab">
+    <div class="glass-panel" style="max-width:860px; margin:0 auto;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Sound Lab — Mesa de Mixagem 4 Stems (Hans Zimmer & Ludwig Göransson)</h2>
+          <span class="section-sub">Dynamic Sidechain Ducking • EBU R128 (-14 LUFS / -1.0 dBTP Target)</span>
+        </div>
+        <button id="btn-soundlab-play" class="btn btn-primary" onclick="toggleSoundLabPlayback()">
+          <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><polygon points="3,2 14,8 3,14"/></svg>
+          Tocar 4 Stems Simultâneos
+        </button>
+      </div>
+
+      <div class="mixer-console">
+        <!-- Stem 1: Voice -->
+        <div class="channel-strip">
+          <div class="channel-label" style="color:#00D2FF;">VOZ</div>
+          <div class="channel-sub" id="voice-stem-label">CosyVoice</div>
+          <div class="vu-meter"><div class="vu-fill" id="vu-voice"></div></div>
+          <div class="fader-wrapper">
+            <input type="range" min="0" max="100" value="80" class="fader-slider" oninput="handleFaderChange('voice', this)">
+          </div>
+          <div class="channel-buttons">
+            <button class="btn-mute" onclick="handleMute('voice', this)">MUTE</button>
+            <button class="btn-solo" onclick="handleSolo('voice', this)">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Stem 2: OST Lyria -->
+        <div class="channel-strip">
+          <div class="channel-label" style="color:var(--cinema-purple);">OST LYRIA</div>
+          <div class="channel-sub" id="ost-stem-label">Drone Procedural</div>
+          <div class="vu-meter"><div class="vu-fill" id="vu-ost"></div></div>
+          <div class="fader-wrapper">
+            <input type="range" min="0" max="100" value="65" class="fader-slider" oninput="handleFaderChange('ost', this)">
+          </div>
+          <div class="channel-buttons">
+            <button class="btn-mute" onclick="handleMute('ost', this)">MUTE</button>
+            <button class="btn-solo" onclick="handleSolo('ost', this)">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Stem 3: Foley -->
+        <div class="channel-strip">
+          <div class="channel-label" style="color:var(--cinema-amber);">FOLEY</div>
+          <div class="channel-sub" id="foley-stem-label">MMAudio / Whoosh</div>
+          <div class="vu-meter"><div class="vu-fill" id="vu-foley"></div></div>
+          <div class="fader-wrapper">
+            <input type="range" min="0" max="100" value="70" class="fader-slider" oninput="handleFaderChange('foley', this)">
+          </div>
+          <div class="channel-buttons">
+            <button class="btn-mute" onclick="handleMute('foley', this)">MUTE</button>
+            <button class="btn-solo" onclick="handleSolo('foley', this)">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Stem 4: Master Mix -->
+        <div class="channel-strip" style="border-color:rgba(255,215,0,0.4);">
+          <div class="channel-label" style="color:var(--cinema-gold);">MASTER MIX</div>
+          <div class="channel-sub" id="master-stem-label">-14 LUFS Dynamic</div>
+          <div class="vu-meter"><div class="vu-fill" id="vu-master"></div></div>
+          <div class="fader-wrapper">
+            <input type="range" min="0" max="100" value="90" class="fader-slider" oninput="handleFaderChange('master', this)">
+          </div>
+          <div class="channel-buttons">
+            <button class="btn-mute" onclick="handleMute('master', this)">MUTE</button>
+            <button class="btn-solo" onclick="handleSolo('master', this)">SOLO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 5: CENTRAL 1-CLICK APPROVAL & SEO                       -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section class="tab-content" id="tab-approval">
+    <div class="approval-cockpit">
+      <!-- Lado Esquerdo: Player 4K e Thumbnails -->
+      <div>
+        <div class="video-cinema-frame">
+          <div class="letterbox-overlay">
+            <video id="main-cinema-video" class="cinema-video-el" controls></video>
+            <div id="video-letterbox-bars" class="letterbox-bars"></div>
+            <div id="video-subtitle-banner" class="subtitles-banner"></div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-sm" onclick="cinemaVideo.toggleLetterbox()">Alternar Letterbox 2.39:1</button>
+            <select id="subtitles-selector" class="input-text" style="padding:4px 10px; font-size:11px;" onchange="onSubtitleChange(this)">
+              <option value="">Sem legendas</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-purple" onclick="downloadFullPackage()">
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v9M4 8l4 4 4-4M2 14h12"/></svg>
+            Baixar Pacote Completo (.ZIP)
+          </button>
+        </div>
+
+        <!-- Seletor de Thumbnails A/B/C -->
+        <div style="margin-top:20px;">
+          <span style="font-weight:700; font-size:12px; color:var(--cinema-gold); text-transform:uppercase;">
+            Miniaturas Test & Compare A/B/C (YouTube Nativo):
+          </span>
+          <div class="thumbnails-grid" id="thumbnails-grid-container">
+            <!-- Dynamic inject -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Scorecard Green Dollar & Botões de Decisão -->
+      <div class="glass-panel">
+        <div class="section-header">
+          <h3 class="section-title">Auditoria de Pré-Lançamento</h3>
+          <span class="pill" style="border-color:#30D158; color:#30D158;" id="gd-status">APPROVED</span>
+        </div>
+
+        <div style="background:rgba(48,209,88,0.1); border:1px solid rgba(48,209,88,0.25); border-radius:12px; padding:14px; margin-bottom:18px;">
+          <strong style="color:#30D158; font-size:13px;" id="gd-score">100% GREEN DOLLAR</strong>
+          <p style="font-size:11px; color:#ddd; margin-top:4px;" id="gd-suitability">
+            Conforme com todas as diretrizes de conteúdo adequado para publicidade do YouTube (EDSA).
+          </p>
+        </div>
+
+        <!-- Metadados SEO -->
+        <div style="margin-bottom:16px;">
+          <span style="font-size:11px; font-weight:700; color:var(--label-secondary);">TÍTULO YOUTUBE:</span>
+          <p style="font-size:13px; font-weight:700; color:#fff; margin-top:2px;" id="seo-video-title">—</p>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <span style="font-size:11px; font-weight:700; color:var(--label-secondary);">CAPÍTULOS DE RETENÇÃO & DESCRIÇÃO:</span>
+          <p style="font-size:11px; color:var(--label-secondary); max-height:80px; overflow-y:auto; line-height:1.5; margin-top:2px;" id="seo-video-desc">—</p>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <span style="font-size:11px; font-weight:700; color:var(--label-secondary);">TAGS DE ALTA BUSCA:</span>
+          <p style="font-size:11px; color:var(--cinema-gold); margin-top:2px;" id="seo-video-tags">—</p>
+        </div>
+
+        <!-- 3 Botões de Ação Executiva -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <button class="btn btn-success" style="padding:12px; font-size:13px;" onclick="submitApproval('publish_unlisted')">
+            🟢 Aprovar & Publicar como Não-Listado (Recomendado)
+          </button>
+          <button class="btn btn-primary" style="padding:10px;" onclick="submitApproval('publish_public')">
+            🔵 Publicar Imediatamente como Público
+          </button>
+          <button class="btn btn-danger" style="padding:10px;" onclick="submitApproval('reject_quarantine')">
+            🔴 Rejeitar e Mover para Quarentena
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TAB 6: DAEMON 24/7 & TERMINAL SSE                           -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section class="tab-content" id="tab-terminal">
+    <div class="glass-panel">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="color:#00FF66;"><polyline points="3,5 6,8 3,11"/></svg>
+          Console de Execução em Tempo Real (SSE EventStream)
+        </h2>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-sm" onclick="document.getElementById('terminal-output').innerHTML=''">Limpar Console</button>
+        </div>
+      </div>
+      <div class="terminal-window" id="terminal-output">
+        <div class="terminal-line system">[SYSTEM] Conectando ao fluxo de eventos em tempo real do DarkFactory...</div>
+      </div>
+    </div>
+
+    <!-- Lista de Quarentenas -->
+    <div class="glass-panel" style="margin-top:20px;">
+      <div class="section-header">
+        <h3 class="section-title" style="color:var(--cinema-crimson);">Histórico de Quarentena & Refações</h3>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">ID do Documentário</th>
+            <th>Diagnóstico do Revisor / Sistema</th>
+            <th style="width:140px;">Data</th>
+          </tr>
+        </thead>
+        <tbody id="quarantine-tbody">
+          <tr><td colspan="3" style="text-align:center; padding:16px;">Nenhum item em quarentena</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Scripts ──────────────────────────────────────────────── -->
+  <script src="/static/js/audio_mixer.js?v=1.0.0"></script>
+  <script src="/static/js/video_player.js?v=1.0.0"></script>
+  <script src="/static/js/cinema_dash.js?v=1.0.0"></script>
+</body>
+</html>

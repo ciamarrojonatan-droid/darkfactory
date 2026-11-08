@@ -26,3 +26,7 @@ data/audio/*.raw
 data/quarantine/
 data/processed/dispute_kits/*
 
+# Reference Books & PDFs
+livros/
+
+
