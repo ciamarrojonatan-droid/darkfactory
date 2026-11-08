@@ -6,7 +6,7 @@ One-click command center to produce the pilot documentary:
   - Step 1: Research Engine (Wikipedia Ground-Truth Extraction)
   - Step 2: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
   - Step 3: Broadcast Studio Mastering & SRT Synchronization
-  - Step 4: Procedural Historical Sound Design Synthesis
+  - Step 4: 4-Stem Master Audio Mixer & Dynamic Sidechain Ducking (Google Flow + MMAudio)
   - Step 5: Video B-Roll Rendering & Final 1080p Master Assembly
 """
 import argparse
@@ -56,14 +56,16 @@ def main() -> None:
     elif args.step == "master":
         steps = ["cosyvoice_master.py"]
     elif args.step == "sound":
-        steps = ["generate_sound_design.py"]
+        steps = ["audio_mixer_master.py"]
     elif args.step == "video":
         steps = ["render_pilot_video.py"]
     elif args.step == "all":
         steps = [
+            "nolan_director.py",
+            "research_engine.py",
             "generate_pilot_audio.py",
             "cosyvoice_master.py",
-            "generate_sound_design.py",
+            "audio_mixer_master.py",
             "render_pilot_video.py"
         ]
     elif args.step == "all-local":
@@ -72,7 +74,7 @@ def main() -> None:
             "research_engine.py",
             "kokoro_fallback.py",
             "cosyvoice_master.py",
-            "generate_sound_design.py",
+            "audio_mixer_master.py",
             "render_pilot_video.py"
         ]
 

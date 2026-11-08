@@ -1,0 +1,23 @@
+{
+  "workflow_id": "2119239626330701825",
+  "workflow_name": "SoundEffectGenerator Cinematic Whoosh & Transitions",
+  "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2119239626330701825",
+  "execution_tier": "lite_plus",
+  "prompts": [
+    {
+      "name": "Anamorphic Crosscutting Whoosh",
+      "prompt": "Deep cinematic whoosh transition with low-frequency sub-bass sweep and tape stop effect, dramatic temporal jump",
+      "duration_sec": 2.5
+    },
+    {
+      "name": "Braam Impact Riser",
+      "prompt": "Ascending dissonant string riser culminating in massive sub-bass braam impact boom, Inception brass decay",
+      "duration_sec": 4.0
+    },
+    {
+      "name": "Heartbeat Downlifter",
+      "prompt": "Sub-bass heart thump slowing down into dark atmospheric silence, muffled low-end tension decay",
+      "duration_sec": 3.0
+    }
+  ]
+}

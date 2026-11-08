@@ -24,10 +24,62 @@
     "convergence_point": "Act III: The moment the radar count reaches zero and the human eye confirms radar absence"
   },
   "voice_engine": {
-    "provider": "RunningHub CosyVoice 3 Instruct 2 (Workflow 2118531898170486785)",
+    "provider": "Google Gemini Audio / Chirp 3 HD (Charon/Fenrir) + RunningHub CosyVoice 3 (Workflow 2118531898170486785)",
     "fallback_local": "Kokoro-82M (am_adam / am_fenrir / am_onyx)",
     "execution_mode": "lite_plus",
     "persona": "Authoritative Christopher Nolan Historical Documentary Narrator, Deep Baritone"
+  },
+  "sound_package": {
+    "google_flow_ost_prompt": "Slow cinematic suspense drone, low register solo cello playing dark descending minor intervals, analog synthesizer bass pulses at 55 BPM, distant mechanical clock ticking in background, ominous Cold War psychological thriller, atmospheric film score, wide stereo field, no drums, no vocals, high dynamic range, Hans Zimmer style inspired by 1983 Soviet nuclear false alarm incident --length 120s",
+    "runninghub_mmaudio": {
+      "workflow_id": "2119239526823604226",
+      "workflow_name": "MMAudio Video-to-Audio & Foley Pack",
+      "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2119239526823604226",
+      "execution_tier": "lite_plus",
+      "scenes": [
+        {
+          "scene_id": 1,
+          "target_foley": "Soviet bunker emergency klaxon alarm",
+          "mmaudio_prompt": "Emergency red alarm klaxon sounding inside reinforced concrete military bunker, muffled repeating siren, 55Hz electrical transformer hum, high tension atmosphere",
+          "duration_sec": 14.5
+        },
+        {
+          "scene_id": 2,
+          "target_foley": "Bakelite telephone handling and mechanical wall clock",
+          "mmaudio_prompt": "Heavy black Bakelite telephone receiver picked up, tense human breathing, vintage mechanical wall clock ticking rhythmically at 60 BPM",
+          "duration_sec": 16.0
+        },
+        {
+          "scene_id": 3,
+          "target_foley": "Heavy electrical switch throw and abrupt silence",
+          "mmaudio_prompt": "Sharp tactile industrial toggle switch throwing with metallic clunk, spark click, sudden dead room silence followed by low sub-bass rumble",
+          "duration_sec": 17.5
+        }
+      ]
+    },
+    "runninghub_whoosh_sfx": {
+      "workflow_id": "2119239626330701825",
+      "workflow_name": "SoundEffectGenerator Cinematic Whoosh & Transitions",
+      "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2119239626330701825",
+      "execution_tier": "lite_plus",
+      "prompts": [
+        {
+          "name": "Anamorphic Crosscutting Whoosh",
+          "prompt": "Deep cinematic whoosh transition with low-frequency sub-bass sweep and tape stop effect, dramatic temporal jump",
+          "duration_sec": 2.5
+        },
+        {
+          "name": "Braam Impact Riser",
+          "prompt": "Ascending dissonant string riser culminating in massive sub-bass braam impact boom, Inception brass decay",
+          "duration_sec": 4.0
+        },
+        {
+          "name": "Heartbeat Downlifter",
+          "prompt": "Sub-bass heart thump slowing down into dark atmospheric silence, muffled low-end tension decay",
+          "duration_sec": 3.0
+        }
+      ]
+    }
   },
   "scenes": [
     {
@@ -44,7 +96,8 @@
           "55hz_industrial_hum",
           "periodic_alarm_pulse"
         ],
-        "ost_cues": "Sustained analog synthesizer cello note ascending a semitone every 5 seconds (Shepard Tone inception)"
+        "ost_cues": "Sustained analog synthesizer cello note ascending a semitone every 5 seconds (Shepard Tone inception)",
+        "mmaudio_foley_ref": "Scene 1: Klaxon Alarm + 55Hz Hum"
       },
       "camera_direction": "Slow dramatic push-in towards the glowing green radar terminal under flashing red strobe",
       "dual_shot": {
@@ -77,7 +130,8 @@
           "mechanical_ticking_clock",
           "sub_bass_pulse"
         ],
-        "ost_cues": "Shepard Tone accelerating in pitch, low brass dissonant swell"
+        "ost_cues": "Shepard Tone accelerating in pitch, low brass dissonant swell",
+        "mmaudio_foley_ref": "Scene 2: Bakelite Phone + Wall Clock"
       },
       "camera_direction": "Subtle slow creep-in on Petrov's trembling hand resting on the secure red telephone",
       "dual_shot": {
@@ -110,7 +164,8 @@
           "heavy_industrial_switch_click",
           "distant_reverberant_sub_boom"
         ],
-        "ost_cues": "Sudden complete silence drop for 1.8 seconds, followed by profound low cello resolution (Hans Zimmer Time style)"
+        "ost_cues": "Sudden complete silence drop for 1.8 seconds, followed by profound low cello resolution (Hans Zimmer Time style)",
+        "mmaudio_foley_ref": "Scene 3: Industrial Switch Click + Silence Drop"
       },
       "camera_direction": "Extreme low angle rack focus from the heavy red button to the tense fingers hovering above it",
       "dual_shot": {

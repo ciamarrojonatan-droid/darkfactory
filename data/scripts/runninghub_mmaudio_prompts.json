@@ -1,0 +1,26 @@
+{
+  "workflow_id": "2119239526823604226",
+  "workflow_name": "MMAudio Video-to-Audio & Foley Pack",
+  "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2119239526823604226",
+  "execution_tier": "lite_plus",
+  "scenes": [
+    {
+      "scene_id": 1,
+      "target_foley": "Soviet bunker emergency klaxon alarm",
+      "mmaudio_prompt": "Emergency red alarm klaxon sounding inside reinforced concrete military bunker, muffled repeating siren, 55Hz electrical transformer hum, high tension atmosphere",
+      "duration_sec": 14.5
+    },
+    {
+      "scene_id": 2,
+      "target_foley": "Bakelite telephone handling and mechanical wall clock",
+      "mmaudio_prompt": "Heavy black Bakelite telephone receiver picked up, tense human breathing, vintage mechanical wall clock ticking rhythmically at 60 BPM",
+      "duration_sec": 16.0
+    },
+    {
+      "scene_id": 3,
+      "target_foley": "Heavy electrical switch throw and abrupt silence",
+      "mmaudio_prompt": "Sharp tactile industrial toggle switch throwing with metallic clunk, spark click, sudden dead room silence followed by low sub-bass rumble",
+      "duration_sec": 17.5
+    }
+  ]
+}
