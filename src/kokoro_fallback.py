@@ -35,46 +35,75 @@ RAW_AUDIO_DIR = AUDIO_DIR / "raw"
 INSTRUCT_PROFILE_MAP = [
     {
         "keywords": ["urgent", "urgency", "mounting dread", "alarm", "crisis"],
-        "voice": "am_fenrir",
-        "speed": 1.05,
+        "voice": "bm_lewis",
+        "speed": 1.02,
         "pitch": "-1Hz",
         "edge_fallback": "en-US-ChristopherNeural",
-        "style_desc": "High tension, mounting dread, crisp rapid cadence",
+        "style_desc": "High tension, mounting dread, articulate dramatic urgency (Lewis)",
     },
     {
         "keywords": ["grim", "somber", "heavy", "existential", "tragic", "grave"],
-        "voice": "am_onyx",
-        "speed": 0.88,
+        "voice": "bm_george",
+        "speed": 0.96,
         "pitch": "-2Hz",
         "edge_fallback": "en-US-EricNeural",
-        "style_desc": "Somber, heavy existential baritone, slow cadence",
+        "style_desc": "Somber, heavy existential baritone, historical gravitas (George)",
     },
     {
         "keywords": ["suspense", "hushed", "mystery", "cliffhanger", "dilemma"],
-        "voice": "am_adam",
-        "speed": 0.86,
-        "pitch": "-1Hz",
-        "edge_fallback": "en-US-ChristopherNeural",
-        "style_desc": "Intense cinematic suspense, hushed dramatic delivery",
-    },
-    {
-        "keywords": ["documentary", "authoritative", "baritone", "netflix", "bbc", "cadence"],
-        "voice": "am_adam",
+        "voice": "bm_george",
         "speed": 0.94,
         "pitch": "-1Hz",
         "edge_fallback": "en-US-ChristopherNeural",
-        "style_desc": "Authoritative historical documentary baritone",
+        "style_desc": "Intense cinematic suspense, hushed dramatic delivery (George)",
+    },
+    {
+        "keywords": ["documentary", "authoritative", "baritone", "netflix", "bbc", "cadence", "nolan"],
+        "voice": "bm_george",
+        "speed": 0.98,
+        "pitch": "-1Hz",
+        "edge_fallback": "en-US-ChristopherNeural",
+        "style_desc": "Authoritative historical BBC documentary narrator (George)",
+    },
+    {
+        "keywords": ["american", "commercial", "fast", "modern"],
+        "voice": "am_adam",
+        "speed": 1.00,
+        "pitch": "0Hz",
+        "edge_fallback": "en-US-ChristopherNeural",
+        "style_desc": "Modern energetic American narrator (Adam)",
     },
 ]
 
-DEFAULT_VOICE = "am_adam"
-DEFAULT_SPEED = 0.92
+DEFAULT_VOICE = "bm_george"
+DEFAULT_SPEED = 0.98
 
 
 class KokoroNarrator:
     """Local TTS Narrator with acting direction mapping for Kokoro-82M."""
 
     def __init__(self, model_path: Optional[Path] = None, voices_path: Optional[Path] = None):
+        if model_path is None:
+            candidates = [
+                PROJECT_ROOT / "data" / "models" / "kokoro" / "kokoro-v0_19.onnx",
+                PROJECT_ROOT.parent / "data" / "models" / "kokoro" / "kokoro-v0_19.onnx",
+                Path(r"C:\Users\WDAGUtilityAccount\Downloads\Nova pasta\data\models\kokoro\kokoro-v0_19.onnx"),
+            ]
+            for c in candidates:
+                if c.is_file():
+                    model_path = c
+                    break
+        if voices_path is None:
+            candidates = [
+                PROJECT_ROOT / "data" / "models" / "kokoro" / "voices.bin",
+                PROJECT_ROOT.parent / "data" / "models" / "kokoro" / "voices.bin",
+                Path(r"C:\Users\WDAGUtilityAccount\Downloads\Nova pasta\data\models\kokoro\voices.bin"),
+            ]
+            for c in candidates:
+                if c.is_file():
+                    voices_path = c
+                    break
+
         self.model_path = model_path
         self.voices_path = voices_path
         self.kokoro_instance = None
@@ -163,15 +192,20 @@ class KokoroNarrator:
         tts_text: str,
         instruct_text: str = "",
         output_file: Optional[Path] = None,
+        voice: Optional[str] = None,
+        speed: Optional[float] = None,
     ) -> bool:
         """Generate audio for a single documentary scene."""
         RAW_AUDIO_DIR.mkdir(parents=True, exist_ok=True)
         dest_path = output_file or (RAW_AUDIO_DIR / f"scene_{scene_id}.wav")
 
         profile = self.map_instruct_to_voice_profile(instruct_text)
+        chosen_voice = voice or profile["voice"]
+        chosen_speed = speed if speed is not None else profile["speed"]
+
         logger.info(
             f"Scene {scene_id} Direction: '{instruct_text[:60]}...' -> Profile: {profile['matched_style']} "
-            f"[Voice: {profile['voice']} | Speed: {profile['speed']}x]"
+            f"[Voice: {chosen_voice} | Speed: {chosen_speed}x]"
         )
 
         # 1. Try native Kokoro-ONNX if instance is active
@@ -179,13 +213,14 @@ class KokoroNarrator:
             try:
                 import soundfile as sf  # type: ignore
 
+                lang = "en-gb" if chosen_voice.startswith("b") else "en-us"
                 samples, sample_rate = self.kokoro_instance.create(
-                    tts_text, voice=profile["voice"], speed=profile["speed"], lang="en-us"
+                    tts_text, voice=chosen_voice, speed=chosen_speed, lang=lang
                 )
                 tmp_target = dest_path.with_suffix(f".tmp.{os.getpid()}")
                 sf.write(str(tmp_target), samples, sample_rate)
                 tmp_target.replace(dest_path)
-                logger.info(f"Generated via Kokoro-82M: {dest_path.name}")
+                logger.info(f"Generated via Kokoro-82M ({chosen_voice}): {dest_path.name}")
                 return True
             except Exception as e:
                 logger.warning(f"Kokoro synthesis failed, falling back to proxy: {e}")
@@ -195,7 +230,10 @@ class KokoroNarrator:
             # If output is .wav, edge_tts outputs mp3 format by default; we save as .mp3 or let ffmpeg transcode
             if dest_path.suffix.lower() == ".wav":
                 temp_mp3 = dest_path.with_suffix(".mp3")
-                success = asyncio.run(self._synthesize_edge_fallback(tts_text, profile, temp_mp3))
+                proxy_profile = dict(profile)
+                if speed is not None:
+                    proxy_profile["speed"] = chosen_speed
+                success = asyncio.run(self._synthesize_edge_fallback(tts_text, proxy_profile, temp_mp3))
                 if success:
                     # Convert MP3 to 16-bit 44.1kHz WAV if requested
                     self._transcode_to_wav(temp_mp3, dest_path)
@@ -206,7 +244,10 @@ class KokoroNarrator:
                             pass
                     return True
             else:
-                return asyncio.run(self._synthesize_edge_fallback(tts_text, profile, dest_path))
+                proxy_profile = dict(profile)
+                if speed is not None:
+                    proxy_profile["speed"] = chosen_speed
+                return asyncio.run(self._synthesize_edge_fallback(tts_text, proxy_profile, dest_path))
         except Exception as e:
             logger.error(f"TTS synthesis failed for scene {scene_id}: {e}")
             return False
@@ -243,7 +284,9 @@ class KokoroNarrator:
             # Direct copy if no ffmpeg available
             shutil.copy2(input_audio, output_wav)
 
-    def process_script(self, script_path: Path) -> bool:
+    def process_script(
+        self, script_path: Path, voice: Optional[str] = None, speed: Optional[float] = None
+    ) -> bool:
         """Processes all scenes in a script JSON file and generates raw audio."""
         if not script_path.exists():
             logger.error(f"Script file not found: {script_path}")
@@ -266,6 +309,8 @@ class KokoroNarrator:
                 tts_text=text,
                 instruct_text=instruct,
                 output_file=dest,
+                voice=voice,
+                speed=speed,
             )
             if not ok:
                 all_ok = False
@@ -279,6 +324,8 @@ def main() -> None:
     parser.add_argument("--scene", type=int, default=1, help="Scene ID")
     parser.add_argument("--text", type=str, default="", help="Narration text")
     parser.add_argument("--instruct", type=str, default="", help="Acting instruction text")
+    parser.add_argument("--voice", type=str, default=None, help=f"Kokoro voice ID (default: {DEFAULT_VOICE}, or bm_lewis, am_adam, etc.)")
+    parser.add_argument("--speed", type=float, default=None, help=f"Playback speed factor (default: {DEFAULT_SPEED})")
     parser.add_argument("--output", type=str, default=None, help="Output audio path (.wav / .mp3)")
     args = parser.parse_args()
 
@@ -286,7 +333,7 @@ def main() -> None:
 
     if args.script:
         script_file = Path(args.script)
-        success = narrator.process_script(script_file)
+        success = narrator.process_script(script_file, voice=args.voice, speed=args.speed)
         if success:
             print("\n🎉 All scenes successfully narrated via local TTS engine!")
             sys.exit(0)
@@ -302,14 +349,16 @@ def main() -> None:
         )
         sample_instruct = "Speak with controlled urgency and mounting dread, deep authoritative baritone."
         dest = RAW_AUDIO_DIR / "scene_1.wav"
-        print("No text supplied. Running verification test on Scene 1...")
-        ok = narrator.synthesize_scene(1, sample_text, sample_instruct, dest)
+        print(f"No text supplied. Running verification test on Scene 1 (Voice: {args.voice or DEFAULT_VOICE})...")
+        ok = narrator.synthesize_scene(1, sample_text, sample_instruct, dest, voice=args.voice, speed=args.speed)
         if ok:
             print(f"✅ Scene 1 test audio successfully created at: {dest}")
         sys.exit(0 if ok else 1)
 
     dest_file = Path(args.output) if args.output else None
-    ok = narrator.synthesize_scene(args.scene, args.text, args.instruct, dest_file)
+    ok = narrator.synthesize_scene(
+        args.scene, args.text, args.instruct, dest_file, voice=args.voice, speed=args.speed
+    )
     sys.exit(0 if ok else 1)
 
 

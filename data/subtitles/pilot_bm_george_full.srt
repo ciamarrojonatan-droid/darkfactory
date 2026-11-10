@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:02,300
+At 12:15 AM on September 26,
+
+2
+00:00:02,380 --> 00:00:08,423
+1983, a red siren illuminated a top-secret Soviet bunker outside Moscow.
+
+3
+00:00:08,503 --> 00:00:17,861
+The radar screens confirmed what every officer dreaded: five American nuclear warheads were already in the air.
+
+4
+00:00:17,941 --> 00:00:30,320
+Soviet protocol gave Lieutenant Colonel Stanislav Petrov exactly twenty minutes to authorize a retaliatory strike that would wipe three hundred million people off the face of the Earth.
+
+5
+00:00:30,399 --> 00:00:32,587
+He had a direct line to the Kremlin.
+
+6
+00:00:32,667 --> 00:00:35,611
+His finger hovered over the confirmation switch.
+
+7
+00:00:35,691 --> 00:00:37,626
+But instead of following orders.
+
+8
+00:00:37,706 --> 00:00:39,642
+Petrov decided to trust a hunch.

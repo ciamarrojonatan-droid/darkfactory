@@ -10,6 +10,7 @@ __pycache__/
 .env
 .venv
 env/
+env
 venv/
 ENV/
 
@@ -18,9 +19,11 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Audio stems
+# Audio stems & raw
 data/audio/*.wav
 data/audio/*.raw
+data/audio/raw/
+data/models/
 
 # Local Quarantine
 data/quarantine/

@@ -4,11 +4,17 @@
   "niche": "Cold War Military & Tech History",
   "target_market": "US / UK / Canada (English)",
   "voice_engine": {
-    "provider": "RunningHub CosyVoice 3 Instruct 2",
-    "workflow_url": "https://www.runninghub.ai/pt-br/workflow/2118531898170486785",
-    "workflow_id": "2118531898170486785",
+    "provider": "Kokoro-82M ONNX (Local Zero-Cost)",
+    "default_voice": "bm_george",
+    "voice_persona": "Classic British Male — Authoritative, Somber, BBC / Christopher Nolan style",
+    "supported_voices": {
+      "default": "bm_george (British Authoritative/Somber)",
+      "urgency": "bm_lewis (British Intense/Articulate)",
+      "american": "am_adam (American Cinematic Suspense)"
+    },
+    "mastering_standard": "Ableton Live Complex Pro broadcast chain (-14 LUFS, 48kHz 24-bit)",
     "execution_mode": "lite_plus",
-    "base_persona": "Authoritative BBC/Netflix Historical Documentary Narrator, Deep Baritone"
+    "fallback": "Edge-TTS ChristopherNeural"
   },
   "scenes": [
     {
