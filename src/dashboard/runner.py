@@ -16,7 +16,7 @@ import sys
 import threading
 import time
 from pathlib import Path
-from typing import AsyncGenerator, Dict, List, Optional
+from typing import Any, AsyncGenerator, Dict, List, Optional
 
 logger = logging.getLogger("DarkFactoryRunner")
 
@@ -220,3 +220,22 @@ def control_daemon(action: str) -> Dict[str, Any]:
         return {"status": "started", "message": "Daemon single-cycle execution started."}
 
     return {"status": "error", "message": f"Unknown action: {action}"}
+
+
+async def run_narration_task(
+    script: str,
+    emotion: Optional[str] = None,
+    speed: float = 1.0,
+) -> Dict[str, Any]:
+    """Starts CosyVoice Account 4 narration generation in a background thread."""
+    import uuid
+
+    task_name = f"narration-{uuid.uuid4().hex[:8]}"
+    cmd = [PYTHON_EXE, "-m", "src.factory.runninghub_bot", "--account", "4", "--script", script]
+    if emotion:
+        cmd.extend(["--emotion", emotion])
+    if speed != 1.0:
+        cmd.extend(["--speed", str(speed)])
+    t = threading.Thread(target=_run_cmd_background, args=(task_name, cmd), daemon=True)
+    t.start()
+    return {"success": True, "message": "CosyVoice narration task started", "task_id": task_name}

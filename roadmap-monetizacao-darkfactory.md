@@ -61,7 +61,7 @@ flowchart LR
     DF["OPERACAO DARKFACTORY"] --> V1["VIA 1: AdSense de Alto RPM (Tier 1)"]
     DF --> V2["VIA 2: Patrocínios Diretos & Afiliados"]
     DF --> V3["VIA 3: Comunidade Exclusiva & Membros"]
-    DF --> V4["VIA 4: Sinergia StockCont (Licenciamento B2B)"]
+    DF --> V4["VIA 4: Licenciamento B2B Independente de B-Roll"]
 
     subgraph VIA1["AdSense Premium (US/UK/CA)"]
         V1 --> A1["Nicho Militar/História: RPM de $15 a $28"]
@@ -84,9 +84,9 @@ flowchart LR
         V3 --> C4["Acesso Antecipado a Novos Episódios"]
     end
 
-    subgraph VIA4["Monetização de Sobra (StockCont)"]
-        V4 --> D1["Renders 4K do Veo 3.1 sobem para Adobe Stock"]
-        V4 --> D2["Venda em Pond5 & 123RF via FTP Distributor"]
+    subgraph VIA4["Monetização de Acervo (Licenciamento B2B)"]
+        V4 --> D1["Renders 4K do Veo 3.1 para licenciamento editorial/comercial"]
+        V4 --> D2["Distribuição independente em bancos de footage 4K"]
         V4 --> D3["Lucro Passivo por Download de B-Roll B2B"]
     end
 ```
@@ -168,4 +168,4 @@ Antes de clicar em "Publicar", o operador cumpre este checklist rigoroso:
 - [ ] **Capítulos (Timestamps)**: Inseridos na descrição para melhorar o SEO de busca orgânica do YouTube e do Google.
 - [ ] **Cards & Tela Final**: Apontando para o próximo episódio temático relacionado, criando uma esteira de *binge-watching* (sessão contínua de consumo).
 - [ ] **Legendas (SRT)**: Injetadas em inglês limpo, aumentando a acessibilidade e a preferência do algoritmo de busca.
-- [ ] **Sincronização StockCont**: Os clipes em 4K do Veo 3.1 gerados para o vídeo são movidos para o catalogador do StockCont para venda em agências de microstock.
+- [ ] **Exportação de B-Roll 4K**: Os clipes em 4K gerados para o episódio podem ser exportados em master separado para licenciamento B2B opcional.

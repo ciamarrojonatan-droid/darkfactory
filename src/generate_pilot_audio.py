@@ -30,7 +30,7 @@ AUDIO_DIR = PROJECT_ROOT / "data" / "audio"
 SUBS_DIR = PROJECT_ROOT / "data" / "subtitles"
 MODEL_DIR = PROJECT_ROOT / "data" / "models" / "kokoro"
 
-# Fallback path to StockCont models if not in darkfactory root
+# Fallback path to local models if not inside PROJECT_ROOT/data/models
 if not (MODEL_DIR / "kokoro-v0_19.onnx").exists():
     ALT_MODEL_DIR = PROJECT_ROOT.parent / "data" / "models" / "kokoro"
     if (ALT_MODEL_DIR / "kokoro-v0_19.onnx").exists():
@@ -45,10 +45,15 @@ def get_ffmpeg_bin() -> str:
     """Finds ffmpeg executable."""
     ffmpeg_bin = shutil.which("ffmpeg")
     if not ffmpeg_bin:
+        try:
+            import imageio_ffmpeg
+            return imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:
+            pass
         candidates = [
-            Path(r"C:\Users\WDAGUtilityAccount\Downloads\Nova pasta\venv\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v9.0.2.exe"),
-            Path(r"C:\Users\WDAGUtilityAccount\Downloads\Nova pasta\stockcont\venv\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v9.0.2.exe"),
+            PROJECT_ROOT / "venv" / "Lib" / "site-packages" / "imageio_ffmpeg" / "binaries" / "ffmpeg-win-x86_64-v9.0.2.exe",
             Path(r"C:\ffmpeg\bin\ffmpeg.exe"),
+            Path(r"C:\Program Files\ffmpeg\bin\ffmpeg.exe"),
         ]
         for c in candidates:
             if c.is_file():

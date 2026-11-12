@@ -3,7 +3,7 @@
 > **Modelos Recomendados no RunningHub**:  
 > - **Wan 2.2 (Image-to-Video / Text-to-Video)**  
 > - **MiniMax Video-01 / Hailuo**  
-> - **Workflow Vídeo StockCont/DarkFactory**: [Workflow ID: 2115926169974812674](https://www.runninghub.ai/pt-br/workflow/2115926169974812674)  
+> - **Workflow Vídeo DarkFactory**: [Workflow ID: 2115926169974812674](https://www.runninghub.ai/pt-br/workflow/2115926169974812674)  
 > **Botão de Execução**: Sempre **Lite/Plus** (Botão do meio / Dourado). Nunca usar *Standard*.  
 > **Aspect Ratio**: `--ar 16:9` (1920x1080)
 

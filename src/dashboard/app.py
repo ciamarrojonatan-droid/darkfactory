@@ -7,6 +7,7 @@ and 1-Click YouTube approval with EDSA / Green Dollar pre-flight compliance.
 
 from __future__ import annotations
 
+import hmac
 import io
 import logging
 import os
@@ -18,10 +19,11 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from . import readers, runner, schemas
+from src.video.dashboard_routes import router as video_routes_router
 
 # Configure UTF-8 on Windows (ADR-01)
 if sys.platform.startswith("win"):
@@ -55,7 +57,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# Enable CORS for cross-domain orchestration between StockCont (:8501) and DarkFactory (:8502)
+# Enable local CORS for DarkFactory Studio SPA (:8502)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -63,6 +65,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def dashboard_access_token_middleware(request: Request, call_next):
+    """Enforce optional Bearer / X-Dashboard-Token auth on mutable API routes."""
+    expected_token = (os.getenv("DASHBOARD_ACCESS_TOKEN") or "").strip()
+    if expected_token and request.method in {"POST", "PUT", "PATCH", "DELETE"} and request.url.path.startswith("/api/"):
+        auth_header = request.headers.get("Authorization", "").strip()
+        bearer_token = auth_header[7:].strip() if auth_header[:7].lower() == "bearer " else ""
+        header_token = request.headers.get("X-Dashboard-Token", "").strip()
+        supplied = bearer_token or header_token
+        if not supplied or not hmac.compare_digest(supplied, expected_token):
+            return JSONResponse(
+                status_code=401,
+                content={"detail": "Unauthorized: invalid or missing dashboard access token"},
+            )
+    return await call_next(request)
+
+
+app.include_router(video_routes_router)
 
 # Mount static files
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
@@ -92,7 +114,6 @@ async def get_status():
     return {
         "kpis": kpis,
         "active_tasks": active_tasks,
-        "stockcont_dashboard_url": "http://localhost:8501"
     }
 
 

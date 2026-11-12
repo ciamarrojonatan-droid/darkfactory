@@ -121,7 +121,7 @@ flowchart LR
     subgraph MON["Monetização em 4 Vias"]
         M --> V1["Via 1: AdSense Tier 1 (US / UK / CA / AU - RPM de $15 a $32)"]
         M --> V2["Via 2: Patrocínios Integrados (VPNs, Jogos Militares, Audiobooks)"]
-        M --> V3["Via 3: Sinergia B2B StockCont (Licenciamento 4K de B-Roll Histórico)"]
+        M --> V3["Via 3: Licenciamento B2B de B-Roll Histórico 4K"]
         M --> V4["Via 4: Shorts Funnel (Tração Orgânica e Conversão de Assinantes)"]
     end
 ```
@@ -155,7 +155,7 @@ flowchart TD
 
 ## <img src="docs/icons/database.svg" width="20" height="20" /> DarkFactory Master Knowledge Vault (Os 27 Livros Canônicos)
 
-O DarkFactory incorpora princípios destilados das **27 obras de referência mundiais** (Walter Murch, MrBeast, Lisa Cron, Jonah Berger, Brendan Kane, Derral Eves, Alex Hormozi) diretamente nos motores de roteiro, embalagem algorítmica e auditoria EDSA em [`src/nolan_director.py`](src/nolan_director.py), [`src/youtube_algorithm_booster.py`](src/youtube_algorithm_booster.py) e [`src/youtube_compliance_qc.py`](src/youtube_compliance_qc.py) (com integração cruzada com o ecossistema **StockCont** em `:8501`):
+O DarkFactory incorpora princípios destilados das **27 obras de referência mundiais** (Walter Murch, MrBeast, Lisa Cron, Jonah Berger, Brendan Kane, Derral Eves, Alex Hormozi) diretamente nos motores de roteiro, embalagem algorítmica e auditoria EDSA em [`src/nolan_director.py`](src/nolan_director.py), [`src/youtube_algorithm_booster.py`](src/youtube_algorithm_booster.py) e [`src/youtube_compliance_qc.py`](src/youtube_compliance_qc.py):
 
 | Autor & Obra | Conceito Canônico Incorporado | Aplicação no DarkFactory |
 | :--- | :--- | :--- |
@@ -233,7 +233,7 @@ O DarkFactory incorpora princípios destilados das **27 obras de referência mun
 
 ## <img src="docs/icons/desktop.svg" width="20" height="20" /> Dashboard Web SPA Nativo (iOS 27 Liquid Glass Cinema Edition :8502)
 
-O DarkFactory dispõe de um estúdio web completo rodando em **FastAPI na porta 8502** (`http://localhost:8502`), com switcher bidirecional integrado ao **StockCont (:8501)** e 6 abas segmentadas sob o design system Apple HIG iOS 27 Liquid Glass:
+O DarkFactory dispõe de um estúdio web completo rodando em **FastAPI na porta 8502** (`http://localhost:8502`), com 6 abas segmentadas sob o design system Apple HIG iOS 27 Liquid Glass:
 
 ```mermaid
 flowchart TD
@@ -444,7 +444,7 @@ darkfactory/
 
 ### ADR-05: Incorporação Canônica dos 27 Livros de Referência & Knowledge Integration
 - **Contexto**: Confiar apenas em prompts genéricos de IA produz histórias rasas e com ritmo irregular.
-- **Decisão**: Incorporação das regras de Murch, MrBeast, Cron, Berger, Kane, Eves e Hormozi nos geradores de manifesto (`nolan_director.py`), otimizador (`youtube_algorithm_booster.py`) e auditor (`youtube_compliance_qc.py`), sincronizados com o Knowledge Vault do ecossistema **StockCont**.
+- **Decisão**: Incorporação das regras de Murch, MrBeast, Cron, Berger, Kane, Eves e Hormozi nos geradores de manifesto (`nolan_director.py`), otimizador (`youtube_algorithm_booster.py`) e auditor (`youtube_compliance_qc.py`), sincronizados com o Knowledge Vault autônomo do DarkFactory.
 
 ### ADR-06: Formato Anamórfico 2.39:1 com Color Grading Kodak Vision3 / 2383
 - **Contexto**: Imagens cruas geradas por IA possuem aspecto plástico, saturação artificial e falta de textura táctil.
@@ -458,5 +458,5 @@ darkfactory/
 
 <p align="center">
   <b>DarkFactory Cinema Engine</b> — <i>Transformando Fatos Históricos em Thrillers de Alta Retenção.</i><br>
-  Desenvolvido em parceria com o ecossistema <b>StockCont</b>.
+  Arquitetura autônoma para produção e distribuição documental 4K.
 </p>

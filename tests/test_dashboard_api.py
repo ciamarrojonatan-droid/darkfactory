@@ -36,7 +36,6 @@ def test_status_endpoint(client):
     data = res.json()
     assert "kpis" in data
     assert "active_tasks" in data
-    assert "stockcont_dashboard_url" in data
     k = data["kpis"]
     assert "total_productions" in k
     assert "completed_episodes" in k
@@ -79,8 +78,15 @@ def test_audio_library_endpoint(client):
     assert "master" in data
 
 
-def test_approval_queue_and_actions(client):
+def test_approval_queue_and_actions(client, monkeypatch, tmp_path):
     """Verifies that /api/approval-queue and /api/approval-action handle publication gates."""
+    import src.dashboard.app as app_module
+
+    (tmp_path / "output").mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(app_module, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(readers, "DAEMON_STATE_FILE", tmp_path / "darkfactory_daemon_state.json")
+    monkeypatch.setattr(readers, "QUARANTINE_DIR", tmp_path / "quarantine")
+
     res = client.get("/api/approval-queue")
     assert res.status_code == 200
     queue = res.json()

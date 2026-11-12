@@ -21,7 +21,9 @@ DATA_DIR = BASE_DIR / "data"
 SCRIPTS_DIR = DATA_DIR / "scripts"
 AUDIO_DIR = DATA_DIR / "audio"
 AUDIO_MASTERED_DIR = AUDIO_DIR / "mastered"
+FINAL_AUDIO_DIR = DATA_DIR / "final" / "audio"
 OUTPUT_DIR = DATA_DIR / "output"
+FINAL_VIDEOS_DIR = DATA_DIR / "final" / "videos"
 PROCESSED_DIR = DATA_DIR / "processed"
 ALGORITHM_PACKAGES_DIR = PROCESSED_DIR / "algorithm_packages"
 DISPUTE_KITS_DIR = PROCESSED_DIR / "dispute_kits"
@@ -355,4 +357,26 @@ def get_quarantine_reports() -> List[Dict[str, Any]]:
             "data": data,
             "quarantined_at": datetime.datetime.fromtimestamp(qdir.stat().st_mtime).isoformat()
         })
+    return items
+
+
+def get_audio_items() -> List[Dict[str, Any]]:
+    """Lists all generated narration and soundtrack files in data/final/audio/."""
+    FINAL_AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+    items: List[Dict[str, Any]] = []
+    exts = {".mp3", ".flac", ".wav", ".m4a", ".ogg"}
+    try:
+        for f in sorted(FINAL_AUDIO_DIR.iterdir(), key=lambda p: p.stat().st_mtime, reverse=True):
+            if f.is_file() and f.suffix.lower() in exts:
+                stat = f.stat()
+                dt = datetime.datetime.fromtimestamp(stat.st_mtime, tz=datetime.timezone.utc).isoformat()
+                items.append({
+                    "filename": f.name,
+                    "path": str(f),
+                    "size_bytes": stat.st_size,
+                    "created_at": dt,
+                    "audio_url": f"/api/audio/file/{f.name}",
+                })
+    except Exception as exc:
+        logger.warning("Failed to list final audio items: %s", exc)
     return items

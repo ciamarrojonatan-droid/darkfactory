@@ -79,12 +79,11 @@ def test_mix_4stems_mocked(mock_run, tmp_path):
     # Mock subprocess success
     mock_run.return_value = MagicMock(returncode=0)
 
-    # Simulate tmp target output created during command
+    # Simulate tmp target output created during mix command (skip probing calls whose target is '-')
     def side_effect(cmd, *args, **kwargs):
-        # The last arg is tmp target
-        target = Path(cmd[-1])
-        target.write_bytes(b"mixed_audio")
-        return MagicMock(returncode=0)
+        if cmd and cmd[-1] != "-":
+            Path(cmd[-1]).write_bytes(b"mixed_audio")
+        return MagicMock(returncode=0, stderr="Duration: 00:00:10.00, start: 0.000000")
 
     mock_run.side_effect = side_effect
 

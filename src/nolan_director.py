@@ -9,7 +9,7 @@ non-linear documentary scripts with Christopher Nolan's directorial signature:
 - Google Flow Music (DeepMind Lyria / MusicFX) specialized prompt generation.
 - RunningHub MMAudio (Workflow 2119239526823604226) & SoundEffectGenerator (Workflow 2119239626330701825) Foley queues.
 - Acting direction instructions for CosyVoice 3 and Kokoro-82M.
-- Atomic schema output compatible with DarkFactory and StockCont.
+- Atomic schema output compatible with DarkFactory Studio.
 """
 import argparse
 import json

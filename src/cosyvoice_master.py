@@ -34,12 +34,11 @@ SUBS_DIR = DATA_DIR / "subtitles"
 
 
 def get_ffmpeg_binary() -> str:
-    """Find a valid ffmpeg executable on the system or in the stockcont venv."""
+    """Find a valid ffmpeg executable on the system or in the darkfactory venv."""
     path = shutil.which("ffmpeg")
     if path:
         return path
-    
-    # Try imageio_ffmpeg in stockcont venv
+
     try:
         import imageio_ffmpeg
         return imageio_ffmpeg.get_ffmpeg_exe()
@@ -47,8 +46,9 @@ def get_ffmpeg_binary() -> str:
         pass
 
     # Common Windows fallback paths
+    project_root = Path(__file__).resolve().parent.parent
     candidates = [
-        Path(r"C:\Users\WDAGUtilityAccount\Downloads\Nova pasta\stockcont\venv\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v9.0.2.exe"),
+        project_root / "venv" / "Lib" / "site-packages" / "imageio_ffmpeg" / "binaries" / "ffmpeg-win-x86_64-v9.0.2.exe",
         Path(r"C:\ffmpeg\bin\ffmpeg.exe"),
         Path(r"C:\Program Files\ffmpeg\bin\ffmpeg.exe"),
     ]
