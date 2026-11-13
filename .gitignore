@@ -20,6 +20,9 @@ service_account*.json
 *secret*.json
 token.json
 
+# Node dependencies
+node_modules/
+
 # OS artifacts
 Thumbs.db
 Desktop.ini

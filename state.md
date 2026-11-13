@@ -18,7 +18,7 @@
 | **Pesquisa & Fatos Históricos** | `ok` | **8** roteiros e filas estruturadas em `data/scripts/` (incidente soviético 1983, etc.) |
 | **Roteirização Não-Linear (Nolan)** | `ok` | Estrutura de 5 Atos com Crosscutting temporal e prompts Dual-Shot (IMAX 70mm) |
 | **Engenharia de Voz & Áudio** | `ok` | **24** arquivos de áudio em `data/audio/` (narrações, stems, Foley e master -14 LUFS) |
-| **Síntese de Vídeo & Renders** | `ok` | **6** renders em `data/final/` · **4** relatórios de auditoria em `data/quarantine/` |
+| **Síntese de Vídeo & Renders** | `ok` | **8** renders em `data/final/` (6 cinemáticos + 2 overlays) · **6** relatórios de auditoria em `data/quarantine/` |
 | **Cinema Dashboard (:8502)** | `idle` | Serviço configurado em `src.dashboard.app` · Porta `8502` pronta para inicialização |
 | **Qualidade & Testes (Pytest)** | `ok` | **253 passed, 2 skipped** (100% de sucesso na bateria completa de testes) |
 | **Hooks & Automação** | `ok` | Telemetria de sessão, injeção de estado, consultor WWYD e Hard Gate Git na branch `main` |

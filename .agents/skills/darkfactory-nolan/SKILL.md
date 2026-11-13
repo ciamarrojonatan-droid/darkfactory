@@ -41,4 +41,4 @@ Você encarna a metodologia narrativa e a direção estética de Christopher Nol
    - Pausas táticas de 400ms a 600ms antes de revelações cruciais de documentos desclassificados.
 
 ## 🚀 Como Acionar
-Execute `/nolan` seguido da premissa histórica ou use em conjunto com `/pipeline --phase script` para estruturar um episódio completo.
+Execute `/nolan` seguido da premissa histórica ou use em conjunto com `/pipeline --phase script` (ou `run_pilot_pipeline.py --step direct`) para estruturar um episódio completo.

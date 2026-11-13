@@ -15,12 +15,12 @@ Orquestrador unificado para execução autônoma das fases de produção documen
 | Comando | Ação |
 | :--- | :--- |
 | `/pipeline` | Detecta a próxima etapa pendente no fluxo de produção documental e executa |
-| `/pipeline --phase research` | Fase 1: Mineração e validação de fatos históricos desclassificados via `research_engine.py` |
-| `/pipeline --phase script` | Fase 2: Roteirização não-linear em 5 Atos com Showrunner Nolan (`nolan_director.py`) |
-| `/pipeline --phase audio` | Fase 3: Síntese vocal (CosyVoice / Kokoro) + Design de som Zimmer (-14 LUFS, -1.0 dBTP) |
-| `/pipeline --phase video` | Fase 4: Geração de vídeo T2V/I2V no RunningHub ComfyUI / Wan 2.2 / MiniMax H3 |
-| `/pipeline --phase assembly` | Fase 5: Montagem final de cortes, sincronia de beat, legendas SRT e exportação |
-| `/pipeline --all` | Executa o pipeline completo do episódio piloto (`run_pilot_pipeline.py`) com validação |
+| `/pipeline --phase research` (ou `--step research`) | Fase 1: Mineração e validação de fatos históricos desclassificados via `research_engine.py` |
+| `/pipeline --phase script` (ou `--step direct`) | Fase 2: Roteirização não-linear em 5 Atos com Showrunner Nolan (`nolan_director.py`) |
+| `/pipeline --phase audio` (ou `--step sound`) | Fase 3: Síntese vocal (CosyVoice / Kokoro) + Design de som Zimmer (-14 LUFS, -1.0 dBTP) |
+| `/pipeline --phase video` (ou `--step video`) | Fase 4: Geração de vídeo T2V/I2V no RunningHub ComfyUI / Wan 2.2 / MiniMax H3 |
+| `/pipeline --phase assembly` (ou `--phase render`) | Fase 5: Montagem final de cortes, sincronia de beat, legendas SRT e exportação |
+| `/pipeline --all` (ou `--step all`) | Executa o pipeline completo do episódio piloto (`run_pilot_pipeline.py`) com validação |
 
 ---
 

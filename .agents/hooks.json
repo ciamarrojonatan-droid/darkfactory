@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python scripts/post_command_check.py",
+            "command": "python .agents/scripts/post_command_check.py",
             "timeout": 15
           }
         ]
@@ -17,7 +17,7 @@
     "PreInvocation": [
       {
         "type": "command",
-        "command": "python scripts/inject_state.py",
+        "command": "python .agents/scripts/inject_state.py",
         "timeout": 10
       }
     ]
@@ -26,7 +26,7 @@
     "PreInvocation": [
       {
         "type": "command",
-        "command": "python scripts/wwyd_hook.py",
+        "command": "python .agents/scripts/wwyd_hook.py",
         "timeout": 10
       }
     ]
@@ -35,7 +35,7 @@
     "SessionStart": [
       {
         "type": "command",
-        "command": "python scripts/session_start.py",
+        "command": "python .agents/scripts/session_start.py",
         "timeout": 10
       }
     ]
@@ -44,7 +44,7 @@
     "Stop": [
       {
         "type": "command",
-        "command": "python scripts/stop_gate.py",
+        "command": "python .agents/scripts/stop_gate.py",
         "timeout": 10
       }
     ]
