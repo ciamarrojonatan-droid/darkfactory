@@ -62,3 +62,57 @@ def test_check_runninghub_session_valid_storage_state(tmp_path):
     }
     storage_state_file.write_text(json.dumps(valid_state), encoding="utf-8")
     assert check_runninghub_session(session_dir=session_dir, headless=True) is True
+
+
+def test_is_google_flow_authenticated_false_on_landing_page_with_signin_button():
+    """Unauthenticated landing page on flow.google.com with a sign-in button must return False."""
+    from src.auth_gate import is_google_flow_authenticated
+
+    mock_page = MagicMock()
+    mock_page.url = "https://flow.google.com"
+    mock_btn = MagicMock()
+    mock_btn.is_visible.return_value = True
+    mock_page.query_selector.return_value = mock_btn
+
+    assert is_google_flow_authenticated(mock_page, context=None) is False
+
+
+def test_is_google_flow_authenticated_true_with_sid_cookie():
+    """Context with valid Google SID cookie returns True."""
+    from src.auth_gate import is_google_flow_authenticated
+
+    mock_page = MagicMock()
+    mock_page.url = "https://flow.google.com"
+    mock_page.query_selector.return_value = None
+
+    mock_context = MagicMock()
+    mock_context.cookies.return_value = [
+        {"name": "SID", "value": "xyz123", "domain": ".google.com"}
+    ]
+
+    assert is_google_flow_authenticated(mock_page, context=mock_context) is True
+
+
+def test_is_runninghub_authenticated_false_on_login_screen():
+    """RunningHub login screen returns False."""
+    from src.auth_gate import is_runninghub_authenticated
+
+    mock_page = MagicMock()
+    mock_page.url = "https://www.runninghub.ai/pt-br/login"
+    assert is_runninghub_authenticated(mock_page, context=None) is False
+
+
+def test_is_runninghub_authenticated_true_with_token_cookie():
+    """Context with RunningHub token cookie returns True."""
+    from src.auth_gate import is_runninghub_authenticated
+
+    mock_page = MagicMock()
+    mock_page.url = "https://www.runninghub.ai/pt-br/workbench"
+    mock_page.query_selector.return_value = None
+
+    mock_context = MagicMock()
+    mock_context.cookies.return_value = [
+        {"name": "token", "value": "ey123456", "domain": "runninghub.ai"}
+    ]
+
+    assert is_runninghub_authenticated(mock_page, context=mock_context) is True

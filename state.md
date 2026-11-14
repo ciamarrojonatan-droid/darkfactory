@@ -38,7 +38,7 @@
 | **Fábrica de Vídeo T2V Real** | `ok` | `google_flow_bot.py` integrado à esteira com failover para MiniMax H3. Placas procedurais falsas banidas da produção |
 | **Montagem Master Final** | `ok` | `data/output/the_1983_soviet_glitch_final_1080p.mp4` (**13.90 min / 833.81s**, 68.6 MB, 1080p 2.39:1 Scope) |
 | **Cinema Dashboard (:8502)** | `ok` | Testes de API aprovados com 100% de sucesso · Pronto para inicialização via `run_dashboard.bat` |
-| **Qualidade & Testes (Pytest)** | `ok` | **261 passed, 2 skipped** (100% de cobertura nos módulos de Auth Gate, Failover e Quarentena de Vídeo) |
+| **Qualidade & Testes (Pytest)** | `ok` | **265 passed, 2 skipped** (100% de cobertura nos módulos de Auth Gate, Failover e Quarentena de Vídeo) |
 | **YouTube Compliance QC** | `ok` | Status `AUTO_REMEDIATED` (Score: 97/100) com Legal Dispute Kit e sem bloqueios |
 
 ---
