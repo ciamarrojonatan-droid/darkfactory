@@ -20,7 +20,7 @@
       "shot_name": "Tactical Macro Radar Display",
       "target_duration_sec": 8.0,
       "camera_direction": "Macro probe lens tracking across CRT screen grid",
-      "prompt": "Extreme macro close-up of a glowing monochrome green CRT radar screen inside Serpukhov-15 bunker, five rising missile trajectory vectors flashing in Cyrillic, cigarette smoke drifting through anamorphic lens flare, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "prompt": "Extreme macro close-up of glowing monochrome green CRT radar screen inside Serpukhov-15 bunker, five rising missile trajectory vectors flashing in Cyrillic, cigarette smoke drifting through anamorphic lens flare, Kodak Vision3 500T 5219 texture, IMAX 70mm --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
       "physical_simulation_cues": [
         "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
         "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
@@ -31,10 +31,10 @@
     {
       "scene_id": 2,
       "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
-      "shot_name": "Hardware Tension Macro",
+      "shot_name": "CRT Ballistic Vector Macro",
       "target_duration_sec": 8.0,
-      "camera_direction": "Rack focus from ticking Soviet military wall clock to glowing confirmation panel",
-      "prompt": "Cinematic macro shot of an industrial Soviet mechanical wall clock with red second hand ticking forward, dust motes floating in spotlight, rack focus to red Cyrillic warning stencil on metallic steel bulkhead, 8k resolution, photorealistic cinematic lighting --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "camera_direction": "Extreme macro rack focus on glowing phosphor trajectory",
+      "prompt": "Extreme close-up of curved green phosphor cathode ray tube monitor, ballistic arc curving across northern latitudes, glowing scanlines, dust motes drifting in anamorphic horizontal lens flare, authentic 1983 Soviet hardware, Kodak Vision3 500T stock, IMAX 70mm aesthetic --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
       "physical_simulation_cues": [
         "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
         "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
@@ -45,10 +45,528 @@
     {
       "scene_id": 3,
       "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
-      "shot_name": "Cosmic Truth / The High Altitude Glitch",
+      "shot_name": "Console Button Macro Tension",
       "target_duration_sec": 8.0,
-      "camera_direction": "Ethereal orbital slow tilt down to sunlight hitting cloud peaks",
-      "prompt": "Cinematic high-altitude view from an early Soviet reconnaissance satellite orbit, blinding morning sunlight reflecting off high-altitude storm clouds over North Dakota, anamorphic golden lens flare, IMAX 70mm, hyper-realistic Earth curvature, breathtaking optical beauty --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "camera_direction": "Low angle slider tracking past military switches",
+      "prompt": "Macro shot of rows of Soviet Bakelite toggle switches and red guarded missile confirmation push-buttons, brushed aluminum casing, Cyrillic stencils 'ПУСК', reflections of blinking red warning beacons, cinematic depth of field, IMAX 70mm --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 4,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Glowing Telemetry Map Display",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro track across glass tactical chart with grease-pencil marks",
+      "prompt": "Close-up of military cartographer transparent glass war map, red and green grease pencil ballistic vectors, hand holding illuminated magnifying glass over Moscow coordinates, cigarette smoke hanging in warm spotlight, 35mm film grain, Hoyte van Hoytema aesthetic --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 5,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Intercom Microphone Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro close-up on Soviet gooseneck microphone grille",
+      "prompt": "Extreme macro shot of vintage heavy steel gooseneck military intercom microphone, chipped green paint, dust in microphone wire mesh, vibrating with loud sound waves under dim red emergency spotlight, cinematic depth of field, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 6,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Infrared Telescope Optics Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro probe lens looking directly into gold-coated optical sensor mirror",
+      "prompt": "Extreme macro shot of cryogenically cooled infrared optical sensor lens array, gold reflective coating, hexagonal silicon sensor honeycomb grid, micro-circuitry reflecting starlight, hyper-detailed mechanical CAD aesthetic, cinematic 8k lighting --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 7,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Wall Board Five Red Lamps",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Tracking shot across ceiling bulkhead warning lamps",
+      "prompt": "Cinematic tracking shot across Soviet control room ceiling, five large glass incandescent red alarm domes flashing in unison, painted stencil labels 'РАКЕТНЫЙ УДАР 1 2 3 4 5', dust shaking from ceiling rivets, anamorphic flare, authentic Cold War texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 8,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Kremlin Red Hotline Switchboard",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Slow track along encrypted copper cable bundle to red Bakelite telephone",
+      "prompt": "Cinematic close-up of heavy Soviet crimson secure military telephone receiver resting in heavy chrome cradle, coiled rubber cord, red Cyrillic label 'ПРЯМАЯ СВЯЗЬ КРЕМЛЬ' (Direct Line Kremlin), shallow depth of field, dust particles in atmospheric volumetric spotlight --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 9,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Declassified Flight Recorder Tape Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro rack focus on spinning magnetic reel-to-reel tape",
+      "prompt": "Macro close-up of Soviet military magnetic reel-to-reel audio tape deck spinning slowly, analog VU needle bouncing into red distortion zone, dust motes in tungsten spotlight, Cyrillic label 'МАГНИТОФОН МН-61', vintage Cold War audio forensics, 8k resolution --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 10,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Confidential Politburo Dossier Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro probe sliding over red wax seal and Cyrillic signature",
+      "prompt": "Extreme macro of crimson Soviet wax seal on folded diplomatic envelope, hammer and sickle crest pressed in wax, yellowed parchment texture, fountain pen signature, soft dramatic lighting, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 11,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Microfilm Spy Camera Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro close-up of miniature spy camera lens advancing film",
+      "prompt": "Extreme close-up of vintage Soviet Minox subminiature spy camera, knurled metal dials, tiny optical lens reflecting classified typewritten English documents, finger advancing film with mechanical click, cinematic macro photography, Kodak 2383 grade --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 12,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Map Vector 6-Minute Timeline Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro slider track across mechanical chronometer measuring single seconds",
+      "prompt": "Extreme macro of Soviet military chronometer, sweep second hand ticking rapidly across red highlighted zone marked '6 МИНУТ' (6 MINUTES), scratched glass crystal, brass bezel, reflection of military radar screen in background, cinematic lighting, photorealistic 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 13,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Cyrillic Teletype Printout Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro rack focus on perforated teletype ribbon feeding through cipher machine",
+      "prompt": "Extreme macro of Soviet telegraph paper tape feeding through mechanical punch machine, punched paper chads falling, Cyrillic capital letters typing in blue ink, industrial metallic machinery, warm tungsten rim lighting, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 14,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Bunker Duty Logbook Entry Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro slider across blue ink handwriting in lined register",
+      "prompt": "Macro shot of lined clothbound Soviet logbook, fountain pen writing in blue ink Cyrillic cursive: 'Дежурный: подполковник Петров' (Duty Officer: Lt. Col. Petrov), date stamp 25.09.1983, shadow of officer hand passing across page, warm ambient lamplight, Kodak 2383 film look --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 15,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Vacuum Tube Racks Glowing Amber",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro tracking along floor-to-ceiling electronic mainframe racks",
+      "prompt": "Extreme macro of vintage 1980s Soviet computer mainframe racks, hundreds of glowing orange glass vacuum tubes and cathode indicators glowing in the dark, braided cloth cables, industrial metal framework, warm volumetric heat distortion, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 16,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Ferrite Magnetic Core Memory Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Microscopic probe shot gliding across miniature copper wire grid and magnetic rings",
+      "prompt": "Microscopic macro shot of vintage Soviet magnetic core memory plane, tiny ferrite donut rings threaded with paper-thin enamel copper wires, soldering micro-details, macro lighting glinting on copper threads, photorealistic 8k, IMAX film grain --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 17,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Coiled Telephone Cord Macro Tension",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro track along vibrating coiled telephone cable",
+      "prompt": "Cinematic macro shot of tightly stretched black coiled telephone wire vibrating with electronic tension, drifting cigarette smoke illuminated by harsh crimson alarm beacon, scratched industrial bulkhead background, depth of field razor-thin, Kodak Vision3 500T 5219 texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 18,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "General Staff Moscow Phone Desk",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Slow dolly back from ornate Soviet military switchboard in Moscow",
+      "prompt": "High angle shot of Soviet General Staff operations room in Moscow, generals in gold-braided uniforms frozen around red telephone console, wall-sized electronic map of the USSR glowing in background, dramatic cinematic lighting, authentic historical atmosphere --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 19,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Mechanical Relay Panel Clicking Frenzy",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro probe sliding over hundreds of mechanical glass relays clicking in sequence",
+      "prompt": "Extreme macro of Soviet telecommunication relay rack, tiny copper contacts snapping together with mechanical sparks, numbers flipping on electromagnetic counters, dust illuminated by pulsing red alarm strobe, authentic 1983 hardware micro-details, cinematic depth of field --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 20,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Infrared Sensor Glitch Matrix",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Computer monitor macro showing digital false heat signature blossom",
+      "prompt": "Extreme macro of green CRT phosphor grid, intense white saturation bloom spreading across pixel array, false target lock alert flashing in Cyrillic, scanlines flickering under electrical interference, authentic Cold War computer graphics, Kodak film texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 21,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Rocket Booster Exhaust Thermal Signature",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Extreme thermal FLIR macro view of rocket engine test firing",
+      "prompt": "Cinematic thermal FLIR imaging view of massive rocket booster rocket exhaust, white-hot plasma column, heat distortion shock diamonds, false-color thermal gradient from black to incandescent white, 8k resolution, cinematic documentary footage aesthetic --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 22,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Military Court Martial Gavel Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro rack focus on heavy wooden Soviet tribunal gavel and brass hammer plate",
+      "prompt": "Extreme macro of heavy wooden judge gavel resting on dark mahogany desk, red leather binder with gold Soviet crest, dramatic spotlight, dust motes floating in air, ominous legal dread atmosphere, 8k resolution --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 23,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Alarm Bell Clapper High Speed Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Ultra high-speed macro shot of brass clapper striking emergency bell gong",
+      "prompt": "Slow motion macro shot of industrial cast-iron emergency alarm bell clapper striking brass gong, metal vibrations visible, paint flaking off gong rim with each impact, dust jumping from bell housing, cinematic high-speed photography, 8k resolution --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 24,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Launch Key Turn Mechanism Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro shot of brass dual-key launch authorization mechanism",
+      "prompt": "Macro shot of two Soviet brass nuclear launch keys inserted into dual keyhole console, Cyrillic label 'ПУСК', hands in leather gloves hovering over keys ready for simultaneous turn, tension palpable, cinematic 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 25,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Petrov's Fingernails in Vinyl Armrest",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Extreme macro close-up of white-knuckled fingers digging into black vinyl chair",
+      "prompt": "Extreme close-up of human hand digging into cracked black vinyl chair armrest, fingernails turning white with pressure, sweat glistening on knuckles, red alarm strobe pulse casting sharp shadow across texture, photorealistic 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 26,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Radar Operator Headset Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro rack focus on wire microphone and sweating lips of remote operator",
+      "prompt": "Close-up of remote Soviet radar operator at Pechora station, vintage bakelite headphones on ears, speaking into metal radio microphone, green oscilloscope screen reflection dancing on his glasses, authentic Cold War electronics, 35mm film grain --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 27,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Radar Scope Green Sweep Empty Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro top-down circular radar sweep showing zero targets",
+      "prompt": "Top-down macro shot of round green CRT radar oscilloscope, bright green sweep line rotating smoothly at 30 RPM, empty dark screen with faint circular range rings, glass reflections of control room, subtle cathode glow, authentic 1983 vintage electronics --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 28,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Missile Silo Cluster Simulation Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro chart showing massive flock of hundreds of missiles vs solitary five vectors",
+      "prompt": "Cinematic macro shot of Soviet strategic strike map showing theoretical swarm of hundreds of red vectors crossing Europe, contrasted with single green radar terminal showing five lonely blips, dramatic lighting, grease pencil notes, historical documentary quality --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 29,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Timer Digital Nixie Tubes Flipping Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro close-up of glowing orange Soviet Nixie tube clock counting down seconds",
+      "prompt": "Extreme macro of Soviet orange Nixie tube display, wire mesh cathodes glowing brightly: '00:01:59' ticking to '00:01:58', glowing glass envelopes, warm orange filament glow reflecting on brushed aluminum chassis, authentic vintage technology, 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 30,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Wall Display Blanking Out",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Static shot of red illuminated sign suddenly flickering off into darkness",
+      "prompt": "Cinematic shot of giant red illuminated wall board 'РАКЕТНЫЙ УДАР' flickering with electrical spark and shutting down into dark grey glass, amber emergency lights taking over, smoke clearing, sound of cooling metal relays clicking, IMAX 70mm realism --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 31,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Bunker Air Exhaust Vent in Grass",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Low angle slider shot past weathered concrete air vent disguised in autumn leaves",
+      "prompt": "Cinematic low angle shot of weathered grey concrete ventilation shaft in grass, camouflage netting, warm air venting into cold night air creating faint steam, autumn leaves rustling on ground, cinematic documentary lighting, Kodak 2383 grade --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 32,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Water Droplets on Steel Console Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Extreme macro of water droplets resting on cold brushed steel dashboard",
+      "prompt": "Extreme macro of clear water droplets scattered across green-painted steel console surface, droplet reflecting blurred image of the officer's face above, beautiful cinematic specular highlights, photorealistic 8k, shallow depth of field --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 33,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Scientific Report Cloud Reflection Diagram Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro track across hand-drawn technical ballistic charts showing sun angles",
+      "prompt": "Extreme macro of Soviet technical report page with hand-drawn pen diagrams showing sun rays reflecting off high-altitude cloud tops into satellite sensor, Cyrillic handwritten annotations, red ink underlines, authentic yellowed document texture, 8k resolution --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 34,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Punched Computer Card Reading Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro high-speed shot of paper punched cards feeding into mainframe reader",
+      "prompt": "High-speed macro shot of rectangular cardboard Soviet punched cards flying through electronic card reader, perforations casting flickering light patterns, mechanical precision, warm vintage lighting, 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 35,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Disciplinary File Stamped with Red Seal Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro shot of official Soviet disciplinary reprimand stamped in red ink",
+      "prompt": "Macro close-up of typewritten Russian document with official red rubber stamp 'ВЗЫСКАНИЕ' (REPRIMAND), signature of presiding general, dust motes floating in dramatic ray of light, authentic paper texture --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 36,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Archival Photo of Petrov and Raissa Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro rack focus on small silver framed black-and-white photograph of young couple",
+      "prompt": "Extreme macro of small vintage black and white photograph in tarnished silver frame, young smiling Soviet officer with beautiful young woman in summer dress, edges worn, resting on lace tablecloth next to burning candle, warm intimate lighting, Kodak film aesthetic --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 37,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "General Votintsev's Memoir Book Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro close-up on printed book page detailing the Serpukhov-15 incident",
+      "prompt": "Macro shot of open Russian hardbound book, chapter heading '26 сентября 1983 года' (September 26, 1983), finger tracing over printed paragraph describing Petrov's defiance, warm reading lamp, photorealistic 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 38,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Simple Russian Tea Glass on Table Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro shot of traditional Russian podstakannik metal tea glass holder with black tea",
+      "prompt": "Macro shot of vintage Soviet nickel-silver podstakannik tea glass holder with steaming black tea, small silver spoon, reflection of kitchen window in amber tea liquid, warm cozy documentary atmosphere --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 39,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Crystal Award Inscription Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Macro track across glass crystal award engraved: 'The Man Who Prevented Nuclear War'",
+      "prompt": "Extreme macro shot of heavy crystal globe award, engraved gilded lettering: 'To The Man Who Averted Nuclear War', prismatic light reflections dancing across glass facets, dramatic spotlighting, photorealistic 8k --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
+      "physical_simulation_cues": [
+        "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
+        "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",
+        "Realistic metallic specular highlights and micro-scratches on steel console bulkheads"
+      ],
+      "native_48khz_audio_prompt": "Soviet military alarm klaxon at 48kHz, subtle 55Hz electrical mains hum, metallic mechanical switch clicks, deep atmospheric sub-bass reverberation."
+    },
+    {
+      "scene_id": 40,
+      "shot_role": "Hero Shot 4K Tactical Climax (Shot B)",
+      "shot_name": "Empty Radar Console in Darkness Macro",
+      "target_duration_sec": 8.0,
+      "camera_direction": "Slow dolly away from empty Soviet officer command chair in dark abandoned bunker",
+      "prompt": "Cinematic wide angle shot of abandoned Cold War Soviet control room, dust sheets covering consoles, solitary beam of daylight piercing through broken skylight onto empty leather command chair, poetic Tarkovsky nostalgia, 35mm film grain, fading slowly to black --ar 16:9 Shot on IMAX 70mm, Panavision anamorphic lenses, 4K UHD, zero AI plastic artifacts, physically simulated volumetric smoke and lens flares, Hoyte van Hoytema cinematography.",
       "physical_simulation_cues": [
         "Volumetric cigarette smoke reacting to air currents inside the pressurized bunker",
         "Dynamic glass reflection and phosphorescent CRT decay on monochrome green radar screen",

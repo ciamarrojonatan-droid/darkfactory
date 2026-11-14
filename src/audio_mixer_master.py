@@ -83,32 +83,54 @@ def get_audio_duration(ffmpeg_bin: str, file_path: Path) -> float:
 def create_procedural_ost_drone(output_wav: Path, duration: float = 40.0) -> None:
     """Fallback: Generates an organic Hans Zimmer style low cello and synthesizer drone in PCM."""
     sample_rate = 44100
+    try:
+        import numpy as np
+
+        t = np.linspace(0, duration, int(sample_rate * duration), endpoint=False, dtype=np.float32)
+        f1, f2, f3 = 73.42, 55.0, 110.0
+
+        # Organic LFOs
+        lfo1 = 1.0 + 0.04 * np.sin(2 * np.pi * 0.25 * t)
+        lfo2 = 1.0 + 0.06 * np.sin(2 * np.pi * 0.15 * t)
+
+        c1 = 0.35 * np.sin(2 * np.pi * (f1 * lfo1) * t)
+        c2 = 0.25 * np.sin(2 * np.pi * (f2 * lfo2) * t)
+        c3 = 0.15 * np.sin(2 * np.pi * f3 * t)
+        drift = 0.08 * np.sin(2 * np.pi * (f1 + 1.5 * np.sin(0.1 * t)) * t)
+
+        raw_wave = c1 + c2 + c3 + drift
+        samples = np.tanh(raw_wave * 1.4) * 0.65
+        int_samples = np.clip(samples * 32767.0, -32767, 32767).astype(np.int16)
+        stereo_samples = np.column_stack((int_samples, int_samples))
+
+        output_wav.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = output_wav.with_suffix(f".tmp.{os.getpid()}")
+        with wave.open(str(tmp_path), "wb") as wf:
+            wf.setnchannels(2)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
+            wf.writeframes(stereo_samples.tobytes())
+        tmp_path.replace(output_wav)
+        logger.info(f"Generated procedural cinematic OST drone: {output_wav.name} ({duration:.2f}s)")
+        return
+    except ImportError:
+        pass
+
     total_samples = int(sample_rate * duration)
     samples = [0.0] * total_samples
-
-    # Fundamental: D2 (73.42 Hz) + A1 (55 Hz) + D1 (36.7 Hz) cello harmonics
-    f1 = 73.42
-    f2 = 55.0
-    f3 = 110.0
+    f1, f2, f3 = 73.42, 55.0, 110.0
 
     for i in range(total_samples):
-        t = i / sample_rate
-        # Slow organic tremolo / vibrato LFO (0.2 Hz and 0.35 Hz)
-        lfo1 = 1.0 + 0.04 * math.sin(2 * math.pi * 0.25 * t)
-        lfo2 = 1.0 + 0.06 * math.sin(2 * math.pi * 0.15 * t)
-
-        # Cello body harmonics with soft tape warmth
-        c1 = 0.35 * math.sin(2 * math.pi * (f1 * lfo1) * t)
-        c2 = 0.25 * math.sin(2 * math.pi * (f2 * lfo2) * t)
-        c3 = 0.15 * math.sin(2 * math.pi * f3 * t)
-
-        # Evolving dissonance rising slowly
-        drift = 0.08 * math.sin(2 * math.pi * (f1 + 1.5 * math.sin(0.1 * t)) * t)
-
+        t_val = i / sample_rate
+        lfo1 = 1.0 + 0.04 * math.sin(2 * math.pi * 0.25 * t_val)
+        lfo2 = 1.0 + 0.06 * math.sin(2 * math.pi * 0.15 * t_val)
+        c1 = 0.35 * math.sin(2 * math.pi * (f1 * lfo1) * t_val)
+        c2 = 0.25 * math.sin(2 * math.pi * (f2 * lfo2) * t_val)
+        c3 = 0.15 * math.sin(2 * math.pi * f3 * t_val)
+        drift = 0.08 * math.sin(2 * math.pi * (f1 + 1.5 * math.sin(0.1 * t_val)) * t_val)
         raw_wave = c1 + c2 + c3 + drift
         samples[i] = math.tanh(raw_wave * 1.4) * 0.65
 
-    # Write 16-bit stereo WAV
     output_wav.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = output_wav.with_suffix(f".tmp.{os.getpid()}")
     with wave.open(str(tmp_path), "wb") as wf:
@@ -122,42 +144,117 @@ def create_procedural_ost_drone(output_wav: Path, duration: float = 40.0) -> Non
             packed_frames.extend(packed)
         wf.writeframes(packed_frames)
     tmp_path.replace(output_wav)
-    logger.info(f"Generated procedural cinematic OST drone: {output_wav.name}")
+    logger.info(f"Generated procedural cinematic OST drone: {output_wav.name} ({duration:.2f}s)")
 
 
 def create_procedural_foley_stem(output_wav: Path, duration: float = 40.0) -> None:
     """Fallback: Generates tactical Soviet bunker Foley (klaxon alarm, ticking clock, relay click)."""
     sample_rate = 44100
+    try:
+        import numpy as np
+
+        total_samples = int(sample_rate * duration)
+        t = np.linspace(0, duration, total_samples, endpoint=False, dtype=np.float32)
+        foley = np.zeros(total_samples, dtype=np.float32)
+
+        if duration <= 45.0:
+            # Short Teaser Mode: fixed sections
+            mask1 = t < 16.8
+            cycle1 = t[mask1] % 1.8
+            alarm_env = np.where(cycle1 < 0.8, np.exp(-6.0 * (cycle1 - 0.2) ** 2), 0.0)
+            foley[mask1] = 0.20 * alarm_env * np.sin(2 * np.pi * 780 * t[mask1]) + 0.08 * np.sin(2 * np.pi * 55 * t[mask1])
+
+            mask2 = (t >= 16.8) & (t < 27.7)
+            cycle2 = (t[mask2] - 16.8) % 1.0
+            tick_env = np.where(cycle2 < 0.06, np.exp(-600.0 * (cycle2 - 0.02) ** 2), 0.0)
+            foley[mask2] = 0.35 * tick_env * np.sin(2 * np.pi * 1200 * t[mask2])
+
+            mask3 = (t >= 35.45) & (t <= 35.60)
+            t_rel3 = t[mask3] - 35.45
+            click_env = np.exp(-800.0 * (t_rel3 - 0.02) ** 2)
+            foley[mask3] = 0.65 * click_env * np.sin(2 * np.pi * 2400 * t[mask3])
+        else:
+            # Multi-Act Documentary Mode (scales dynamically across 5 acts)
+            # Continuous bunker hum
+            foley += 0.04 * np.sin(2 * np.pi * 50 * t)
+
+            # Act I (0 - 20%): Emergency klaxon alarm
+            act1_end = 0.20 * duration
+            mask_act1 = t < act1_end
+            cycle_act1 = t[mask_act1] % 2.5
+            alarm_env1 = np.where(cycle_act1 < 0.7, np.exp(-5.0 * (cycle_act1 - 0.2) ** 2), 0.0)
+            foley[mask_act1] += 0.16 * alarm_env1 * np.sin(2 * np.pi * 780 * t[mask_act1])
+
+            # Act II (20% - 40%): Teleprinter / radar static pulses
+            act2_end = 0.40 * duration
+            mask_act2 = (t >= act1_end) & (t < act2_end)
+            cycle_act2 = t[mask_act2] % 3.0
+            radar_env = np.where(cycle_act2 < 0.12, np.exp(-300.0 * (cycle_act2 - 0.04) ** 2), 0.0)
+            foley[mask_act2] += 0.14 * radar_env * np.sin(2 * np.pi * 1800 * t[mask_act2])
+
+            # Act III (40% - 60%): Escalating mechanical clock ticking (60 BPM)
+            act3_end = 0.60 * duration
+            mask_act3 = (t >= act2_end) & (t < act3_end)
+            cycle_act3 = t[mask_act3] % 1.0
+            tick_env3 = np.where(cycle_act3 < 0.05, np.exp(-500.0 * (cycle_act3 - 0.02) ** 2), 0.0)
+            foley[mask_act3] += 0.22 * tick_env3 * np.sin(2 * np.pi * 1400 * t[mask_act3])
+
+            # Act IV (60% - 80%): Accelerated heartbeats / clock (90 BPM) & Climax switch click
+            act4_end = 0.80 * duration
+            mask_act4 = (t >= act3_end) & (t < act4_end)
+            cycle_act4 = t[mask_act4] % 0.667
+            tick_env4 = np.where(cycle_act4 < 0.04, np.exp(-600.0 * (cycle_act4 - 0.02) ** 2), 0.0)
+            foley[mask_act4] += 0.25 * tick_env4 * np.sin(2 * np.pi * 1600 * t[mask_act4])
+
+            # Climax toggle click at 78% of duration
+            t_climax = 0.78 * duration
+            mask_click = (t >= t_climax) & (t < t_climax + 0.15)
+            t_rel_c = t[mask_click] - t_climax
+            click_env = np.exp(-600.0 * t_rel_c)
+            foley[mask_click] += 0.55 * click_env * np.sin(2 * np.pi * 2200 * t[mask_click])
+
+            # Act V (80% - 100%): Low atmospheric wind / tape hiss resonance
+            mask_act5 = t >= act4_end
+            foley[mask_act5] += 0.03 * np.sin(2 * np.pi * 42 * t[mask_act5])
+
+        samples = np.clip(foley, -1.0, 1.0)
+        int_samples = np.clip(samples * 32767.0, -32767, 32767).astype(np.int16)
+        stereo_samples = np.column_stack((int_samples, int_samples))
+
+        output_wav.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = output_wav.with_suffix(f".tmp.{os.getpid()}")
+        with wave.open(str(tmp_path), "wb") as wf:
+            wf.setnchannels(2)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
+            wf.writeframes(stereo_samples.tobytes())
+        tmp_path.replace(output_wav)
+        logger.info(f"Generated procedural tactical Foley stem: {output_wav.name} ({duration:.2f}s)")
+        return
+    except ImportError:
+        pass
+
     total_samples = int(sample_rate * duration)
     samples = [0.0] * total_samples
-
     for i in range(total_samples):
-        t = i / sample_rate
+        t_val = i / sample_rate
         val = 0.0
-
-        # Section 1 (0 to 16.8s): Emergency klaxon alarm in concrete bunker (sine 780Hz pulsed)
-        if t < 16.8:
-            cycle = t % 1.8
+        if t_val < 16.8:
+            cycle = t_val % 1.8
             if cycle < 0.8:
                 env = math.exp(-6.0 * (cycle - 0.2) ** 2)
-                # Alarm tone + 55Hz room transformer
-                val += 0.20 * env * math.sin(2 * math.pi * 780 * t)
-            val += 0.08 * math.sin(2 * math.pi * 55 * t)
-
-        # Section 2 (16.8 to 27.7s): Mechanical clock ticking (60 BPM)
-        elif t < 27.7:
-            cycle_c = (t - 16.8) % 1.0
+                val += 0.20 * env * math.sin(2 * math.pi * 780 * t_val)
+            val += 0.08 * math.sin(2 * math.pi * 55 * t_val)
+        elif t_val < 27.7:
+            cycle_c = (t_val - 16.8) % 1.0
             if cycle_c < 0.06:
                 tick_env = math.exp(-600.0 * (cycle_c - 0.02) ** 2)
-                val += 0.35 * tick_env * math.sin(2 * math.pi * 1200 * t)
-
-        # Section 3 (27.7 to end): Sudden silence drop and sharp industrial switch click at 35.5s
+                val += 0.35 * tick_env * math.sin(2 * math.pi * 1200 * t_val)
         else:
-            if 35.45 <= t <= 35.60:
-                t_rel = t - 35.45
+            if 35.45 <= t_val <= 35.60:
+                t_rel = t_val - 35.45
                 click_env = math.exp(-800.0 * (t_rel - 0.02) ** 2)
-                val += 0.65 * click_env * math.sin(2 * math.pi * 2400 * t)
-
+                val += 0.65 * click_env * math.sin(2 * math.pi * 2400 * t_val)
         samples[i] = max(-1.0, min(1.0, val))
 
     tmp_path = output_wav.with_suffix(f".tmp.{os.getpid()}")
@@ -172,7 +269,7 @@ def create_procedural_foley_stem(output_wav: Path, duration: float = 40.0) -> No
             packed_frames.extend(packed)
         wf.writeframes(packed_frames)
     tmp_path.replace(output_wav)
-    logger.info(f"Generated procedural tactical Foley stem: {output_wav.name}")
+    logger.info(f"Generated procedural tactical Foley stem: {output_wav.name} ({duration:.2f}s)")
 
 
 class AudioMixerMaster:

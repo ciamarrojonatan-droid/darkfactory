@@ -18,7 +18,7 @@
       "shot_name": "Psychological Panic Close-Up",
       "target_duration_sec": 14.5,
       "camera_trajectory": "Slow dramatic push-in towards the glowing green radar terminal under flashing red strobe",
-      "prompt": "Cinematic portrait of a 44-year-old Soviet military officer Stanislav Petrov, beads of sweat glistening under harsh rotating emergency red alarm beacon, dim ambient lighting, 35mm anamorphic cinema lens, Hoyte van Hoytema chiaroscuro photography, photorealistic 8k, IMAX film grain --ar 16:9",
+      "prompt": "Cinematic portrait of 44-year-old Soviet military officer Stanislav Petrov, beads of sweat glistening under harsh rotating emergency red alarm beacon, dim ambient lighting, 35mm anamorphic cinema lens, Hoyte van Hoytema chiaroscuro photography, photorealistic 8k, IMAX film grain --ar 16:9",
       "historical_reference_slots": [
         {
           "slot": 1,
@@ -55,10 +55,10 @@
     {
       "scene_id": 2,
       "shot_role": "Continuity Character Take (Shot A)",
-      "shot_name": "Claustrophobic Face Chiaroscuro",
+      "shot_name": "Bunker Command Frenzy",
       "target_duration_sec": 15.0,
-      "camera_trajectory": "Subtle slow creep-in on Petrov's trembling hand resting on the secure red telephone",
-      "prompt": "Low angle medium cinematic close-up of Stanislav Petrov holding a heavy black Bakelite Soviet telephone receiver, shadows cutting across his weathered face, authentic military medals reflecting red alarm glow, 35mm film grain, shallow depth of field, Hoyte van Hoytema aesthetic --ar 16:9",
+      "camera_trajectory": "Overhead orthographic tracking shot gliding across tactical ballistic map table",
+      "prompt": "Medium tracking shot inside dim Soviet command bunker, 1980s computer consoles with glowing Cyrillic dials, young military technicians frozen in shock, harsh overhead fluorescent tubes flickering against smoke, 35mm film grain, Hoyte van Hoytema cinematography, photorealistic IMAX --ar 16:9",
       "historical_reference_slots": [
         {
           "slot": 1,
@@ -90,15 +90,15 @@
         "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
         "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
       ],
-      "native_audio_cue": "Shepard Tone accelerating in pitch, low brass dissonant swell"
+      "native_audio_cue": "Dark bass ostinato at 60 BPM with dissonant brass stingers"
     },
     {
       "scene_id": 3,
       "shot_role": "Continuity Character Take (Shot A)",
-      "shot_name": "The Finger Above the Button",
+      "shot_name": "The Burden of Eyes",
       "target_duration_sec": 15.0,
-      "camera_trajectory": "Extreme low angle rack focus from the heavy red button to the tense fingers hovering above it",
-      "prompt": "Low angle extreme close-up of a military officer's trembling hand hovering inches above a heavy industrial red authorization button, retro Soviet control console, metallic switchboard with Cyrillic stencils, dusty light beams cutting through darkness, high tension cinematic thriller aesthetic, 8k resolution --ar 16:9",
+      "camera_trajectory": "Slow 360-degree orbital drift around Petrov's weathered face in extreme close-up",
+      "prompt": "Extreme close-up of 44-year-old Russian officer's eyes, weathered wrinkles, dark circles of exhaustion, red alarm strobe glinting in pupils, deep psychological burden, Hoyte van Hoytema lighting, 35mm film grain, IMAX master shot --ar 16:9",
       "historical_reference_slots": [
         {
           "slot": 1,
@@ -130,7 +130,1487 @@
         "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
         "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
       ],
-      "native_audio_cue": "Sudden complete silence drop for 1.8 seconds, followed by profound low cello resolution (Hans Zimmer Time style)"
+      "native_audio_cue": "Solo cello sustained lower pedal tone in D minor with subtle vinyl static"
+    },
+    {
+      "scene_id": 4,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Arctic Missile Vector CGI",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "High-altitude satellite view tilting down over polar ice cap with animated tactical vector lines",
+      "prompt": "Epic cinematic wide aerial shot of frozen Arctic ocean ice sheet under midnight sun, dark ominous clouds, cold cyan atmosphere, realistic atmospheric fog, anamorphic lens flare, Kodak Vision3 250D style, IMAX 70mm nature cinematography --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Mechanical clock pulse entering at exactly 60 BPM under sub-bass swell"
+    },
+    {
+      "scene_id": 5,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Confronting Subordinates",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Dutch-angle shoulder rig camera rushing through bunker walkway toward Petrov's command console",
+      "prompt": "Medium shot of Soviet officer in olive green uniform slamming his hand on steel console, shouting orders, veins bulging on forehead, intense chiaroscuro lighting, heavy cigarette smoke drifting through red siren strobes, Hoyte van Hoytema 35mm anamorphic, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Sudden stop of orchestral pads, leaving only high ringing tinnitus frequency and muffled voices"
+    },
+    {
+      "scene_id": 6,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Kosmos-1383 in Cold Orbit",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Orbital rotation around Soviet satellite model in zero-gravity with cutaway wireframe lines",
+      "prompt": "Photorealistic Soviet military reconnaissance satellite Kosmos-1383 in high Earth orbit, dark titanium shielding, glowing blue solar panels reflecting deep black space, Earth curvature illuminated below with sunrise horizon line, IMAX 70mm space realism like 2001 A Space Odyssey, pristine optical lens flare --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Ethereal high string harmonics drifting above cold modular synth pulses"
+    },
+    {
+      "scene_id": 7,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Paralyzed by Five Sirens",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Rapid snap-zooms alternating between the flashing red monitor and Petrov's trembling fingers",
+      "prompt": "Low angle cinematic close-up of Stanislav Petrov, uniform drenched in sweat, harsh red emergency strobe painting his weathered face in blood-red tones, smoke drifting from an ashtray, extreme psychological terror, Hoyte van Hoytema Oppenheimer aesthetic, 35mm grain, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Hans Zimmer Shepard Tone accelerating rapidly, full orchestra low brass braam hits on each missile count"
+    },
+    {
+      "scene_id": 8,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Protocol Manual Page Turn",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow downward crane shot landing squarely on Soviet operational manual stamped TOP SECRET",
+      "prompt": "Overhead macro shot of aged Soviet military manual, yellowed typed Cyrillic text, red ink stamp 'СОВЕРШЕННО СЕКРЕТНО' (TOP SECRET), hand in military sleeve pointing to paragraph on nuclear retaliation, warm desk lamp casting sharp shadow, 35mm film grain, cinematic documentary lighting --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Low sustained contrabass drone holding steady as all percussion cuts out abruptly"
+    },
+    {
+      "scene_id": 9,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Su-15 Interceptor Night Patrol",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow Ken Burns push-in on archival black-and-white radar photograph with simulated film grain and scratches",
+      "prompt": "Cinematic night shot of Soviet Sukhoi Su-15 fighter jet banking hard over dark turbulent ocean clouds, afterburner glowing brilliant orange against deep blue midnight sky, 35mm anamorphic lens, authentic Soviet red star markings, Hoyte van Hoytema photography, photorealistic IMAX 70mm --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Dark atmospheric cello drones with discordant high violin harmonics"
+    },
+    {
+      "scene_id": 10,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Andropov Shadowy Silhouette",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow creeping dolly through dark opulent Kremlin hospital corridor toward a silhouetted figure",
+      "prompt": "Cinematic noir shot of elderly sickly Soviet leader in dark hospital room, oxygen cannula, staring through heavy velvet curtains out into rainy Moscow night, amber streetlights reflecting in puddles, Gordon Willis Godfather-style darkness, deep blacks, authentic 1983 Soviet architecture --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Muted low piano chords in minor seconds, creating a suffocating air of political doom"
+    },
+    {
+      "scene_id": 11,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "KGB Operative in London Rain",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Overhead telephoto spy camera perspective overlooking rainy European intersection with crosshair overlays",
+      "prompt": "Cold War spy cinema aesthetic: Soviet KGB operative in dark trench coat standing under umbrella on rainy London street corner, watching black government limousines leave British Ministry of Defence, wet asphalt reflecting red tail lights, Tinker Tailor Soldier Spy atmosphere, 35mm film grain, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Tense rhythmic staccato cello ostinato with sub-bass pulses"
+    },
+    {
+      "scene_id": 12,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Pershing II Silo Erection",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Dynamic animated map zoom from West Germany across the Iron Curtain directly into Moscow",
+      "prompt": "Dramatic cinematic low angle shot of US military Pershing II missile erector launcher in foggy German forest, giant green camouflage missile elevating into vertical launch position, morning mist swirling, headlights cutting through trees, authentic 1983 NATO military field exercise, 35mm anamorphic, IMAX film grain --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "High-register dissonant brass glissando descending rapidly like an incoming bomb"
+    },
+    {
+      "scene_id": 13,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "General Staff Officer Signing Directive",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Static frontal symmetrical Kubrickian composition staring down an empty concrete bunker corridor",
+      "prompt": "Medium close-up of stern Soviet Marshal in formal parade uniform with gold shoulder boards, signing official military document with heavy black fountain pen, intense dramatic chiaroscuro side lighting, portrait of Lenin blurred on wood paneled wall behind, 35mm film grain, Hoyte van Hoytema palette --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Ominous low cello solo over subterranean 40Hz electrical hum"
+    },
+    {
+      "scene_id": 14,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Leaving Apartment in Fog",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow tracking shot following Petrov walking through misty Moscow apartment courtyard toward military staff car",
+      "prompt": "Cinematic atmospheric wide shot of Russian officer Stanislav Petrov walking down wet cobblestone courtyard between brutalist concrete Moscow apartment towers, autumn mist swirling under streetlamps, military olive greatcoat, carrying black leather briefcase, melancholy Tarkovsky atmosphere, 35mm film grain, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Gentle, mournful solo cello melody slowly swallowed by deep oceanic sub-bass"
+    },
+    {
+      "scene_id": 15,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Massive Bunker Blast Door",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow, deliberate Steadicam track through the massive circular subterranean blast door into the main operations vault",
+      "prompt": "Cinematic wide angle shot inside Soviet subterranean military facility, massive circular four-foot thick steel blast door with interlocking locking lugs, yellow radioactive hazard stencils, armed sentry in ushanka hat standing guard under harsh fluorescent lighting, mist venting from pressure valves, 35mm film grain, IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Industrial ambient soundscape: 55Hz mains frequency humming in harmony with low synth drones"
+    },
+    {
+      "scene_id": 16,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "M-10 Mainframe Computing Hall",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Isometric 3D CAD schematic breakdown of M-10 mainframe circuit cards and memory drums",
+      "prompt": "Cinematic wide angle shot of vast subterranean Soviet computer hall, endless rows of tall olive-green M-10 supercomputer cabinets with blinking indicator lamps, technicians in white lab coats checking printouts, subtle heat haze rising, 35mm anamorphic prime lens, Christopher Nolan Interstellar laboratory aesthetic --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Algorithmic, repetitive synthesizer arpeggios in 5/4 time, cold and unfeeling"
+    },
+    {
+      "scene_id": 17,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Gripping Red Telephone",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow Dutch-angle push-in on Petrov's trembling hand holding the crimson telephone receiver",
+      "prompt": "Extreme close-up of weathered hands of Soviet officer gripping a heavy crimson military telephone receiver, white knuckles, trembling fingers, drops of sweat falling onto steel console desk, flashing red alarm strobe lighting the scene in high-contrast chiaroscuro, 35mm anamorphic prime lens, IMAX 70mm realism --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Deep orchestral braam swelling under harsh electronic feedback tone"
+    },
+    {
+      "scene_id": 18,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Profile in Shadows",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow tracking shot pushing in on Petrov's profile against the dim silhouette of his command staff",
+      "prompt": "Cinematic side profile of Stanislav Petrov, face half-swallowed in shadow, speaking softly into telephone receiver, solitary tear or bead of sweat tracing down cheek, dimly lit control room behind him, Hoyte van Hoytema chiaroscuro masterpiece, 35mm film grain, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Music cuts to near-silence, leaving only an ominous 50Hz sub-bass heartbeat pulse"
+    },
+    {
+      "scene_id": 19,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "W-78 Warheads in Space Orbit",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "High orbit camera following three cone-shaped nuclear warheads tumbling silently in outer space",
+      "prompt": "Photorealistic space shot of three conical W-78 thermonuclear reentry warheads gliding through silent black vacuum, black heat-shield carbon texture reflecting distant sunrise over blue Earth curvature, orbital thruster bursts, terrifying mechanical perfection, Stanley Kubrick 2001 aesthetic, 8k resolution, IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Ascending string glissando with accelerating mechanical clock rhythm"
+    },
+    {
+      "scene_id": 20,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Sun Glint on Cirrus Clouds from Orbit",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Cosmic scale camera pulling back from satellite lens to show the vast Sun-Earth-Cloud geometric triangle",
+      "prompt": "Breathtaking IMAX 70mm space view from high Earth orbit, blinding morning sunlight reflecting like a mirror off high-altitude white cirrus ice clouds over the Great Plains, golden sun glint, deep blue atmospheric haze, curved Earth horizon, hyper-realistic physics, Interstellar space cinematography --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Ethereal, haunting choral synth textures evoking the vast silence of space"
+    },
+    {
+      "scene_id": 21,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Satellite Optical Sensor Breakdown",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Microscopic probe lens entering the interior barrel of the satellite telescope housing",
+      "prompt": "Detailed 3D mechanical CAD schematic cutaway of vintage Soviet satellite optical telescope, gold coated parabolic mirror, hexagonal baffle ridges, light ray raytracing lines showing reflection bouncing into sensor focal plane, 4-tone technical illustration palette, cinematic lighting --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Minimalist repeating piano phrase in A minor with ticking metallic sound design"
+    },
+    {
+      "scene_id": 22,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Frozen Soviet Officers at Attention",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow symmetrical tracking shot down row of Soviet officers standing at attention with glazed, terrified expressions",
+      "prompt": "Cinematic tracking shot past faces of five young Soviet military radar technicians standing stiffly at attention, terror in their eyes, sweat on upper lips, harsh green and red console light painting their young faces, authentic 1983 Soviet uniforms and badges, Hoyte van Hoytema palette, 35mm film grain --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Dark, suffocating contrabass drone with distorted tape flutter effects"
+    },
+    {
+      "scene_id": 23,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Wall Display Red Cyrillic Terror",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Violent kinetic push-in vibrating with sub-bass toward the three-meter illuminated wall sign",
+      "prompt": "Cinematic wide angle shot inside darkened Soviet military bunker looking up at giant illuminated glass wall board, flashing brilliant red Cyrillic text 'РАКЕТНЫЙ УДАР', intense red glow washing over the entire concrete chamber, smoke from cigarettes curling in the red beam, 35mm anamorphic, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Full Hans Zimmer orchestral climax: brass braams hitting in sync with red strobe pulses"
+    },
+    {
+      "scene_id": 24,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Soviet ICBM Silo Field in Snow",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow dramatic crane down from control room ceiling settling inches from Petrov's sweating forehead",
+      "prompt": "Epic aerial cinematic wide shot over frozen Siberian taiga forest at twilight, massive steel nuclear missile silo doors sliding open through snow, white hydraulic steam venting into freezing air, dark sinister military infrastructure, Kodak Vision3 250D texture, IMAX 70mm cinematography --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Sudden stop of high frequencies, leaving only an agonizing slow sub-bass heartbeat pulse"
+    },
+    {
+      "scene_id": 25,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Wall of 120 Frozen Faces",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow 360-degree orbital dolly moving around Petrov's seated figure, showing the wall of silent faces behind him",
+      "prompt": "Cinematic deep focus shot from behind Petrov's shoulder looking at three tiers of Soviet military radar operators, dozens of men in olive uniforms staring directly at camera, expressions of pure paralyzed dread, overhead fluorescent tube casting cold green shadows, cigarette smoke hanging static, IMAX 70mm composition --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Solo high violin holding a piercing, unyielding harmonic tone at 4000Hz (auditory tinnitus)"
+    },
+    {
+      "scene_id": 26,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Colossal Daryal Radar Antenna in Tundra",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Rapid cut between Petrov shouting into intercom and giant steel radar array in misty tundra",
+      "prompt": "Epic cinematic low angle shot of colossal Soviet Daryal over-the-horizon radar installation, giant slanted steel lattice phased array building standing 100 meters tall in barren snowy tundra, dark overcast sky, red aircraft warning lights blinking on rooftop, brutalist Soviet military scale, IMAX 70mm --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Rapid mechanical ticking clock accelerating to 120 BPM over dark analog synth pads"
+    },
+    {
+      "scene_id": 27,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Closing Eyes in Prayer/Despair",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow dolly push-in on Petrov closing his eyes in quiet agony as the radio goes silent",
+      "prompt": "Extreme close-up of Stanislav Petrov, 44, weathered Russian face, shutting his eyes in profound spiritual exhaustion, heavy brow furrowed, sweat glistening on temples, rotating red beacon painting the side of his nose and cheekbone, Rembrandt dramatic chiaroscuro, 35mm anamorphic prime lens, IMAX film quality --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Low cellos playing slow descending minor thirds, sounding like a funeral march"
+    },
+    {
+      "scene_id": 28,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov's Moment of Clarity",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow, majestic push-in straight into Petrov's eyes as a subtle spark of resolve replaces terror",
+      "prompt": "Cinematic medium close-up of Stanislav Petrov, posture straightening in command chair, face transforming from fear to quiet steely resolve, eyes sharp and analytical, red alarm light still flashing but no longer terrifying him, warm golden rim light defining his silhouette, Hoyte van Hoytema Oppenheimer aesthetic --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Music shifts from discordant terror to a noble, profound cello and horn hymn (Hans Zimmer 'Time' chord progression)"
+    },
+    {
+      "scene_id": 29,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Red Square Silent Midnight Shadows",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Overhead satellite zoom plummeting down toward Red Square and the Kremlin rooftops under night sky",
+      "prompt": "Cinematic epic wide angle shot of Red Square in Moscow at midnight in 1983, Saint Basil's Cathedral silhouetted against dark purple-grey stormy clouds, damp cobblestones reflecting distant yellow streetlamps, complete eerie silence, cinematic atmospheric grain, 35mm film stock, IMAX 70mm composition --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Orchestral tension building to an unbearable, deafening sonic wall: brass, strings, and bass drum hits"
+    },
+    {
+      "scene_id": 30,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Faces in the Dark at Zero",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Extreme slow motion macro camera drifting across the silent faces of the operators with closed eyes",
+      "prompt": "Slow motion 35mm film shot of Soviet officers seated at radar consoles with eyes closed in prayer or fear, red alarm strobe light suddenly freezing and shutting off, ambient emergency lights clicking to dull green tone, cinematic chiaroscuro, intense psychological drama, Hoyte van Hoytema photography --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "COMPLETE AUDIO BLACKOUT for 3 full seconds, absolute silence, zero music, zero ambient sound"
+    },
+    {
+      "scene_id": 31,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Pine Forest Mist Outside Bunker",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow upward crane shot rising out of the underground bunker hatch into the misty, peaceful midnight forest",
+      "prompt": "Breathtaking cinematic wide shot of Russian birch and pine forest at midnight, gentle white mist drifting between tree trunks, cold blue moonlight filtering through branches, peaceful autumn stillness, 35mm film grain, Terrence Malick nature cinematography, photorealistic IMAX --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Lush, warm strings swell gently in D major, emotional and deeply moving (Hans Zimmer style)"
+    },
+    {
+      "scene_id": 32,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Drinking Water with Shaking Hands",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Close-up on Petrov's trembling hands holding a heavy Russian glass tumbler, water spilling slightly",
+      "prompt": "Cinematic medium close-up of Stanislav Petrov, uniform unbuttoned at collar, drinking water from traditional Russian faceted glass tumbler with trembling hands, water spilling down chin, look of utter catharsis and exhaustion, dim green ambient console light, Hoyte van Hoytema photography, 35mm film grain --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Solo cello continuing its gentle, contemplative hymn over sustained warm bass chords"
+    },
+    {
+      "scene_id": 33,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "General Votintsev at Inquest Table",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow tracking shot across a long conference table covered in classified Soviet technical dossiers stamped 'СОВЕРШЕННО СЕКРЕТНО'",
+      "prompt": "Cinematic medium shot of elderly Soviet General Yuri Votintsev in olive uniform with red lapels and medals, reading secret technical report at dark polished oak table, three solemn officers in background, harsh side lighting from tall window, 35mm film grain, Chernobyl HBO series aesthetic --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Dark, rhythmic cello pizzicato with mysterious bass clarinet counterpoint"
+    },
+    {
+      "scene_id": 34,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Soviet Engineers Rewriting Code",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Isometric 3D CAD schematic animation showing the software patch filtering out high-altitude specular cloud glare",
+      "prompt": "Cinematic shot inside Soviet aerospace laboratory, engineers in grey smocks huddled around drafting tables covered in blueprints, slide rules and punched cards, fluorescent lights, chalkboard covered in complex calculus, 35mm film grain, authentic 1980s Soviet scientific atmosphere --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Cold modular synth arpeggios descending into subterranean sub-bass"
+    },
+    {
+      "scene_id": 35,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Under Bare Lightbulb in Interrogation",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow circular tracking shot around an interrogation table: Petrov sitting isolated under a single bare lightbulb",
+      "prompt": "Dramatic cinematic noir shot of Stanislav Petrov seated in bare concrete room under single swinging incandescent bulb, arms resting on wooden table, face illuminated by harsh overhead cone of light, dark shadows swallowing the room, Godfather Gordon Willis lighting, deep emotional sorrow, 35mm film grain --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Mournful solo cello playing a slow lament in G minor, filled with heartache and institutional cruelty"
+    },
+    {
+      "scene_id": 36,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov Solitary in Modest Apartment",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow Ken Burns pan across authentic black-and-white family photographs of Stanislav and Raissa Petrov",
+      "prompt": "Cinematic melancholy shot of elderly Stanislav Petrov sitting alone by window in modest Soviet-era apartment, wearing worn knitted cardigan, holding steaming porcelain teacup, looking out at grey winter snow falling outside, Tarkovsky poetic atmosphere, soft natural window light, 35mm film grain --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Acoustic cello and mournful piano duet, fragile, poetic, and infinitely sad"
+    },
+    {
+      "scene_id": 37,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Newspaper Printing Press 1998 Headlines",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Rapid kinetic montage of international newspaper headlines spinning into focus: New York Times, BBC, Der Spiegel",
+      "prompt": "Cinematic shot of industrial newspaper printing press running at high speed, fresh ink, papers flying through rollers, headlines visible in English and German: 'THE MAN WHO SAVED THE WORLD', warm industrial lighting, dynamic motion blur, 35mm film grain, David Fincher Zodiac newspaper aesthetic --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Propulsive, investigative string ostinato with ascending brass pulses"
+    },
+    {
+      "scene_id": 38,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Elderly Petrov Peeling Potatoes in Kitchen",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow tracking shot through Petrov's cramped kitchen, landing on the elderly officer peeling a potato with a small knife",
+      "prompt": "Cinematic documentary medium shot of elderly Stanislav Petrov, 67, silver hair, gentle smiling eyes, peeling potato at modest formica kitchen table, worn checkered shirt, steam rising from small enamel pot on stove, warm afternoon window light illuminating his face, photorealistic 8k, IMAX natural lighting --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Solo acoustic guitar and cello playing a warm, humble folk-like melody"
+    },
+    {
+      "scene_id": 39,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Petrov at United Nations Podium",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow dolly push-in on the United Nations crystal award catching spotlight reflections",
+      "prompt": "Cinematic medium shot of elderly Stanislav Petrov standing at United Nations podium in New York, modest dark suit, multiple camera flashbulbs illuminating him like stars, dignified quiet expression, blue United Nations emblem in background, 35mm film grain, Hoyte van Hoytema lighting --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Full orchestral swell: French horns and cellos soaring in triumphant, dignified beauty"
+    },
+    {
+      "scene_id": 40,
+      "shot_role": "Continuity Character Take (Shot A)",
+      "shot_name": "Earth from Deep Space in Pure Peace",
+      "target_duration_sec": 15.0,
+      "camera_trajectory": "Slow, majestic tilt up from Petrov's empty desk into the vast starry cosmos, dissolving into black",
+      "prompt": "Epic awe-inspiring wide shot of the living blue planet Earth floating in deep silent space, white clouds, vibrant blue oceans, thin glowing cyan atmospheric crescent, brilliant sunlight peeking around horizon, pristine 70mm IMAX cinematography, Interstellar cosmic perspective, peaceful and fragile --ar 16:9",
+      "historical_reference_slots": [
+        {
+          "slot": 1,
+          "description": "Stanislav Petrov formal Soviet military portrait (1983 era, uniform and cap)"
+        },
+        {
+          "slot": 2,
+          "description": "Serpukhov-15 command bunker interior architectural layout"
+        },
+        {
+          "slot": 3,
+          "description": "Vintage Soviet Bakelite black telephone receiver and wiring"
+        },
+        {
+          "slot": 4,
+          "description": "Authentic Soviet military service medals and collar rank insignias"
+        },
+        {
+          "slot": 5,
+          "description": "Cold War steel control console panels with Cyrillic nomenclature"
+        },
+        {
+          "slot": 6,
+          "description": "Subdued greenish-red ambient illumination profile"
+        }
+      ],
+      "conversational_edit_instructions": [
+        "Instruction 1: Ensure Stanislav Petrov's facial features and uniform remain identical to Reference 1.",
+        "Instruction 2: Maintain slow, steady dolly movement without micro-jitter or warping.",
+        "Instruction 3: If lighting is too bright, apply conversational prompt: 'Reduce ambient key light by 25%, emphasize red siren strobe on officer profile'."
+      ],
+      "native_audio_cue": "Final Hans Zimmer style sustained cello note gently fading into complete silence over 4 seconds"
     }
   ]
 }

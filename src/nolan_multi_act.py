@@ -1,0 +1,2097 @@
+"""DarkFactory 5-Act Multi-Scene Master Screenplay Library.
+
+Contains complete 40-scene 5-Act narrative architectures for high-tension,
+non-linear Cold War and historical documentary productions:
+- Act I: The Hook // In Medias Res (Scenes 1 - 8)
+- Act II: The Genesis // Climate of Paranoia (Scenes 9 - 16)
+- Act III: The Escalation // Crosscutting Tension (Scenes 17 - 24)
+- Act IV: The Climax // The Human Zero Point (Scenes 25 - 32)
+- Act V: The Silence // Aftermath & The Declassified Legacy (Scenes 33 - 40)
+"""
+from __future__ import annotations
+from typing import Any, Dict, List
+
+def get_5act_soviet_glitch_screenplay() -> List[Dict[str, Any]]:
+    """Returns the master 40-scene 5-Act screenplay for the 1983 Soviet Glitch incident."""
+    return [
+    {
+        "scene_id": 1,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (00:00 - T-Minus 20 Minutes)",
+        "timestamp_marker": "12:15:00 AM | SERPUKHOV-15 BUNKER",
+        "hook_category": "In Medias Res / Existential Threat",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "At 12:15 AM on September 26, 1983, a red siren illuminated a top-secret Soviet bunker outside Moscow. The radar screens confirmed what every officer dreaded: five American nuclear warheads were already in the air.",
+        "cosyvoice_instruct": "Speak with controlled urgency and mounting dread, deep authoritative baritone documentary tone, crisp articulation, ominous cadence.",
+        "estimated_duration_sec": 14.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "braam_sub_bass",
+                "55hz_industrial_hum",
+                "periodic_alarm_pulse"
+            ],
+            "ost_cues": "Sustained analog synthesizer cello note ascending a semitone every 5 seconds (Shepard Tone inception)",
+            "foley_cue": "radar_ping"
+        },
+        "camera_direction": "Slow dramatic push-in towards the glowing green radar terminal under flashing red strobe",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "DEFCON 2 // EARLY WARNING MISSILE RADAR",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "SERPUKHOV-15 BUNKER",
+                "subtitle": "Soviet Early Warning Command Post // Moscow Oblast",
+                "coordinates": "54.9158° N, 37.4116° E",
+                "date_timestamp": "26 SEP 1983 - 00:15:00 UTC",
+                "classification": "TOP SECRET // LEVEL 1 SPECIAL PROTOCOL"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Psychological Panic Close-Up",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow push-in dolly track on officer eyes",
+                "prompt": "Cinematic portrait of 44-year-old Soviet military officer Stanislav Petrov, beads of sweat glistening under harsh rotating emergency red alarm beacon, dim ambient lighting, 35mm anamorphic cinema lens, Hoyte van Hoytema chiaroscuro photography, photorealistic 8k, IMAX film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Tactical Macro Radar Display",
+                "target_model": "Google Veo 2 / MiniMax H3",
+                "camera_direction": "Macro probe lens tracking across CRT screen grid",
+                "prompt": "Extreme macro close-up of glowing monochrome green CRT radar screen inside Serpukhov-15 bunker, five rising missile trajectory vectors flashing in Cyrillic, cigarette smoke drifting through anamorphic lens flare, Kodak Vision3 500T 5219 texture, IMAX 70mm --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Oko satellite early-warning system triggered on 26 September 1983 at Serpukhov-15."
+    },
+    {
+        "scene_id": 2,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 19 Minutes)",
+        "timestamp_marker": "12:16:20 AM | FIRST TELEMETRY ACQUISITION",
+        "hook_category": "Technological Dread",
+        "visual_style_type": "TACTICAL_MAP_MOTION",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "The mainframe classified the target as a single LGM-30 Minuteman intercontinental ballistic missile, launched from Malmstrom Air Force Base in Montana. (pausa: 2s) The automated computer probability score was flashing at ninety-nine percent confidence.",
+        "cosyvoice_instruct": "Cold clinical precision, accelerating cadence, suppressed terror behind bureaucratic reporting.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "teletype_burst",
+                "high_voltage_hum",
+                "oscilloscope_click"
+            ],
+            "ost_cues": "Dark bass ostinato at 60 BPM with dissonant brass stingers",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Overhead orthographic tracking shot gliding across tactical ballistic map table",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "MISSILE WARNING CONFIRMED // TARGET ACQUIRED",
+            "coordinates": "47°30'00\"N 111°11'00\"W",
+            "lower_third_data": {
+                "title": "ICBM LAUNCH SITE: MALMSTROM AFB",
+                "subtitle": "Montana, USA // 341st Missile Wing Telemetry",
+                "coordinates": "47.5000° N, 111.1833° W",
+                "date_timestamp": "26 SEP 1983 - 00:16:20 UTC",
+                "classification": "CONFIDENTIAL SATELLITE TRACKING"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Bunker Command Frenzy",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Handheld visceral drift past frozen Soviet operators",
+                "prompt": "Medium tracking shot inside dim Soviet command bunker, 1980s computer consoles with glowing Cyrillic dials, young military technicians frozen in shock, harsh overhead fluorescent tubes flickering against smoke, 35mm film grain, Hoyte van Hoytema cinematography, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "CRT Ballistic Vector Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Extreme macro rack focus on glowing phosphor trajectory",
+                "prompt": "Extreme close-up of curved green phosphor cathode ray tube monitor, ballistic arc curving across northern latitudes, glowing scanlines, dust motes drifting in anamorphic horizontal lens flare, authentic 1983 Soviet hardware, Kodak Vision3 500T stock, IMAX 70mm aesthetic --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The Oko system reported a single missile launch from the US East/Central coast before multiple alerts."
+    },
+    {
+        "scene_id": 3,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread A & B Crosscut (T-Minus 18 Minutes)",
+        "timestamp_marker": "12:17:45 AM | THE DUTY OFFICER PSYCHE",
+        "hook_category": "Psychological Autopsy",
+        "visual_style_type": "PSYCHOLOGICAL_PROFILE",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Lieutenant Colonel Stanislav Petrov was forty-four years old. He was not a career combat general; he was an analytical systems engineer who helped write the operational manual for the Oko satellite network. Behind him, one hundred and twenty officers stood waiting for his order to push the master button.",
+        "cosyvoice_instruct": "Somber, reflective, emphasizing the isolation of one civilian engineer trapped in a military machine.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "slow_heartbeat",
+                "air_ventilation_sub_rumble",
+                "distant_metallic_creak"
+            ],
+            "ost_cues": "Solo cello sustained lower pedal tone in D minor with subtle vinyl static",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow 360-degree orbital drift around Petrov's weathered face in extreme close-up",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "DOSSIER: LT. COL. STANISLAV YEVGRAFOVICH PETROV",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "LT. COL. STANISLAV PETROV",
+                "subtitle": "Duty Officer // Soviet Air Defence Forces (V-PVO)",
+                "coordinates": "Bunker Serpukhov-15 // Moscow District",
+                "date_timestamp": "Born 1939 - Died 2017",
+                "classification": "PSYCHOLOGICAL PROFILE // CLEARED LEVEL 1"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "The Burden of Eyes",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow push-in on Petrov's eyes with heavy emotional weight",
+                "prompt": "Extreme close-up of 44-year-old Russian officer's eyes, weathered wrinkles, dark circles of exhaustion, red alarm strobe glinting in pupils, deep psychological burden, Hoyte van Hoytema lighting, 35mm film grain, IMAX master shot --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Console Button Macro Tension",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Low angle slider tracking past military switches",
+                "prompt": "Macro shot of rows of Soviet Bakelite toggle switches and red guarded missile confirmation push-buttons, brushed aluminum casing, Cyrillic stencils 'ПУСК', reflections of blinking red warning beacons, cinematic depth of field, IMAX 70mm --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov was a civilian-trained engineer who held the rank of lieutenant colonel."
+    },
+    {
+        "scene_id": 4,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 17 Minutes)",
+        "timestamp_marker": "12:19:10 AM | POLAR VECTOR CORRIDOR",
+        "hook_category": "Geopolitical Stakes",
+        "visual_style_type": "TACTICAL_MAP_MOTION",
+        "dop_lens": "zeiss_supreme_prime",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "The polar flight corridor over the Arctic Circle was the shortest trajectory between the American silos and Moscow. Flight time: twenty-six minutes. Ten had already evaporated in signal verification. Petrov had sixteen minutes left before nuclear detonation.",
+        "cosyvoice_instruct": "Rhythmic, metronomic urgency, counting down the disappearing minutes like a closing vice.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "ticking_clock_60bpm",
+                "radar_ping_echo",
+                "sub_impact_decay"
+            ],
+            "ost_cues": "Mechanical clock pulse entering at exactly 60 BPM under sub-bass swell",
+            "foley_cue": "radar_ping"
+        },
+        "camera_direction": "High-altitude satellite view tilting down over polar ice cap with animated tactical vector lines",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "POLAR TRAJECTORY // ARCTIC CORRIDOR",
+            "coordinates": "85°00'00\"N 00°00'00\"E",
+            "lower_third_data": {
+                "title": "POLAR INTERCEPTION CORRIDOR",
+                "subtitle": "US-USSR Ballistic Arc // Flight Time: 26 Mins",
+                "coordinates": "Northern Latitude Vector // Arctic Route",
+                "date_timestamp": "ESTIMATED IMPACT: 12:41:00 AM",
+                "classification": "STRATEGIC ROCKET FORCES TELEMETRY"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Arctic Missile Vector CGI",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Epic wide aerial drift over dark jagged Arctic pack ice",
+                "prompt": "Epic cinematic wide aerial shot of frozen Arctic ocean ice sheet under midnight sun, dark ominous clouds, cold cyan atmosphere, realistic atmospheric fog, anamorphic lens flare, Kodak Vision3 250D style, IMAX 70mm nature cinematography --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Glowing Telemetry Map Display",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro track across glass tactical chart with grease-pencil marks",
+                "prompt": "Close-up of military cartographer transparent glass war map, red and green grease pencil ballistic vectors, hand holding illuminated magnifying glass over Moscow coordinates, cigarette smoke hanging in warm spotlight, 35mm film grain, Hoyte van Hoytema aesthetic --ar 16:9"
+            }
+        },
+        "verified_fact_note": "ICBMs traveling polar routes took 25-30 minutes from US heartland to Soviet targets."
+    },
+    {
+        "scene_id": 5,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 16 Minutes)",
+        "timestamp_marker": "12:20:30 AM | BUNKER INTERCOM LOGS",
+        "hook_category": "Classified Bunker Dialogue",
+        "visual_style_type": "BUNKER_INTERCOM_DRAMA",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "Declassified bunker audio logs captured the shouting on the command deck. (voz distorcida: Comandante, o computador principal atingiu o nível mais alto de confirmação! Temos que transmitir o alerta agora!) (pausa: 2s) Petrov screamed back into the microphone: 'Sit down and shut up! We wait!'",
+        "cosyvoice_instruct": "Intense vocal contrast, shifting from quiet narrative tension to commanding explosive authority on Petrov's line.",
+        "estimated_duration_sec": 15.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "radio_squelch",
+                "muffled_bunker_shouting",
+                "heavy_desk_slam"
+            ],
+            "ost_cues": "Sudden stop of orchestral pads, leaving only high ringing tinnitus frequency and muffled voices",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Dutch-angle shoulder rig camera rushing through bunker walkway toward Petrov's command console",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "TOP SECRET // TRANSCRIPT EXCERPT // FILE 83-P",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "AUDIO LOG TRANSCRIPT: 00:20:30 UTC",
+                "subtitle": "Internal Comm Line // Deck Officer to Petrov",
+                "coordinates": "Serpukhov-15 Subterranean Bunker",
+                "date_timestamp": "DECLASSIFIED MOSCOW MILITARY ARCHIVE",
+                "classification": "RECORDING LEVEL 5 // KGB SECURED"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Confronting Subordinates",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Low angle rapid push-in on Petrov standing abruptly",
+                "prompt": "Medium shot of Soviet officer in olive green uniform slamming his hand on steel console, shouting orders, veins bulging on forehead, intense chiaroscuro lighting, heavy cigarette smoke drifting through red siren strobes, Hoyte van Hoytema 35mm anamorphic, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Intercom Microphone Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro close-up on Soviet gooseneck microphone grille",
+                "prompt": "Extreme macro shot of vintage heavy steel gooseneck military intercom microphone, chipped green paint, dust in microphone wire mesh, vibrating with loud sound waves under dim red emergency spotlight, cinematic depth of field, Kodak Vision3 500T 5219 texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov later recalled shouting at subordinates who were panicking and urging immediate launch authorization."
+    },
+    {
+        "scene_id": 6,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread A: The Satellite Flaw (11 Years Before)",
+        "timestamp_marker": "12:21:45 AM | ISOMETRIC ANATOMY // US-K OKO",
+        "hook_category": "Technical Anatomy",
+        "visual_style_type": "ANATOMY_ISOMETRIC",
+        "dop_lens": "laowa_probe_24mm",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "In high elliptical Molniya orbit, thirty-six thousand kilometers above the Earth, sat Kosmos-1383. It was the pride of the Soviet Oko program. Its mission: stare into the dark silhouette of the American continent with chilled optical sensors tuned to detect the infrared flame of rocket boosters.",
+        "cosyvoice_instruct": "Analytical documentary tone, reverent of technology but tinged with foreshadowing of its fatal blindness.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "satellite_telemetry_beep",
+                "servo_motor_whine",
+                "solar_wind_drone"
+            ],
+            "ost_cues": "Ethereal high string harmonics drifting above cold modular synth pulses",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Orbital rotation around Soviet satellite model in zero-gravity with cutaway wireframe lines",
+        "overlay_recipe": {
+            "template": "anatomy_mechanical",
+            "stamp_text": "SCHEMATIC // US-K OKO EARLY WARNING SATELLITE",
+            "coordinates": "ORBIT: 36,000 KM // MOLNIYA-1",
+            "lower_third_data": {
+                "title": "US-K 'OKO' SATELLITE (KOSMOS-1383)",
+                "subtitle": "Infrared Early Warning System // OKB-41 Design",
+                "coordinates": "Molniya Orbit: 600 x 39,000 km",
+                "date_timestamp": "Launched 28 Dec 1982",
+                "classification": "TOP SECRET TECHNICAL SCHEMATIC"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Kosmos-1383 in Cold Orbit",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Slow majestic orbital tracking shot along solar panels",
+                "prompt": "Photorealistic Soviet military reconnaissance satellite Kosmos-1383 in high Earth orbit, dark titanium shielding, glowing blue solar panels reflecting deep black space, Earth curvature illuminated below with sunrise horizon line, IMAX 70mm space realism like 2001 A Space Odyssey, pristine optical lens flare --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Infrared Telescope Optics Macro",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Macro probe lens looking directly into gold-coated optical sensor mirror",
+                "prompt": "Extreme macro shot of cryogenically cooled infrared optical sensor lens array, gold reflective coating, hexagonal silicon sensor honeycomb grid, micro-circuitry reflecting starlight, hyper-detailed mechanical CAD aesthetic, cinematic 8k lighting --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Kosmos-1383 was the primary Oko satellite on duty, placed in a Molniya orbit to observe US missile fields."
+    },
+    {
+        "scene_id": 7,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 15 Minutes)",
+        "timestamp_marker": "12:23:00 AM | MULTIPLE WARHEAD ESCALATION",
+        "hook_category": "Existential Escalation",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "Then, the computer screamed again. (som: sirene estridente) A second missile was detected. Then a third. A fourth. A fifth. Five American Minuteman warheads. In less than twenty minutes, three hundred million people could cease to exist.",
+        "cosyvoice_instruct": "Building panic, breathless pacing, hitting each missile count like a hammer falling on steel.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "escalating_alarm_pitch",
+                "sub_bass_braam_crescendo",
+                "rapid_relays_clicking"
+            ],
+            "ost_cues": "Hans Zimmer Shepard Tone accelerating rapidly, full orchestra low brass braam hits on each missile count",
+            "foley_cue": "sub_riser"
+        },
+        "camera_direction": "Rapid snap-zooms alternating between the flashing red monitor and Petrov's trembling fingers",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "CRITICAL ALERT: 5 WARHEADS CONFIRMED IN FLIGHT",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "ATTACK CONFIRMATION: 5 MISSILES",
+                "subtitle": "Target Trajectory: Moscow Metropolitan Area",
+                "coordinates": "Coordinates: 55.7558° N, 37.6173° E",
+                "date_timestamp": "ESTIMATED CASUALTIES: 300,000,000+",
+                "classification": "NUCLEAR RETALIATION CRITERIA MET"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Paralyzed by Five Sirens",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Dutch angle tight creep-in on Petrov gripping console edges",
+                "prompt": "Low angle cinematic close-up of Stanislav Petrov, uniform drenched in sweat, harsh red emergency strobe painting his weathered face in blood-red tones, smoke drifting from an ashtray, extreme psychological terror, Hoyte van Hoytema Oppenheimer aesthetic, 35mm grain, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Wall Board Five Red Lamps",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Tracking shot across ceiling bulkhead warning lamps",
+                "prompt": "Cinematic tracking shot across Soviet control room ceiling, five large glass incandescent red alarm domes flashing in unison, painted stencil labels 'РАКЕТНЫЙ УДАР 1 2 3 4 5', dust shaking from ceiling rivets, anamorphic flare, authentic Cold War texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The Oko system reported five missiles in total: first one, then four more in rapid succession."
+    },
+    {
+        "scene_id": 8,
+        "act_number": 1,
+        "act_title": "ACT I: THE HOOK // IN MEDIAS RES",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 14 Minutes)",
+        "timestamp_marker": "12:24:15 AM | THE AUTOMATED RETALIATION PROTOCOL",
+        "hook_category": "Systemic Inevitability",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Under standard Soviet military doctrine, Petrov had no discretionary power to decide. His mandatory protocol was binary: pick up the phone, verify computer integrity, and transmit the launch authorization to Yuri Andropov and the Soviet High Command. (pausa: 2s) The automated retaliation machine had been triggered.",
+        "cosyvoice_instruct": "Grim, mechanical, conveying the horrifying inevitability of an algorithmic suicide pact.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "stamp_slam",
+                "rotary_phone_dial",
+                "low_drone_fadeout"
+            ],
+            "ost_cues": "Low sustained contrabass drone holding steady as all percussion cuts out abruptly",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Slow downward crane shot landing squarely on Soviet operational manual stamped TOP SECRET",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "SOVIET MILITARY DOCTRINE // PROTOCOL 0083",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "PROTOCOL NO. 0083-P",
+                "subtitle": "Strategic Rocket Forces Mandatory Launch Verification",
+                "coordinates": "Moscow General Staff Directive",
+                "date_timestamp": "ISSUED UNDER ORDER NO. 49-B",
+                "classification": "TOP SECRET // RETALIATION DOCTRINE"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Protocol Manual Page Turn",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Top-down macro shot of gloved hand turning heavy Soviet paper page",
+                "prompt": "Overhead macro shot of aged Soviet military manual, yellowed typed Cyrillic text, red ink stamp 'СОВЕРШЕННО СЕКРЕТНО' (TOP SECRET), hand in military sleeve pointing to paragraph on nuclear retaliation, warm desk lamp casting sharp shadow, 35mm film grain, cinematic documentary lighting --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Kremlin Red Hotline Switchboard",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Slow track along encrypted copper cable bundle to red Bakelite telephone",
+                "prompt": "Cinematic close-up of heavy Soviet crimson secure military telephone receiver resting in heavy chrome cradle, coiled rubber cord, red Cyrillic label 'ПРЯМАЯ СВЯЗЬ КРЕМЛЬ' (Direct Line Kremlin), shallow depth of field, dust particles in atmospheric volumetric spotlight --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Soviet protocol gave duty officers strictly 20 minutes to process alerts and inform military leadership."
+    },
+    {
+        "scene_id": 9,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: The Paranoia Genesis (25 Days Before)",
+        "timestamp_marker": "SEPTEMBER 1, 1983 | THE SEA OF OKHOTSK",
+        "hook_category": "Historical Escalation",
+        "visual_style_type": "ARCHIVAL_KEN_BURNS",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "To understand why Petrov’s hands were shaking, one must step back twenty-five days. On September first, 1983, a Soviet Su-15 interceptor fired two air-to-air missiles into Korean Air Lines Flight 007, sending two hundred and sixty-nine civilians plunging into the freezing waters of the Sea of Okhotsk.",
+        "cosyvoice_instruct": "Somber, tragic, historical gravity, measured delivery recounting a global catastrophe.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "jet_engine_roar",
+                "missile_launch_whoosh",
+                "deep_ocean_sub_rumble"
+            ],
+            "ost_cues": "Dark atmospheric cello drones with discordant high violin harmonics",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow Ken Burns push-in on archival black-and-white radar photograph with simulated film grain and scratches",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "KGB INCIDENT DOSSIER // KAL-007 INTERCEPTION",
+            "coordinates": "46°28'00\"N 141°17'00\"E",
+            "lower_third_data": {
+                "title": "KAL FLIGHT 007 DISASTER",
+                "subtitle": "Sea of Okhotsk // 269 Casualties",
+                "coordinates": "46.4667° N, 141.2833° E",
+                "date_timestamp": "01 SEP 1983 - 18:26:00 UTC",
+                "classification": "TOP SECRET MILITARY INVESTIGATION"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Su-15 Interceptor Night Patrol",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Cinematic air-to-air tracking shot alongside Soviet fighter jet",
+                "prompt": "Cinematic night shot of Soviet Sukhoi Su-15 fighter jet banking hard over dark turbulent ocean clouds, afterburner glowing brilliant orange against deep blue midnight sky, 35mm anamorphic lens, authentic Soviet red star markings, Hoyte van Hoytema photography, photorealistic IMAX 70mm --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Declassified Flight Recorder Tape Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro rack focus on spinning magnetic reel-to-reel tape",
+                "prompt": "Macro close-up of Soviet military magnetic reel-to-reel audio tape deck spinning slowly, analog VU needle bouncing into red distortion zone, dust motes in tungsten spotlight, Cyrillic label 'МАГНИТОФОН МН-61', vintage Cold War audio forensics, 8k resolution --ar 16:9"
+            }
+        },
+        "verified_fact_note": "KAL 007 was shot down on 1 September 1983 with 269 fatalities, escalating US-Soviet tensions."
+    },
+    {
+        "scene_id": 10,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: The Kremlin Ward (18 Days Before)",
+        "timestamp_marker": "SEPTEMBER 8, 1983 | KREMLIN CLINICAL WARD",
+        "hook_category": "Political Paranoia",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "gordon_willis_noir",
+        "audio_text": "In Moscow, Soviet General Secretary Yuri Andropov was dying of kidney failure. Convinced that Ronald Reagan’s rhetoric of the 'Evil Empire' was the psychological preamble to a decapitating nuclear strike, the Kremlin placed its armed forces on hair-trigger alert.",
+        "cosyvoice_instruct": "Hushed, conspiratorial, suffocating noir atmosphere of an aging superpower slipping into paranoia.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "hospital_ventilator_pulse",
+                "sub_heartbeat_decay",
+                "whispered_cyrillic_radio"
+            ],
+            "ost_cues": "Muted low piano chords in minor seconds, creating a suffocating air of political doom",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow creeping dolly through dark opulent Kremlin hospital corridor toward a silhouetted figure",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "KREMLIN CENTRAL CLINICAL HOSPITAL // TOP SECRET",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "GENERAL SECRETARY YURI ANDROPOV",
+                "subtitle": "CPSU General Secretary & Former KGB Chairman",
+                "coordinates": "Moscow // Kuntsevo Hospital Ward",
+                "date_timestamp": "AUTUMN 1983 // DEFCON READINESS",
+                "classification": "POLITBURO CONFIDENTIAL REPORT"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Andropov Shadowy Silhouette",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Low key chiaroscuro shot through hospital glass partition",
+                "prompt": "Cinematic noir shot of elderly sickly Soviet leader in dark hospital room, oxygen cannula, staring through heavy velvet curtains out into rainy Moscow night, amber streetlights reflecting in puddles, Gordon Willis Godfather-style darkness, deep blacks, authentic 1983 Soviet architecture --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Confidential Politburo Dossier Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro probe sliding over red wax seal and Cyrillic signature",
+                "prompt": "Extreme macro of crimson Soviet wax seal on folded diplomatic envelope, hammer and sickle crest pressed in wax, yellowed parchment texture, fountain pen signature, soft dramatic lighting, Kodak Vision3 500T 5219 texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Andropov was bedridden with failing health during autumn 1983, convinced a US surprise attack was possible."
+    },
+    {
+        "scene_id": 11,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: Operation RYAN (11 Days Before)",
+        "timestamp_marker": "SEPTEMBER 15, 1983 | OPERATION RYAN TELEMETRY",
+        "hook_category": "Classified Espionage",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Under KGB codename 'Operation RYAN'—Raketno-Yadernoe Napadenie—hundreds of Soviet operatives across Europe were tasked with counting blood donor drives, tracking moving government limousines, and watching for the first physical sign of an impending Western nuclear blitz.",
+        "cosyvoice_instruct": "Crisp spy-thriller pacing, clinical precision, exposing the obsessive paranoia of intelligence networks.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "camera_shutter_rapid_clicks",
+                "teletype_burst",
+                "encrypted_morse_bleeps"
+            ],
+            "ost_cues": "Tense rhythmic staccato cello ostinato with sub-bass pulses",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Overhead telephoto spy camera perspective overlooking rainy European intersection with crosshair overlays",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "OPERATION RYAN // KGB SPECIAL DIRECTIVE",
+            "coordinates": "51°30'26\"N 00°07'39\"W",
+            "lower_third_data": {
+                "title": "OPERATION RYAN (РАЯН)",
+                "subtitle": "KGB First Chief Directorate // Nuclear Attack Early Warning",
+                "coordinates": "London, Washington, Bonn Residency",
+                "date_timestamp": "ACTIVE AUTUMN 1983",
+                "classification": "TOP SECRET // HIGHEST CLEARANCE"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "KGB Operative in London Rain",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Stealthy tracking shot behind trench coat operative in wet night street",
+                "prompt": "Cold War spy cinema aesthetic: Soviet KGB operative in dark trench coat standing under umbrella on rainy London street corner, watching black government limousines leave British Ministry of Defence, wet asphalt reflecting red tail lights, Tinker Tailor Soldier Spy atmosphere, 35mm film grain, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Microfilm Spy Camera Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro close-up of miniature spy camera lens advancing film",
+                "prompt": "Extreme close-up of vintage Soviet Minox subminiature spy camera, knurled metal dials, tiny optical lens reflecting classified typewritten English documents, finger advancing film with mechanical click, cinematic macro photography, Kodak 2383 grade --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Operation RYAN was an actual joint KGB-GRU intelligence program to monitor signs of surprise nuclear war."
+    },
+    {
+        "scene_id": 12,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: The European Missile Crisis (6 Days Before)",
+        "timestamp_marker": "SEPTEMBER 20, 1983 | THE PERSHING II THREAT",
+        "hook_category": "Technological Asymmetry",
+        "visual_style_type": "TACTICAL_MAP_MOTION",
+        "dop_lens": "zeiss_supreme_prime",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "What terrified Moscow was not just the missiles, but the clock. The United States was deploying Pershing Two ballistic missiles to West Germany. From launch in Mutlangen to nuclear fire in central Moscow: just six minutes. Not enough time for human thought.",
+        "cosyvoice_instruct": "Urgent, suffocating realization of human obsolescence in the face of hypersonic flight times.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "missile_silo_steam_release",
+                "rapid_stopwatch_ticking",
+                "sub_whoosh_impact"
+            ],
+            "ost_cues": "High-register dissonant brass glissando descending rapidly like an incoming bomb",
+            "foley_cue": "radar_ping"
+        },
+        "camera_direction": "Dynamic animated map zoom from West Germany across the Iron Curtain directly into Moscow",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "PERSHING II RANGE // 6-MINUTE FLIGHT WINDOW",
+            "coordinates": "48°50'00\"N 09°48'00\"E",
+            "lower_third_data": {
+                "title": "MGM-31C PERSHING II DEPLOYMENT",
+                "subtitle": "56th Field Artillery Brigade // Mutlangen, West Germany",
+                "coordinates": "Range: 1,770 km // Flight Time: 6 to 8 Mins",
+                "date_timestamp": "DEPLOYED AUTUMN 1983",
+                "classification": "NATO INTERMEDIATE NUCLEAR FORCES"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Pershing II Silo Erection",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Dramatic low angle shot looking up at ballistic missile rising into firing position",
+                "prompt": "Dramatic cinematic low angle shot of US military Pershing II missile erector launcher in foggy German forest, giant green camouflage missile elevating into vertical launch position, morning mist swirling, headlights cutting through trees, authentic 1983 NATO military field exercise, 35mm anamorphic, IMAX film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Map Vector 6-Minute Timeline Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro slider track across mechanical chronometer measuring single seconds",
+                "prompt": "Extreme macro of Soviet military chronometer, sweep second hand ticking rapidly across red highlighted zone marked '6 МИНУТ' (6 MINUTES), scratched glass crystal, brass bezel, reflection of military radar screen in background, cinematic lighting, photorealistic 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Pershing II deployment in West Germany reduced warning times to Moscow to approximately 6-8 minutes."
+    },
+    {
+        "scene_id": 13,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: The General Staff Directive (3 Days Before)",
+        "timestamp_marker": "SEPTEMBER 23, 1983 | RED ARMY GENERAL STAFF CABLE",
+        "hook_category": "Command Directives",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "On September twenty-third, Soviet General Staff Cable Number Forty-Nine B reached Serpukhov-15. The order was unequivocal: any hesitation in the early-warning chain would be treated as treason against the Soviet motherland. The human officer was legally reduced to an electrical relay.",
+        "cosyvoice_instruct": "Severe, totalitarian coldness, emphasizing the chilling institutional penalties of disobeying procedure.",
+        "estimated_duration_sec": 15.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "teletype_chatter",
+                "rubber_stamp_whack",
+                "distant_cell_door_slam"
+            ],
+            "ost_cues": "Ominous low cello solo over subterranean 40Hz electrical hum",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Static frontal symmetrical Kubrickian composition staring down an empty concrete bunker corridor",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "MINISTRY OF DEFENCE DIRECTIVE // ORDER NO. 49-B",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "GENERAL STAFF CABLE NO. 49-B",
+                "subtitle": "Subject: Uncompromising Adherence to Automated Early-Warning",
+                "coordinates": "Signed: Marshal Nikolai Ogarkov",
+                "date_timestamp": "23 SEP 1983 // EYES ONLY",
+                "classification": "TREASON PENALTY CLAUSE ACTIVE"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "General Staff Officer Signing Directive",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Slow push-in on Soviet general in heavy wool greatcoat at mahogany desk",
+                "prompt": "Medium close-up of stern Soviet Marshal in formal parade uniform with gold shoulder boards, signing official military document with heavy black fountain pen, intense dramatic chiaroscuro side lighting, portrait of Lenin blurred on wood paneled wall behind, 35mm film grain, Hoyte van Hoytema palette --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Cyrillic Teletype Printout Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro rack focus on perforated teletype ribbon feeding through cipher machine",
+                "prompt": "Extreme macro of Soviet telegraph paper tape feeding through mechanical punch machine, punched paper chads falling, Cyrillic capital letters typing in blue ink, industrial metallic machinery, warm tungsten rim lighting, Kodak Vision3 500T 5219 texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Soviet military discipline strictly mandated following computer protocols without deviation."
+    },
+    {
+        "scene_id": 14,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread A: The Accidental Watch (24 Hours Before)",
+        "timestamp_marker": "SEPTEMBER 25, 1983 | THE ACCIDENTAL WATCH OFFICER",
+        "hook_category": "Twist of Fate",
+        "visual_style_type": "PSYCHOLOGICAL_PROFILE",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "And then came the twist of fate. Petrov was not supposed to be in the bunker that night. His colleague had fallen ill with flu. Petrov volunteered to take the graveyard shift. Had the other officer been sitting in that chair, history would have ended before dawn.",
+        "cosyvoice_instruct": "Whispered philosophical dread, contemplating the terrifying fragility of human existence hanging on one man's flu.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "telephone_ringing_distant",
+                "match_strike",
+                "cigarette_inhalation_crackle"
+            ],
+            "ost_cues": "Gentle, mournful solo cello melody slowly swallowed by deep oceanic sub-bass",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow tracking shot following Petrov walking through misty Moscow apartment courtyard toward military staff car",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "DUTY ROSTER SUBSTITUTION // RECORD NO. 83-09-25",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "DUTY OFFICER ROSTER LOG",
+                "subtitle": "Unscheduled Shift Replacement // Serpukhov-15",
+                "coordinates": "Scheduled: Maj. Generalov // Replaced by: Lt. Col. Petrov",
+                "date_timestamp": "25 SEP 1983 - 20:00:00 UTC",
+                "classification": "CONFIDENTIAL DUTY ASSIGNMENT"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Leaving Apartment in Fog",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Wide cinematic tracking shot behind Petrov in Soviet military raincoat",
+                "prompt": "Cinematic atmospheric wide shot of Russian officer Stanislav Petrov walking down wet cobblestone courtyard between brutalist concrete Moscow apartment towers, autumn mist swirling under streetlamps, military olive greatcoat, carrying black leather briefcase, melancholy Tarkovsky atmosphere, 35mm film grain, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Bunker Duty Logbook Entry Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro slider across blue ink handwriting in lined register",
+                "prompt": "Macro shot of lined clothbound Soviet logbook, fountain pen writing in blue ink Cyrillic cursive: 'Дежурный: подполковник Петров' (Duty Officer: Lt. Col. Petrov), date stamp 25.09.1983, shadow of officer hand passing across page, warm ambient lamplight, Kodak 2383 film look --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov later stated he was working an unscheduled shift as a last-minute replacement for an ill colleague."
+    },
+    {
+        "scene_id": 15,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread B: The Rapid Clock (30 Minutes Before)",
+        "timestamp_marker": "11:45:00 PM | SERPUKHOV-15 SUBTERRANEAN REALITY",
+        "hook_category": "Atmospheric Immersion",
+        "visual_style_type": "BUNKER_INTERCOM_DRAMA",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Serpukhov-15 was buried fifty meters beneath a pine forest ninety miles south of Moscow. Blast doors four feet thick. Independent air filtration. Inside, the air smelled of stale Belomorkanal cigarettes, boiled cabbage, and the ozone tang of three hundred vacuum tubes baking in steel racks.",
+        "cosyvoice_instruct": "Sensory, tactile, claustrophobic description of Cold War underground life.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "air_scrubber_rhythmic_hum",
+                "fluorescent_tube_buzz",
+                "heavy_footsteps_on_metal_grate"
+            ],
+            "ost_cues": "Industrial ambient soundscape: 55Hz mains frequency humming in harmony with low synth drones",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow, deliberate Steadicam track through the massive circular subterranean blast door into the main operations vault",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "FACILITY: SERPUKHOV-15 // DEPTH: -50 METERS",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "COMMAND BUNKER SERPUKHOV-15",
+                "subtitle": "Kashira Highway // Moscow Air Defence District",
+                "coordinates": "Subterranean Depth: -50 Meters // Hermetic Seal",
+                "date_timestamp": "ACTIVE WATCH: 25-26 SEP 1983",
+                "classification": "TOP SECRET MILITARY INSTALLATION"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Massive Bunker Blast Door",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Slow tracking shot past giant circular reinforced steel vault door",
+                "prompt": "Cinematic wide angle shot inside Soviet subterranean military facility, massive circular four-foot thick steel blast door with interlocking locking lugs, yellow radioactive hazard stencils, armed sentry in ushanka hat standing guard under harsh fluorescent lighting, mist venting from pressure valves, 35mm film grain, IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Vacuum Tube Racks Glowing Amber",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro tracking along floor-to-ceiling electronic mainframe racks",
+                "prompt": "Extreme macro of vintage 1980s Soviet computer mainframe racks, hundreds of glowing orange glass vacuum tubes and cathode indicators glowing in the dark, braided cloth cables, industrial metal framework, warm volumetric heat distortion, Kodak Vision3 500T 5219 texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Serpukhov-15 was a secret bunker near the village of Kurilovo, south of Moscow."
+    },
+    {
+        "scene_id": 16,
+        "act_number": 2,
+        "act_title": "ACT II: THE GENESIS // CLIMATE OF PARANOIA",
+        "timeline_thread": "Thread B: The Rapid Clock (10 Minutes Before)",
+        "timestamp_marker": "12:05:00 AM | THE M-10 MAINFRAME ARCHITECTURE",
+        "hook_category": "Technological Hubris",
+        "visual_style_type": "ANATOMY_ISOMETRIC",
+        "dop_lens": "laowa_probe_24mm",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "The brain of the bunker was the M-10 computer. Developed by academician Mikhail Kartsev, it processed thirty million operations per second—a Soviet technological triumph. The Soviet leadership believed the machine was infallible. (pausa: 2s) That blind faith was the real doomsday weapon.",
+        "cosyvoice_instruct": "Intellectual irony, solemn historical judgment on humanity’s surrender of judgment to algorithms.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "ferrite_core_memory_chatter",
+                "cooling_fans_drone",
+                "relay_click_sequences"
+            ],
+            "ost_cues": "Algorithmic, repetitive synthesizer arpeggios in 5/4 time, cold and unfeeling",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Isometric 3D CAD schematic breakdown of M-10 mainframe circuit cards and memory drums",
+        "overlay_recipe": {
+            "template": "anatomy_mechanical",
+            "stamp_text": "SYSTEM ARCHITECTURE // M-10 SOVIET MILITARY SUPERCOMPUTER",
+            "coordinates": "DESIGNED BY: OKB M-10 // M.A. KARTSEV",
+            "lower_third_data": {
+                "title": "M-10 SUPERCOMPUTER SYSTEM",
+                "subtitle": "Processing Power: 30 MIPS // Vector Architecture",
+                "coordinates": "Bunker Serpukhov-15 Main Computing Hall",
+                "date_timestamp": "OPERATIONAL STATUS: NOMINAL",
+                "classification": "TOP SECRET SOVIET COMPUTING"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "M-10 Mainframe Computing Hall",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Majestic slow dolly through rows of olive-drab supercomputer cabinets",
+                "prompt": "Cinematic wide angle shot of vast subterranean Soviet computer hall, endless rows of tall olive-green M-10 supercomputer cabinets with blinking indicator lamps, technicians in white lab coats checking printouts, subtle heat haze rising, 35mm anamorphic prime lens, Christopher Nolan Interstellar laboratory aesthetic --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Ferrite Magnetic Core Memory Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Microscopic probe shot gliding across miniature copper wire grid and magnetic rings",
+                "prompt": "Microscopic macro shot of vintage Soviet magnetic core memory plane, tiny ferrite donut rings threaded with paper-thin enamel copper wires, soldering micro-details, macro lighting glinting on copper threads, photorealistic 8k, IMAX film grain --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The M-10 supercomputer, designed by Mikhail Kartsev, powered the early-warning missile network."
+    },
+    {
+        "scene_id": 17,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 13 Minutes)",
+        "timestamp_marker": "12:25:30 AM | THE SECURE KREMLIN LINE",
+        "hook_category": "Climax of Bureaucratic Dread",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "The crimson telephone on Petrov's desk began to screech. On the other end of the line was the duty officer at the General Staff headquarters in Moscow. (voz distorcida pelo rádio: 'Petrov! Qual é a sua avaliação? Os generais estão acordando o Politburo!') (pausa: 2s) Petrov felt his throat close up. In his right hand, the heavy Bakelite receiver weighed a thousand pounds.",
+        "cosyvoice_instruct": "Suffocating dread, voice tight and strained, conveying the terrifying pressure of the Kremlin demanding authorization.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "bakelite_phone_screech",
+                "heavy_human_breathing",
+                "sub_braam_swell"
+            ],
+            "ost_cues": "Deep orchestral braam swelling under harsh electronic feedback tone",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow Dutch-angle push-in on Petrov's trembling hand holding the crimson telephone receiver",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "KREMLIN HOTLINE ACTIVE // CALL RECORDING ON",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "GENERAL STAFF SECURE HOTLINE",
+                "subtitle": "Kashira Trunk Line // Moscow Command Post to Serpukhov-15",
+                "coordinates": "55.7512° N, 37.6184° E",
+                "date_timestamp": "26 SEP 1983 - 00:25:30 UTC",
+                "classification": "DIRECT NUCLEAR LAUNCH TRUNK"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Gripping Red Telephone",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Extreme close-up on Petrov's hand with white knuckles gripping telephone",
+                "prompt": "Extreme close-up of weathered hands of Soviet officer gripping a heavy crimson military telephone receiver, white knuckles, trembling fingers, drops of sweat falling onto steel console desk, flashing red alarm strobe lighting the scene in high-contrast chiaroscuro, 35mm anamorphic prime lens, IMAX 70mm realism --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Coiled Telephone Cord Macro Tension",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro track along vibrating coiled telephone cable",
+                "prompt": "Cinematic macro shot of tightly stretched black coiled telephone wire vibrating with electronic tension, drifting cigarette smoke illuminated by harsh crimson alarm beacon, scratched industrial bulkhead background, depth of field razor-thin, Kodak Vision3 500T 5219 texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov was directly on the telephone with the Soviet Air Defence command center during the alert."
+    },
+    {
+        "scene_id": 18,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 12 Minutes)",
+        "timestamp_marker": "12:26:45 AM | THE PROVISIONAL COWARDICE",
+        "hook_category": "Defiance of Protocol",
+        "visual_style_type": "BUNKER_INTERCOM_DRAMA",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Petrov forced his vocal cords to work: 'I am transmitting a false alarm.' The line went dead silent. The general on the other end responded with disbelief: 'Are you certain, Lieutenant Colonel?' Petrov’s honest thought was terrifying: He wasn’t certain at all. He had a fifty-fifty chance of being wrong.",
+        "cosyvoice_instruct": "Intimate, vulnerable, raw honesty of a human being betting the survival of civilization on a coin flip.",
+        "estimated_duration_sec": 15.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "phone_line_static",
+                "sudden_silence_cut",
+                "sub_bass_pulse_50hz"
+            ],
+            "ost_cues": "Music cuts to near-silence, leaving only an ominous 50Hz sub-bass heartbeat pulse",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow tracking shot pushing in on Petrov's profile against the dim silhouette of his command staff",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "TRANSCRIPT // VOICE EVALUATION RECORD",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "TRANSMISSION: FALSE ALARM",
+                "subtitle": "Spoken by Lt. Col. Petrov to Air Defence Duty General",
+                "coordinates": "Direct Encrypted Line 104",
+                "date_timestamp": "00:26:45 UTC // STATISTICAL CONFIDENCE: 50%",
+                "classification": "UNAUTHORISED PROTOCOL OVERRIDE"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Profile in Shadows",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Gordon Willis noir side profile in deep shadow",
+                "prompt": "Cinematic side profile of Stanislav Petrov, face half-swallowed in shadow, speaking softly into telephone receiver, solitary tear or bead of sweat tracing down cheek, dimly lit control room behind him, Hoyte van Hoytema chiaroscuro masterpiece, 35mm film grain, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "General Staff Moscow Phone Desk",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Slow dolly back from ornate Soviet military switchboard in Moscow",
+                "prompt": "High angle shot of Soviet General Staff operations room in Moscow, generals in gold-braided uniforms frozen around red telephone console, wall-sized electronic map of the USSR glowing in background, dramatic cinematic lighting, authentic historical atmosphere --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov later admitted to BBC: 'I wasn't 100% sure. It was maybe fifty-fifty, but I refused to be the trigger.'"
+    },
+    {
+        "scene_id": 19,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 11 Minutes)",
+        "timestamp_marker": "12:27:50 AM | THE BALLISTIC COUNTDOWN",
+        "hook_category": "Temporal Acceleration",
+        "visual_style_type": "TACTICAL_MAP_MOTION",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "Eleven minutes. The computer was updating the ballistic trajectory in real time. If American missiles had truly launched from Montana, their thermonuclear warheads were already arcing through space, outside the atmosphere, traveling at four miles per second. (pausa: 2s) There was no defense. There was no interceptor.",
+        "cosyvoice_instruct": "Chilling scientific detachment, describing the unstoppable physics of intercontinental ballistic physics.",
+        "estimated_duration_sec": 17.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "space_vacuum_woosh",
+                "telemetry_rapid_bleeps",
+                "sub_bass_riser"
+            ],
+            "ost_cues": "Ascending string glissando with accelerating mechanical clock rhythm",
+            "foley_cue": "radar_ping"
+        },
+        "camera_direction": "High orbit camera following three cone-shaped nuclear warheads tumbling silently in outer space",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "WARHEAD SPEED: 7.2 KM/S // EXO-ATMOSPHERIC TRAJECTORY",
+            "coordinates": "70°00'00\"N 40°00'00\"W",
+            "lower_third_data": {
+                "title": "BALLISTIC FLIGHT PHASE: MIDCOURSE",
+                "subtitle": "Altitude: 1,200 km // Velocity: Mach 22",
+                "coordinates": "Exo-Atmospheric Ballistic Arc",
+                "date_timestamp": "ESTIMATED IMPACT COUNTDOWN: 11:00",
+                "classification": "TELEMETRY PROJECTION // NO DEFENSE"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "W-78 Warheads in Space Orbit",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Cinematic 70mm tracking shot alongside black reentry vehicles in space",
+                "prompt": "Photorealistic space shot of three conical W-78 thermonuclear reentry warheads gliding through silent black vacuum, black heat-shield carbon texture reflecting distant sunrise over blue Earth curvature, orbital thruster bursts, terrifying mechanical perfection, Stanley Kubrick 2001 aesthetic, 8k resolution, IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Mechanical Relay Panel Clicking Frenzy",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Macro probe sliding over hundreds of mechanical glass relays clicking in sequence",
+                "prompt": "Extreme macro of Soviet telecommunication relay rack, tiny copper contacts snapping together with mechanical sparks, numbers flipping on electromagnetic counters, dust illuminated by pulsing red alarm strobe, authentic 1983 hardware micro-details, cinematic depth of field --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Minuteman III warheads travel at roughly 7-8 km/s in midcourse exo-atmospheric flight."
+    },
+    {
+        "scene_id": 20,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread A: The High Altitude Orbit (Crosscut)",
+        "timestamp_marker": "12:28:40 AM | ORBITAL GEOMETRY OF KOSMOS-1383",
+        "hook_category": "The Hidden Glitch",
+        "visual_style_type": "ANATOMY_ISOMETRIC",
+        "dop_lens": "zeiss_supreme_prime",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "While Petrov was sweating blood in the bunker, the real culprit was floating in total silence thirty thousand miles away. The autumn equinox had brought the Sun, the Soviet satellite, and the high-altitude cirrus clouds over North Dakota into a geometric alignment that occurred only once in a decade.",
+        "cosyvoice_instruct": "Poetic, revelatory, contrasting human terror with the cold blind geometry of the cosmos.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "sunlight_optical_shimmer",
+                "deep_space_atmospheric_pad",
+                "subtle_harmonic_drone"
+            ],
+            "ost_cues": "Ethereal, haunting choral synth textures evoking the vast silence of space",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Cosmic scale camera pulling back from satellite lens to show the vast Sun-Earth-Cloud geometric triangle",
+        "overlay_recipe": {
+            "template": "blueprint_notebook",
+            "stamp_text": "GEOMETRIC ALIGNMENT: EQUINOX ORBITAL PLANE",
+            "coordinates": "AUTUMN EQUINOX // SUN-CLOUD-SATELLITE",
+            "lower_third_data": {
+                "title": "ORBITAL ANOMALY: SPECULAR REFLECTION",
+                "subtitle": "Kosmos-1383 Infrared Sensor Angle vs Solar Ray Path",
+                "coordinates": "North Dakota High-Altitude Cirrus Clouds",
+                "date_timestamp": "26 SEP 1983 // 00:28 UTC",
+                "classification": "POST-INVESTIGATION SCIENTIFIC RECONSTRUCTION"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Sun Glint on Cirrus Clouds from Orbit",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Majestic orbital tilt shot showing blinding sun glare on storm clouds",
+                "prompt": "Breathtaking IMAX 70mm space view from high Earth orbit, blinding morning sunlight reflecting like a mirror off high-altitude white cirrus ice clouds over the Great Plains, golden sun glint, deep blue atmospheric haze, curved Earth horizon, hyper-realistic physics, Interstellar space cinematography --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Infrared Sensor Glitch Matrix",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Computer monitor macro showing digital false heat signature blossom",
+                "prompt": "Extreme macro of green CRT phosphor grid, intense white saturation bloom spreading across pixel array, false target lock alert flashing in Cyrillic, scanlines flickering under electrical interference, authentic Cold War computer graphics, Kodak film texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "A rare alignment of sunlight on high cirrus clouds and the Oko satellite's Molniya orbit generated the false alert."
+    },
+    {
+        "scene_id": 21,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread A: The Sensor Flaw (Crosscut)",
+        "timestamp_marker": "12:29:30 AM | THE INFRARED TELESCOPE SENSOR",
+        "hook_category": "Technical Forensics",
+        "visual_style_type": "ANATOMY_ISOMETRIC",
+        "dop_lens": "laowa_probe_24mm",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "The Soviet engineers had designed the Oko satellite to look at the edge of the Earth's horizon to avoid cloud reflections. But they had never tested the system against the blinding glint of autumn equinox sunlight bouncing off ice-crystal clouds. The computer was programmed to classify that exact intensity of light as one thing: rocket exhaust.",
+        "cosyvoice_instruct": "Forensic, exposing the tragic blind spot in Soviet engineering that nearly killed humanity.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "optical_shutter_click",
+                "silicon_chip_thermal_crackle",
+                "sub_resonance_ping"
+            ],
+            "ost_cues": "Minimalist repeating piano phrase in A minor with ticking metallic sound design",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Microscopic probe lens entering the interior barrel of the satellite telescope housing",
+        "overlay_recipe": {
+            "template": "anatomy_mechanical",
+            "stamp_text": "SENSOR FLAW // PB-1 INFRARED DETECTOR MATRIX",
+            "coordinates": "OKB-41 SCIENTIFIC DOSSIER",
+            "lower_third_data": {
+                "title": "INFRARED SENSOR BLIND SPOT",
+                "subtitle": "Algorithm Failure: Ice Crystal Reflection vs Booster Plume",
+                "coordinates": "Lead-Sulfide (PbS) Photoconductive Sensor",
+                "date_timestamp": "WAVELENGTH: 2.7 MICRONS",
+                "classification": "CLASSIFIED DESIGN INADEQUACY"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Satellite Optical Sensor Breakdown",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Isometric cutaway animation of gold telescope baffle and primary mirror",
+                "prompt": "Detailed 3D mechanical CAD schematic cutaway of vintage Soviet satellite optical telescope, gold coated parabolic mirror, hexagonal baffle ridges, light ray raytracing lines showing reflection bouncing into sensor focal plane, 4-tone technical illustration palette, cinematic lighting --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Rocket Booster Exhaust Thermal Signature",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Extreme thermal FLIR macro view of rocket engine test firing",
+                "prompt": "Cinematic thermal FLIR imaging view of massive rocket booster rocket exhaust, white-hot plasma column, heat distortion shock diamonds, false-color thermal gradient from black to incandescent white, 8k resolution, cinematic documentary footage aesthetic --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The Oko system's software had not been programmed to filter out false alarms from sunlight bouncing off cloud tops."
+    },
+    {
+        "scene_id": 22,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 9 Minutes)",
+        "timestamp_marker": "12:30:15 AM | PSYCHOLOGICAL PARALYSIS OF PROTOCOL",
+        "hook_category": "Institutional Conditioning",
+        "visual_style_type": "PSYCHOLOGICAL_PROFILE",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "In Soviet society, thinking for yourself was dangerous. In the Soviet military, it was fatal. Petrov’s officers were trained from childhood that the Party and the Machine were supreme. To question the computer was not merely insubordination; it was psychological heresy.",
+        "cosyvoice_instruct": "Severe, psychological dissection of the totalitarian mindset.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "marching_boots_reverberant",
+                "distant_crowd_applause_distorted",
+                "heavy_iron_door_clang"
+            ],
+            "ost_cues": "Dark, suffocating contrabass drone with distorted tape flutter effects",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow symmetrical tracking shot down row of Soviet officers standing at attention with glazed, terrified expressions",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "MILITARY PSYCHOLOGY DOSSIER // V-PVO COMMAND",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "SOVIET MILITARY DOCTRINE: OBEDIENCE",
+                "subtitle": "Institutional Conditioning vs Individual Discretion",
+                "coordinates": "Moscow Military District Political Directorate",
+                "date_timestamp": "CODE OF MILITARY JUSTICE: ARTICLE 64",
+                "classification": "EXECUTION PENALTY FOR INSUBORDINATION"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Frozen Soviet Officers at Attention",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow dolly past faces of young Soviet soldiers frozen in panic",
+                "prompt": "Cinematic tracking shot past faces of five young Soviet military radar technicians standing stiffly at attention, terror in their eyes, sweat on upper lips, harsh green and red console light painting their young faces, authentic 1983 Soviet uniforms and badges, Hoyte van Hoytema palette, 35mm film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Military Court Martial Gavel Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro rack focus on heavy wooden Soviet tribunal gavel and brass hammer plate",
+                "prompt": "Extreme macro of heavy wooden judge gavel resting on dark mahogany desk, red leather binder with gold Soviet crest, dramatic spotlight, dust motes floating in air, ominous legal dread atmosphere, 8k resolution --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Soviet military training strictly discouraged independent judgment over algorithmic directives."
+    },
+    {
+        "scene_id": 23,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 8 Minutes)",
+        "timestamp_marker": "12:31:00 AM | CINQ MISSILES DETECTED",
+        "hook_category": "Sensory Peak of Alarm",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "On the main wall display, three meters wide, the giant illuminated letters flashed in blood red: 'РАКЕТНЫЙ УДАР'—MISSILE ATTACK. (som: sirene ensurdecedora) The acoustic pressure in the bunker was deafening. The klaxons were no longer a warning; they were a death march.",
+        "cosyvoice_instruct": "Maximum cinematic intensity, delivering the visceral soundscape of impending nuclear fire.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "klaxon_alarm_max_gain",
+                "sub_bass_braam_triple_hit",
+                "metal_console_vibration"
+            ],
+            "ost_cues": "Full Hans Zimmer orchestral climax: brass braams hitting in sync with red strobe pulses",
+            "foley_cue": "sub_riser"
+        },
+        "camera_direction": "Violent kinetic push-in vibrating with sub-bass toward the three-meter illuminated wall sign",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "ALL-SECTOR CONFIRMATION // TOTAL WAR ALERT",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "WALL DISPLAY: РАКЕТНЫЙ УДАР",
+                "subtitle": "Full Bunker Audio-Visual Emergency Override",
+                "coordinates": "Serpukhov-15 Central Command Board",
+                "date_timestamp": "26 SEP 1983 - 00:31:00 UTC",
+                "classification": "EMERGENCY WARHEAD RETALIATION PROTOCOL"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Wall Display Red Cyrillic Terror",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Dramatic low angle shot looking up at giant flashing red backlit sign",
+                "prompt": "Cinematic wide angle shot inside darkened Soviet military bunker looking up at giant illuminated glass wall board, flashing brilliant red Cyrillic text 'РАКЕТНЫЙ УДАР', intense red glow washing over the entire concrete chamber, smoke from cigarettes curling in the red beam, 35mm anamorphic, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Alarm Bell Clapper High Speed Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Ultra high-speed macro shot of brass clapper striking emergency bell gong",
+                "prompt": "Slow motion macro shot of industrial cast-iron emergency alarm bell clapper striking brass gong, metal vibrations visible, paint flaking off gong rim with each impact, dust jumping from bell housing, cinematic high-speed photography, 8k resolution --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The bunker's wall display literally lit up with the words 'РАКЕТНЫЙ УДАР' (Missile Attack) in bright red letters."
+    },
+    {
+        "scene_id": 24,
+        "act_number": 3,
+        "act_title": "ACT III: THE ESCALATION // CROSSCUTTING TENSION",
+        "timeline_thread": "Thread B: The Rapid Clock (T-Minus 7 Minutes)",
+        "timestamp_marker": "12:31:45 AM | DEFCON 1 REDIRECTION",
+        "hook_category": "The Solitary Anchor",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Seven minutes until impact. The entire nuclear arsenal of the Soviet Union—eleven thousand strategic warheads—was now waiting for one single word from Petrov. If he said 'Attack', the apocalypse was locked in. If he said 'Glitch', he was betting all of human history.",
+        "cosyvoice_instruct": "Gravity of biblical proportions, deliberate slow cadence letting the weight of 11,000 warheads settle on the listener.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "silo_blast_doors_creak",
+                "stamp_slam",
+                "heartbeat_acceleration"
+            ],
+            "ost_cues": "Sudden stop of high frequencies, leaving only an agonizing slow sub-bass heartbeat pulse",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Slow dramatic crane down from control room ceiling settling inches from Petrov's sweating forehead",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "SOVIET ARSENAL: 11,000 STRATEGIC WARHEADS",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "SOVIET NUCLEAR TRIAD INVENTORY",
+                "subtitle": "1,398 ICBM Silos // 941 SSBN Submarines // Long-Range Aviation",
+                "coordinates": "Strategic Rocket Forces Battle Order",
+                "date_timestamp": "ACTIVE YIELD: 4,500 MEGATONS",
+                "classification": "TOTAL PLANETARY ANNIHILATION CAPABILITY"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Soviet ICBM Silo Field in Snow",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Epic aerial drift over snowbound Siberian forest with open missile silos",
+                "prompt": "Epic aerial cinematic wide shot over frozen Siberian taiga forest at twilight, massive steel nuclear missile silo doors sliding open through snow, white hydraulic steam venting into freezing air, dark sinister military infrastructure, Kodak Vision3 250D texture, IMAX 70mm cinematography --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Launch Key Turn Mechanism Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro shot of brass dual-key launch authorization mechanism",
+                "prompt": "Macro shot of two Soviet brass nuclear launch keys inserted into dual keyhole console, Cyrillic label 'ПУСК', hands in leather gloves hovering over keys ready for simultaneous turn, tension palpable, cinematic 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "In 1983, the Soviet Union possessed approximately 11,000 deployed strategic nuclear warheads."
+    },
+    {
+        "scene_id": 25,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 5 Minutes)",
+        "timestamp_marker": "12:32:30 AM | 120 PAIRS OF EYES",
+        "hook_category": "The Human Anchor",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "Five minutes. In the operations room, all typing stopped. One hundred and twenty men sat frozen in their swivel chairs, their eyes locked onto the back of Petrov's head. No one breathed. The only sound in the bunker was the rhythmic, metallic scrape of Petrov’s fingernails digging into the vinyl of his armrest.",
+        "cosyvoice_instruct": "Intense claustrophobic intimacy, hushed whisper of psychological terror in a room full of dying men.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "fingernails_vinyl_scratch",
+                "muffled_room_air_rumble",
+                "distant_dripping_water"
+            ],
+            "ost_cues": "Solo high violin holding a piercing, unyielding harmonic tone at 4000Hz (auditory tinnitus)",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow 360-degree orbital dolly moving around Petrov's seated figure, showing the wall of silent faces behind him",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "T-MINUS 05:00 // IMPACT IMMINENT",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "SERPUKHOV-15 OPERATIONS DECK",
+                "subtitle": "120 Military Technicians & Duty Operators",
+                "coordinates": "Main Underground Command Vault",
+                "date_timestamp": "26 SEP 1983 - 00:32:30 UTC",
+                "classification": "STATUS: PENDING LAUNCH ORDER"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Wall of 120 Frozen Faces",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Cinematic wide angle looking past Petrov's shoulder at rows of operators",
+                "prompt": "Cinematic deep focus shot from behind Petrov's shoulder looking at three tiers of Soviet military radar operators, dozens of men in olive uniforms staring directly at camera, expressions of pure paralyzed dread, overhead fluorescent tube casting cold green shadows, cigarette smoke hanging static, IMAX 70mm composition --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Petrov's Fingernails in Vinyl Armrest",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Extreme macro close-up of white-knuckled fingers digging into black vinyl chair",
+                "prompt": "Extreme close-up of human hand digging into cracked black vinyl chair armrest, fingernails turning white with pressure, sweat glistening on knuckles, red alarm strobe pulse casting sharp shadow across texture, photorealistic 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov later recounted that his subordinates turned completely silent, watching him in total stillness."
+    },
+    {
+        "scene_id": 26,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 4 Minutes)",
+        "timestamp_marker": "12:33:15 AM | GROUND RADAR CROSS-CHECK",
+        "hook_category": "The Technological Cross-Examination",
+        "visual_style_type": "BUNKER_INTERCOM_DRAMA",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Petrov grabbed the direct line to the ground radar network. (voz urgente: 'Pechora! Dnepr! Vocês veem alguma coisa subindo no horizonte?') (pausa: 2s) The ground radar network used colossal over-the-horizon antennas the size of football stadiums. If missiles were coming, they would be visible the moment they crested the curvature of the Earth.",
+        "cosyvoice_instruct": "Frantic vocal tempo, rapid tactical interrogation, desperately searching for empirical truth.",
+        "estimated_duration_sec": 15.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "radio_hiss_squelch",
+                "radar_oscilloscope_sweep",
+                "sub_impact_anticipation"
+            ],
+            "ost_cues": "Rapid mechanical ticking clock accelerating to 120 BPM over dark analog synth pads",
+            "foley_cue": "radar_ping"
+        },
+        "camera_direction": "Rapid cut between Petrov shouting into intercom and giant steel radar array in misty tundra",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "GROUND RADAR INTERLINK // DNEPR-M PECHORA ARRAY",
+            "coordinates": "65°07'00\"N 57°14'00\"E",
+            "lower_third_data": {
+                "title": "DARYAL / DNEPR RADAR SITE PECHORA",
+                "subtitle": "Komi Republic // Over-the-Horizon Early Warning",
+                "coordinates": "65.1167° N, 57.2333° E",
+                "date_timestamp": "SEARCH FREQUENCY: 150-200 MHZ",
+                "classification": "GROUND RADAR CROSS-VERIFICATION"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Colossal Daryal Radar Antenna in Tundra",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Epic low angle tilt shot up face of massive Soviet radar building in snow",
+                "prompt": "Epic cinematic low angle shot of colossal Soviet Daryal over-the-horizon radar installation, giant slanted steel lattice phased array building standing 100 meters tall in barren snowy tundra, dark overcast sky, red aircraft warning lights blinking on rooftop, brutalist Soviet military scale, IMAX 70mm --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Radar Operator Headset Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro rack focus on wire microphone and sweating lips of remote operator",
+                "prompt": "Close-up of remote Soviet radar operator at Pechora station, vintage bakelite headphones on ears, speaking into metal radio microphone, green oscilloscope screen reflection dancing on his glasses, authentic Cold War electronics, 35mm film grain --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Ground-based radar networks could only detect missiles after they cleared the Earth's horizon (last 3-5 mins)."
+    },
+    {
+        "scene_id": 27,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 3 Minutes)",
+        "timestamp_marker": "12:34:00 AM | HORIZON RADAR BLINDNESS",
+        "hook_category": "The Agony of the Horizon",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "The answer came back over the radio: 'Negativo, Serpukhov. Não vemos alvos. O horizonte está limpo.' (pausa: 2s) But that was no comfort. Ground radars were physically blind until the last three minutes before impact. By the time ground radar confirmed the missiles... it would be too late to launch a counter-strike.",
+        "cosyvoice_instruct": "Heartbreaking despair, revealing the lethal catch-22 built into nuclear deterrence theory.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "radio_disconnect_click",
+                "distant_thunder_sub_bass",
+                "heartbeat_faltering"
+            ],
+            "ost_cues": "Low cellos playing slow descending minor thirds, sounding like a funeral march",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow dolly push-in on Petrov closing his eyes in quiet agony as the radio goes silent",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "GROUND RADAR STATUS: ZERO ACQUISITION",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "HORIZON RADAR BLIND SPOT",
+                "subtitle": "Radar Line-of-Sight Blocked by Earth Curvature",
+                "coordinates": "Target Reacquisition Window: 3 Minutes Remaining",
+                "date_timestamp": "00:34:00 UTC // DEADLINE EXPIRING",
+                "classification": "DECISION POINT: ZERO RETALIATION MARGIN"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Closing Eyes in Prayer/Despair",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Extreme close-up on Petrov's face bathed in crimson light, slowly closing eyes",
+                "prompt": "Extreme close-up of Stanislav Petrov, 44, weathered Russian face, shutting his eyes in profound spiritual exhaustion, heavy brow furrowed, sweat glistening on temples, rotating red beacon painting the side of his nose and cheekbone, Rembrandt dramatic chiaroscuro, 35mm anamorphic prime lens, IMAX film quality --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Radar Scope Green Sweep Empty Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro top-down circular radar sweep showing zero targets",
+                "prompt": "Top-down macro shot of round green CRT radar oscilloscope, bright green sweep line rotating smoothly at 30 RPM, empty dark screen with faint circular range rings, glass reflections of control room, subtle cathode glow, authentic 1983 vintage electronics --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Ground radar officers reported no targets, but Petrov knew their range was limited by line-of-sight."
+    },
+    {
+        "scene_id": 28,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 2 Minutes)",
+        "timestamp_marker": "12:34:50 AM | THE LOGICAL AXIOM OF EXTINCTION",
+        "hook_category": "The Epiphany of Disobedience",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "And in that silence, Petrov applied pure, unadulterated human logic. He told himself: 'If the Americans are going to start World War Three... they wouldn't launch five missiles. They would launch five thousand.' (pausa: 2s) Five missiles was not an attack. Five missiles was a mistake. Five missiles was a glitch.",
+        "cosyvoice_instruct": "Transcendent clarity, deliberate philosophical triumph of human intellect overcoming mechanical hysteria.",
+        "estimated_duration_sec": 17.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "silence_swell",
+                "sub_bass_resolution_note",
+                "clock_ticking_stops"
+            ],
+            "ost_cues": "Music shifts from discordant terror to a noble, profound cello and horn hymn (Hans Zimmer 'Time' chord progression)",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow, majestic push-in straight into Petrov's eyes as a subtle spark of resolve replaces terror",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "LOGICAL DEDUCTION // THE PETROV AXIOM",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "THE PETROV AXIOM",
+                "subtitle": "'A real attack starts with hundreds of warheads, not five.'",
+                "coordinates": "Deduction: Software Glitch // Hardware False Positive",
+                "date_timestamp": "CONFIDENCE LEVEL: UNVERIFIED CONVICTION",
+                "classification": "HUMAN COGNITION OVERRIDE"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov's Moment of Clarity",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Frontal slow push-in with lighting shifting from harsh red to subtle amber key light",
+                "prompt": "Cinematic medium close-up of Stanislav Petrov, posture straightening in command chair, face transforming from fear to quiet steely resolve, eyes sharp and analytical, red alarm light still flashing but no longer terrifying him, warm golden rim light defining his silhouette, Hoyte van Hoytema Oppenheimer aesthetic --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Missile Silo Cluster Simulation Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro chart showing massive flock of hundreds of missiles vs solitary five vectors",
+                "prompt": "Cinematic macro shot of Soviet strategic strike map showing theoretical swarm of hundreds of red vectors crossing Europe, contrasted with single green radar terminal showing five lonely blips, dramatic lighting, grease pencil notes, historical documentary quality --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov later cited this exact logic: 'When people start a war, they don't begin with only five missiles.'"
+    },
+    {
+        "scene_id": 29,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 60 Seconds)",
+        "timestamp_marker": "12:35:40 AM | TWO MINUTES TO EXTINCTION",
+        "hook_category": "The Count of Zero",
+        "visual_style_type": "TACTICAL_MAP_MOTION",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "Two minutes left. If Petrov was wrong, five American thermonuclear warheads were already ripping through the stratosphere above Moscow. The fireball of each W-78 warhead would be hotter than the core of the Sun. Ten million people in Moscow would be vaporized before their brains could register pain.",
+        "cosyvoice_instruct": "Unflinching, apocalyptic documentary realism, delivering the brutal physical consequences of nuclear detonation.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "air_pressure_drop",
+                "sub_bass_rumble_30hz",
+                "heartbeat_final_acceleration"
+            ],
+            "ost_cues": "Orchestral tension building to an unbearable, deafening sonic wall: brass, strings, and bass drum hits",
+            "foley_cue": "sub_riser"
+        },
+        "camera_direction": "Overhead satellite zoom plummeting down toward Red Square and the Kremlin rooftops under night sky",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "T-MINUS 01:00 // IMPACT RADIUS: MOSCOW CENTRAL",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "BLAST YIELD ESTIMATE: 5 X 335 KT",
+                "subtitle": "Target: Moscow Command Centers & Kremlin",
+                "coordinates": "55.7558° N, 37.6173° E",
+                "date_timestamp": "PRODICTED CASUALTIES: 10,200,000",
+                "classification": "HYPOTHETICAL THERMONUCLEAR DETONATION"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Red Square Silent Midnight Shadows",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Epic wide static shot of Red Square at midnight under gloomy overcast sky",
+                "prompt": "Cinematic epic wide angle shot of Red Square in Moscow at midnight in 1983, Saint Basil's Cathedral silhouetted against dark purple-grey stormy clouds, damp cobblestones reflecting distant yellow streetlamps, complete eerie silence, cinematic atmospheric grain, 35mm film stock, IMAX 70mm composition --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Timer Digital Nixie Tubes Flipping Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro close-up of glowing orange Soviet Nixie tube clock counting down seconds",
+                "prompt": "Extreme macro of Soviet orange Nixie tube display, wire mesh cathodes glowing brightly: '00:01:59' ticking to '00:01:58', glowing glass envelopes, warm orange filament glow reflecting on brushed aluminum chassis, authentic vintage technology, 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "A 5-warhead nuclear strike on Moscow would have resulted in catastrophic mass casualties and retaliatory launch."
+    },
+    {
+        "scene_id": 30,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (T-Minus 0 Seconds)",
+        "timestamp_marker": "12:37:00 AM | T-MINUS ZERO: THE VOID",
+        "hook_category": "The Moment of Truth",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "nuclear_dread_siren",
+        "audio_text": "The digital clock reached zero. (som: bip final agudo) (pausa: 2s) Petrov closed his eyes. Every officer in the bunker held their breath, waiting for the ceiling to collapse into blinding radioactive white. Ten seconds passed. (pausa: 2s) Twenty seconds. Thirty seconds.",
+        "cosyvoice_instruct": "Suspended animation, absolute silence between words, making the listener wait with the crew in the dark.",
+        "estimated_duration_sec": 18.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "terminal_single_beep",
+                "complete_audio_blackout",
+                "faint_distant_breathing"
+            ],
+            "ost_cues": "COMPLETE AUDIO BLACKOUT for 3 full seconds, absolute silence, zero music, zero ambient sound",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Extreme slow motion macro camera drifting across the silent faces of the operators with closed eyes",
+        "overlay_recipe": {
+            "template": "tactical_hud",
+            "stamp_text": "T-MINUS 00:00:00 // IMPACT SCHEDULE EXPIRED",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "CALCULATED IMPACT TIME REACHED",
+                "subtitle": "No Seismic Anomaly // No Atmospheric Ionization",
+                "coordinates": "Moscow Defense Perimeter Seismic Stations",
+                "date_timestamp": "00:37:00 UTC // ZERO DETONATION",
+                "classification": "RADAR FAILURE CONFIRMED"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Faces in the Dark at Zero",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Extreme slow motion 60fps tracking shot past officers with eyes shut tight",
+                "prompt": "Slow motion 35mm film shot of Soviet officers seated at radar consoles with eyes closed in prayer or fear, red alarm strobe light suddenly freezing and shutting off, ambient emergency lights clicking to dull green tone, cinematic chiaroscuro, intense psychological drama, Hoyte van Hoytema photography --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Wall Display Blanking Out",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Static shot of red illuminated sign suddenly flickering off into darkness",
+                "prompt": "Cinematic shot of giant red illuminated wall board 'РАКЕТНЫЙ УДАР' flickering with electrical spark and shutting down into dark grey glass, amber emergency lights taking over, smoke clearing, sound of cooling metal relays clicking, IMAX 70mm realism --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The scheduled impact time passed with no explosions and no detonations across the USSR."
+    },
+    {
+        "scene_id": 31,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (+2 Minutes Post-Zero)",
+        "timestamp_marker": "12:37:15 AM | THE ACOUSTIC DECAY OF RELIEF",
+        "hook_category": "The Cataclysm of Silence",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Nothing happened. The world was still there. Outside the bunker, the Russian pine trees were gently swaying in the autumn wind. In Moscow, ten million people were sleeping peacefully in their beds, completely oblivious to the fact that they had just been saved by one man.",
+        "cosyvoice_instruct": "Tender, emotional, immense relief breaking through the darkness like morning light.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "wind_in_pine_trees",
+                "distant_city_ambience",
+                "deep_sigh_of_relief"
+            ],
+            "ost_cues": "Lush, warm strings swell gently in D major, emotional and deeply moving (Hans Zimmer style)",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow upward crane shot rising out of the underground bunker hatch into the misty, peaceful midnight forest",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "SURFACE TELEMETRY // PEACEFUL STATUS",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "SURFACE ATMOSPHERIC SENSORS",
+                "subtitle": "Moscow Oblast Pine Forest // Normal Baseline",
+                "coordinates": "Radiation Level: 0.12 μSv/h // Normal",
+                "date_timestamp": "26 SEP 1983 - 00:37:15 UTC",
+                "classification": "PLANETARY EXTINCTION AVERTED"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Pine Forest Mist Outside Bunker",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Breathtaking wide shot of peaceful Russian birch and pine forest in night mist",
+                "prompt": "Breathtaking cinematic wide shot of Russian birch and pine forest at midnight, gentle white mist drifting between tree trunks, cold blue moonlight filtering through branches, peaceful autumn stillness, 35mm film grain, Terrence Malick nature cinematography, photorealistic IMAX --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Bunker Air Exhaust Vent in Grass",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Low angle slider shot past weathered concrete air vent disguised in autumn leaves",
+                "prompt": "Cinematic low angle shot of weathered grey concrete ventilation shaft in grass, camouflage netting, warm air venting into cold night air creating faint steam, autumn leaves rustling on ground, cinematic documentary lighting, Kodak 2383 grade --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The false alarm ended without any retaliatory launch orders ever being transmitted to Soviet silos."
+    },
+    {
+        "scene_id": 32,
+        "act_number": 4,
+        "act_title": "ACT IV: THE CLIMAX // THE HUMAN ZERO POINT",
+        "timeline_thread": "Convergence Point (+5 Minutes Post-Zero)",
+        "timestamp_marker": "12:38:00 AM | THE CATHARSIS OF DISOBEDIENCE",
+        "hook_category": "Human Exhaustion",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Petrov slumped back into his leather seat like an empty uniform. His legs were shaking so violently he could not stand up. Someone handed him a heavy faceted glass tumbler of tap water. When he raised it to his lips, his teeth chattered against the glass.",
+        "cosyvoice_instruct": "Intimate, fragile, raw human exhaustion after surviving the supreme emotional ordeal.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "glass_chattering_against_teeth",
+                "leather_chair_creak",
+                "long_ragged_exhalation"
+            ],
+            "ost_cues": "Solo cello continuing its gentle, contemplative hymn over sustained warm bass chords",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Close-up on Petrov's trembling hands holding a heavy Russian glass tumbler, water spilling slightly",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "INCIDENT STATUS // CRISIS RESOLVED",
+            "coordinates": "54°54'57\"N 37°24'42\"E",
+            "lower_third_data": {
+                "title": "DUTY OFFICER AFTER-ACTION LOG",
+                "subtitle": "Lt. Col. Petrov // End of Crisis Window",
+                "coordinates": "Serpukhov-15 Operations Vault",
+                "date_timestamp": "00:38:00 UTC // WATCH RESUMES",
+                "classification": "CONFIDENTIAL LOG ENTRY"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Drinking Water with Shaking Hands",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Intimate medium close-up on Petrov drinking water from faceted Soviet glass",
+                "prompt": "Cinematic medium close-up of Stanislav Petrov, uniform unbuttoned at collar, drinking water from traditional Russian faceted glass tumbler with trembling hands, water spilling down chin, look of utter catharsis and exhaustion, dim green ambient console light, Hoyte van Hoytema photography, 35mm film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Water Droplets on Steel Console Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Extreme macro of water droplets resting on cold brushed steel dashboard",
+                "prompt": "Extreme macro of clear water droplets scattered across green-painted steel console surface, droplet reflecting blurred image of the officer's face above, beautiful cinematic specular highlights, photorealistic 8k, shallow depth of field --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov recalled draining a full glass of water, his hands trembling so hard that glass clattered against his teeth."
+    },
+    {
+        "scene_id": 33,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Secret Inquest (1 Month Later)",
+        "timestamp_marker": "OCTOBER 1983 | THE SECRET SCIENTIFIC INQUEST",
+        "hook_category": "The Official Cover-Up",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "The secret scientific commission, chaired by General Yuri Votintsev, spent three weeks dissecting the computer tapes. Their findings were classified as state secrets of the highest order. The multi-billion-ruble Oko satellite system, the crowning glory of Soviet military aerospace, had been fooled by sunlight.",
+        "cosyvoice_instruct": "Dark bureaucratic irony, exposing the humiliation and cover-up of a superpower's technical blunder.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "paper_files_slammed_on_table",
+                "teletype_burst",
+                "stamp_slam"
+            ],
+            "ost_cues": "Dark, rhythmic cello pizzicato with mysterious bass clarinet counterpoint",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Slow tracking shot across a long conference table covered in classified Soviet technical dossiers stamped 'СОВЕРШЕННО СЕКРЕТНО'",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "STATE COMMISSION REPORT // TOP SECRET // EYE ONLY",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "VOTINTSEV COMMISSION REPORT",
+                "subtitle": "Soviet Air Defence Technical Inquest into 26.09.1983",
+                "coordinates": "Moscow General Staff Archives",
+                "date_timestamp": "OCTOBER 1983 // CLASSIFIED 15 YEARS",
+                "classification": "TOP SECRET // STATE SECRETS ACT"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "General Votintsev at Inquest Table",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Slow dolly push-in on stern Soviet General examining technical computer graphs",
+                "prompt": "Cinematic medium shot of elderly Soviet General Yuri Votintsev in olive uniform with red lapels and medals, reading secret technical report at dark polished oak table, three solemn officers in background, harsh side lighting from tall window, 35mm film grain, Chernobyl HBO series aesthetic --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Scientific Report Cloud Reflection Diagram Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro track across hand-drawn technical ballistic charts showing sun angles",
+                "prompt": "Extreme macro of Soviet technical report page with hand-drawn pen diagrams showing sun rays reflecting off high-altitude cloud tops into satellite sensor, Cyrillic handwritten annotations, red ink underlines, authentic yellowed document texture, 8k resolution --ar 16:9"
+            }
+        },
+        "verified_fact_note": "General Yuri Votintsev led the investigation that confirmed the solar reflection on high-altitude clouds."
+    },
+    {
+        "scene_id": 34,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Engineering Fix (6 Months Later)",
+        "timestamp_marker": "ANATOMY OF A GLITCH // THE SUN-CLOUD-SATELLITE TRINITY",
+        "hook_category": "The Technical Post-Mortem",
+        "visual_style_type": "ANATOMY_ISOMETRIC",
+        "dop_lens": "laowa_probe_24mm",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "The flaw was devastatingly simple. The Oko satellite software did not cross-reference multiple orbits. It treated any bright infrared cluster moving at ballistic velocity as an ICBM. Soviet engineers quietly rewrote the algorithm. But they could never admit their mistake without admitting that the system was broken.",
+        "cosyvoice_instruct": "Analytical clarity, the sobering post-mortem of how close software arrogance came to ending the world.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "computer_tape_rewind",
+                "punched_card_chatter",
+                "electronic_tone_glitch"
+            ],
+            "ost_cues": "Cold modular synth arpeggios descending into subterranean sub-bass",
+            "foley_cue": "teletype_burst"
+        },
+        "camera_direction": "Isometric 3D CAD schematic animation showing the software patch filtering out high-altitude specular cloud glare",
+        "overlay_recipe": {
+            "template": "anatomy_mechanical",
+            "stamp_text": "SOFTWARE PATCH // OKO FIRMWARE UPDATE 1984",
+            "coordinates": "OKB-41 AEROSPACE LAB",
+            "lower_third_data": {
+                "title": "ALGORITHM REVISION: GEOMETRIC FILTER",
+                "subtitle": "Specular Reflection Suppression Algorithm",
+                "coordinates": "Central Scientific Research Institute (TsNII-45)",
+                "date_timestamp": "DEPLOYED SPRING 1984",
+                "classification": "CONFIDENTIAL SYSTEM MODIFICATION"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Soviet Engineers Rewriting Code",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow tracking shot through Soviet aerospace laboratory with engineers at drafting tables",
+                "prompt": "Cinematic shot inside Soviet aerospace laboratory, engineers in grey smocks huddled around drafting tables covered in blueprints, slide rules and punched cards, fluorescent lights, chalkboard covered in complex calculus, 35mm film grain, authentic 1980s Soviet scientific atmosphere --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Punched Computer Card Reading Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro high-speed shot of paper punched cards feeding into mainframe reader",
+                "prompt": "High-speed macro shot of rectangular cardboard Soviet punched cards flying through electronic card reader, perforations casting flickering light patterns, mechanical precision, warm vintage lighting, 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Soviet engineers were forced to rewrite the satellite software to cross-reference multiple sensor perspectives."
+    },
+    {
+        "scene_id": 35,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Ingratitude of the State (2 Months Later)",
+        "timestamp_marker": "NOVEMBER 1983 | THE POLITICAL REPRIMAND",
+        "hook_category": "The Tragic Irony",
+        "visual_style_type": "PSYCHOLOGICAL_PROFILE",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "gordon_willis_noir",
+        "audio_text": "Stanislav Petrov did not receive a medal. He did not receive a bonus. Instead, he was subjected to brutal political interrogations by the KGB and his military superiors. Because honoring Petrov would mean admitting to the Politburo that the multi-billion-ruble early-warning system had failed.",
+        "cosyvoice_instruct": "Bitter, poignant historical indignation, mourning the injustice inflicted on the man who saved humanity.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "interrogation_chair_scrape",
+                "slamming_fist_on_desk",
+                "distant_clock_ticking"
+            ],
+            "ost_cues": "Mournful solo cello playing a slow lament in G minor, filled with heartache and institutional cruelty",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow circular tracking shot around an interrogation table: Petrov sitting isolated under a single bare lightbulb",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "KGB DISCIPLINARY PROCEEDING // FILE NO. 83-P",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "OFFICIAL REPRIMAND: LT. COL. PETROV",
+                "subtitle": "Formal Charge: Improper Logbook Documentation",
+                "coordinates": "Air Defence Disciplinary Board // Moscow",
+                "date_timestamp": "NOVEMBER 1983",
+                "classification": "BURIED MILITARY RECORD"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Under Bare Lightbulb in Interrogation",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Dramatic low key shot of Petrov seated across from unseen KGB interrogator",
+                "prompt": "Dramatic cinematic noir shot of Stanislav Petrov seated in bare concrete room under single swinging incandescent bulb, arms resting on wooden table, face illuminated by harsh overhead cone of light, dark shadows swallowing the room, Godfather Gordon Willis lighting, deep emotional sorrow, 35mm film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Disciplinary File Stamped with Red Seal Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro shot of official Soviet disciplinary reprimand stamped in red ink",
+                "prompt": "Macro close-up of typewritten Russian document with official red rubber stamp 'ВЗЫСКАНИЕ' (REPRIMAND), signature of presiding general, dust motes floating in dramatic ray of light, authentic paper texture --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov was reprimanded on technical grounds for not properly logging everything during the frantic 20 minutes."
+    },
+    {
+        "scene_id": 36,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Forgotten Years (1984 - 1993)",
+        "timestamp_marker": "1984 - 1993 | THE BURIED HERO",
+        "hook_category": "The Quiet Martyr",
+        "visual_style_type": "ARCHIVAL_KEN_BURNS",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Petrov was quietly transferred to an obscure desk job. He took early retirement, suffered a nervous breakdown, and retreated into anonymity. When his beloved wife Raissa died of cancer, he didn’t even have enough money to buy her tombstone. The savior of the world was left to starve on a pension of two hundred dollars a month.",
+        "cosyvoice_instruct": "Deeply moving, sorrowful, capturing the heartbreaking loneliness of Petrov’s later years.",
+        "estimated_duration_sec": 17.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "melancholy_wind_blowing",
+                "wooden_creaking_floor",
+                "distant_church_bell"
+            ],
+            "ost_cues": "Acoustic cello and mournful piano duet, fragile, poetic, and infinitely sad",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow Ken Burns pan across authentic black-and-white family photographs of Stanislav and Raissa Petrov",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "RETIREMENT DOSSIER // LT. COL. PETROV",
+            "coordinates": "55°58'00\"N 38°03'00\"E",
+            "lower_third_data": {
+                "title": "STANISLAV PETROV (1939 - 2017)",
+                "subtitle": "Early Retirement: 1984 // Pension: $200/month",
+                "coordinates": "Fryazino, Moscow Oblast, Russia",
+                "date_timestamp": "ANONYMOUS RETIREMENT PERIOD",
+                "classification": "CONFIDENTIAL VETERAN FILE"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov Solitary in Modest Apartment",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow cinematic tracking shot past simple kitchen table with tea kettle and old radio",
+                "prompt": "Cinematic melancholy shot of elderly Stanislav Petrov sitting alone by window in modest Soviet-era apartment, wearing worn knitted cardigan, holding steaming porcelain teacup, looking out at grey winter snow falling outside, Tarkovsky poetic atmosphere, soft natural window light, 35mm film grain --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Archival Photo of Petrov and Raissa Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro rack focus on small silver framed black-and-white photograph of young couple",
+                "prompt": "Extreme macro of small vintage black and white photograph in tarnished silver frame, young smiling Soviet officer with beautiful young woman in summer dress, edges worn, resting on lace tablecloth next to burning candle, warm intimate lighting, Kodak film aesthetic --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov retired early, lived in poverty in Fryazino near Moscow, and his wife passed away from cancer in 1997."
+    },
+    {
+        "scene_id": 37,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Declassification (15 Years Later)",
+        "timestamp_marker": "1998 | FIFTEEN YEARS OF SECRECY",
+        "hook_category": "The Breaking of the Silence",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "For fifteen years, not a single human being outside the Soviet military hierarchy knew that World War Three had been avoided by a hair. It was only in 1998, with the collapse of the Soviet Union and the publication of General Votintsev’s memoirs, that the story leaked to the Western press.",
+        "cosyvoice_instruct": "Authoritative journalistic revelation, breaking through the wall of Cold War secrecy.",
+        "estimated_duration_sec": 16.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "newspaper_printing_press_roar",
+                "teletype_burst",
+                "stamp_slam"
+            ],
+            "ost_cues": "Propulsive, investigative string ostinato with ascending brass pulses",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Rapid kinetic montage of international newspaper headlines spinning into focus: New York Times, BBC, Der Spiegel",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "DECLASSIFIED // INTERNATIONAL DISCLOSURE 1998",
+            "coordinates": "55°45'06\"N 37°37'04\"E",
+            "lower_third_data": {
+                "title": "THE DECLASSIFICATION OF 1983",
+                "subtitle": "Memoirs of Col. Gen. Yuri Votintsev Published",
+                "coordinates": "Krasnaya Zvezda / International Media Reveal",
+                "date_timestamp": "1998 // 15 YEARS AFTER INCIDENT",
+                "classification": "DECLASSIFIED UNDER FREEDOM OF INFORMATION"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Newspaper Printing Press 1998 Headlines",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "High speed tracking shot through newspaper printing presses rolling out headlines",
+                "prompt": "Cinematic shot of industrial newspaper printing press running at high speed, fresh ink, papers flying through rollers, headlines visible in English and German: 'THE MAN WHO SAVED THE WORLD', warm industrial lighting, dynamic motion blur, 35mm film grain, David Fincher Zodiac newspaper aesthetic --ar 16:9"
+            },
+            "shot_b": {
+                "name": "General Votintsev's Memoir Book Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro close-up on printed book page detailing the Serpukhov-15 incident",
+                "prompt": "Macro shot of open Russian hardbound book, chapter heading '26 сентября 1983 года' (September 26, 1983), finger tracing over printed paragraph describing Petrov's defiance, warm reading lamp, photorealistic 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "The incident was kept completely secret until General Votintsev published his memoirs in 1998."
+    },
+    {
+        "scene_id": 38,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The Modest Hero (2006)",
+        "timestamp_marker": "2006 | THE APARTMENT IN FRYAZINO",
+        "hook_category": "The Human Reality",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "When Western documentary crews finally found Petrov in 2006, they found a quiet, modest old man living in a tiny concrete apartment in Fryazino. His kitchen smelled of boiled potatoes. He had no microwave. He had no computer. The man who saved technological civilization did not even own an internet connection.",
+        "cosyvoice_instruct": "Gentle, reverent, highlighting the immense contrast between global salvation and humble simplicity.",
+        "estimated_duration_sec": 16.0,
+        "sound_design": {
+            "sfx_triggers": [
+                "boiling_kettle_whistle_soft",
+                "clock_ticking_wooden",
+                "gentle_human_chuckle"
+            ],
+            "ost_cues": "Solo acoustic guitar and cello playing a warm, humble folk-like melody",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow tracking shot through Petrov's cramped kitchen, landing on the elderly officer peeling a potato with a small knife",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "DOCUMENTARY ARCHIVE // FRYAZINO 2006",
+            "coordinates": "55°58'00\"N 38°03'00\"E",
+            "lower_third_data": {
+                "title": "STANISLAV PETROV IN RETIREMENT",
+                "subtitle": "Fryazino, Russia // Age 67",
+                "coordinates": "Small Municipal Concrete Apartment",
+                "date_timestamp": "DOCUMENTARY RECORDING: 2006",
+                "classification": "ORAL HISTORY ARCHIVE"
+            },
+            "kinetic_caption_style": "editorial_karaoke"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Elderly Petrov Peeling Potatoes in Kitchen",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Intimate observational documentary medium shot of elderly Petrov at kitchen table",
+                "prompt": "Cinematic documentary medium shot of elderly Stanislav Petrov, 67, silver hair, gentle smiling eyes, peeling potato at modest formica kitchen table, worn checkered shirt, steam rising from small enamel pot on stove, warm afternoon window light illuminating his face, photorealistic 8k, IMAX natural lighting --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Simple Russian Tea Glass on Table Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro shot of traditional Russian podstakannik metal tea glass holder with black tea",
+                "prompt": "Macro shot of vintage Soviet nickel-silver podstakannik tea glass holder with steaming black tea, small silver spoon, reflection of kitchen window in amber tea liquid, warm cozy documentary atmosphere --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov lived a quiet life in Fryazino, where international journalists and documentary filmmakers visited him."
+    },
+    {
+        "scene_id": 39,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "Thread C: The United Nations Recognition (Epilogue)",
+        "timestamp_marker": "THE UNITED NATIONS COMMENDATION",
+        "hook_category": "Global Gratitude",
+        "visual_style_type": "DECLASSIFIED_DOSSIER",
+        "dop_lens": "panavision_c_series",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "When the United Nations honored him in New York with the World Citizen Award, a journalist asked him: 'How does it feel to know you saved the entire human race?' Petrov looked at the cameras and answered with disarming humility: (pausa: 2s) 'I was not a hero. I was just in the right place at the right time. And I did my job.'",
+        "cosyvoice_instruct": "Deep emotional crescendo, delivering Petrov's humble words with monumental moral clarity.",
+        "estimated_duration_sec": 17.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "camera_flashbulbs_popping",
+                "un_assembly_applause",
+                "deep_sub_bass_braam_noble"
+            ],
+            "ost_cues": "Full orchestral swell: French horns and cellos soaring in triumphant, dignified beauty",
+            "foley_cue": "stamp_slam"
+        },
+        "camera_direction": "Slow dolly push-in on the United Nations crystal award catching spotlight reflections",
+        "overlay_recipe": {
+            "template": "declassified_dossier",
+            "stamp_text": "UNITED NATIONS // WORLD CITIZEN COMMENDATION",
+            "coordinates": "40°45'00\"N 73°58'00\"W",
+            "lower_third_data": {
+                "title": "WORLD CITIZEN AWARD // UNITED NATIONS",
+                "subtitle": "Presented to Stanislav Petrov // New York City",
+                "coordinates": "UN Headquarters, Manhattan",
+                "date_timestamp": "CITATION: FOR PREVENTING NUCLEAR WAR",
+                "classification": "INTERNATIONAL TRIBUTE"
+            },
+            "kinetic_caption_style": "hormozi_pop"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Petrov at United Nations Podium",
+                "target_model": "Wan 2.2 / MiniMax H3",
+                "camera_direction": "Majestic low angle shot of Petrov at podium with camera flashes popping",
+                "prompt": "Cinematic medium shot of elderly Stanislav Petrov standing at United Nations podium in New York, modest dark suit, multiple camera flashbulbs illuminating him like stars, dignified quiet expression, blue United Nations emblem in background, 35mm film grain, Hoyte van Hoytema lighting --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Crystal Award Inscription Macro",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Macro track across glass crystal award engraved: 'The Man Who Prevented Nuclear War'",
+                "prompt": "Extreme macro shot of heavy crystal globe award, engraved gilded lettering: 'To The Man Who Averted Nuclear War', prismatic light reflections dancing across glass facets, dramatic spotlighting, photorealistic 8k --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Petrov was honored at the United Nations in 2006 by the Association of World Citizens."
+    },
+    {
+        "scene_id": 40,
+        "act_number": 5,
+        "act_title": "ACT V: THE SILENCE // AFTERMATH & THE DECLASSIFIED LEGACY",
+        "timeline_thread": "The Eternal Lesson (Final Beat)",
+        "timestamp_marker": "THE FINAL COGNITIVE HOOK",
+        "hook_category": "Philosophical Thesis",
+        "visual_style_type": "HERO_AI_DUAL_SHOT",
+        "dop_lens": "cooke_anamorphic_i",
+        "color_palette_archetype": "cold_war_paranoia",
+        "audio_text": "Stanislav Petrov passed away quietly in 2017 at the age of seventy-seven. His legacy is not etched in nuclear arsenals or supercomputers. His legacy is the fact that you and I are here to tell this story. (pausa: 2s) Humanity survived the Cold War not because our machines were infallible... but because one man had the courage to doubt them.",
+        "cosyvoice_instruct": "Profound, lingering philosophical resonance, speaking directly to the viewer's soul as the documentary fades to black.",
+        "estimated_duration_sec": 18.5,
+        "sound_design": {
+            "sfx_triggers": [
+                "slow_fade_to_silence",
+                "final_single_heartbeat",
+                "distant_tape_remanence_stop"
+            ],
+            "ost_cues": "Final Hans Zimmer style sustained cello note gently fading into complete silence over 4 seconds",
+            "foley_cue": "whoosh_subtle"
+        },
+        "camera_direction": "Slow, majestic tilt up from Petrov's empty desk into the vast starry cosmos, dissolving into black",
+        "overlay_recipe": {
+            "template": "lower_third",
+            "stamp_text": "IN MEMORIAM // STANISLAV YEVGRAFOVICH PETROV (1939 - 2017)",
+            "coordinates": "EARTH // HUMAN CIVILIZATION",
+            "lower_third_data": {
+                "title": "IN MEMORIAM: STANISLAV PETROV",
+                "subtitle": "1939 - 2017 // 'The Man Who Saved The World'",
+                "coordinates": "Earth // 8 Billion Living Human Beings",
+                "date_timestamp": "DEDICATED TO HUMAN REASON OVER ALGORITHMIC MADNESS",
+                "classification": "THE DARKFACTORY ARCHIVE"
+            },
+            "kinetic_caption_style": "terminal_typewriter"
+        },
+        "dual_shot": {
+            "shot_a": {
+                "name": "Earth from Deep Space in Pure Peace",
+                "target_model": "Google Veo 3 / MiniMax H3",
+                "camera_direction": "Cosmic scale pull-back from glowing blue planet Earth floating in majestic deep space",
+                "prompt": "Epic awe-inspiring wide shot of the living blue planet Earth floating in deep silent space, white clouds, vibrant blue oceans, thin glowing cyan atmospheric crescent, brilliant sunlight peeking around horizon, pristine 70mm IMAX cinematography, Interstellar cosmic perspective, peaceful and fragile --ar 16:9"
+            },
+            "shot_b": {
+                "name": "Empty Radar Console in Darkness Macro",
+                "target_model": "MiniMax H3 / Wan 2.2",
+                "camera_direction": "Slow dolly away from empty Soviet officer command chair in dark abandoned bunker",
+                "prompt": "Cinematic wide angle shot of abandoned Cold War Soviet control room, dust sheets covering consoles, solitary beam of daylight piercing through broken skylight onto empty leather command chair, poetic Tarkovsky nostalgia, 35mm film grain, fading slowly to black --ar 16:9"
+            }
+        },
+        "verified_fact_note": "Stanislav Petrov passed away on 19 May 2017 in Fryazino, Russia."
+    }
+]

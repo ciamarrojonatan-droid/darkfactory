@@ -20,7 +20,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 # Force UTF-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -91,33 +91,65 @@ def get_audio_duration(ffmpeg_bin: str, file_path: Path) -> float:
     return 0.0
 
 
-def create_procedural_broll_image(image_path: Path, scene_id: int, scene_title: str) -> None:
-    """Fallback: Generates a high-tension dark cinematic procedural frame if no render exists yet."""
+def create_procedural_broll_image(
+    image_path: Path,
+    scene_id: int,
+    scene_title: str,
+    scene_info: Optional[Dict[str, Any]] = None,
+) -> None:
+    """Generates an atmospheric dark Cold War documentary plate with tactical grid and telemetry."""
     from PIL import Image, ImageDraw
 
     width, height = 1920, 1080
-    if scene_id == 1:
-        bg_color = (25, 8, 8)
-        accent_color = (180, 20, 20)
-    elif scene_id == 2:
-        bg_color = (15, 12, 8)
-        accent_color = (190, 120, 30)
-    else:
-        bg_color = (10, 10, 12)
-        accent_color = (200, 30, 30)
+    act_num = scene_info.get("act_number", 1) if scene_info else 1
+    act_title = scene_info.get("act_title", "DARKFACTORY") if scene_info else "DARKFACTORY"
+    style_type = scene_info.get("visual_style_type", "HERO_AI_DUAL_SHOT") if scene_info else "HERO_AI_DUAL_SHOT"
+    ts_marker = scene_info.get("timestamp_marker", f"SCENE 0{scene_id}") if scene_info else f"SCENE 0{scene_id}"
+
+    # Palette selection based on act and mood
+    if act_num in (1, 3):  # Extreme tension
+        bg_color = (12, 16, 24)
+        accent_color = (239, 68, 68)  # Crimson
+        secondary_color = (56, 189, 248)  # Tactical cyan
+    elif act_num == 4:  # Climax zero point
+        bg_color = (8, 10, 15)
+        accent_color = (245, 158, 11)  # Amber
+        secondary_color = (239, 68, 68)
+    else:  # Genesis & Aftermath
+        bg_color = (11, 15, 20)
+        accent_color = (56, 189, 248)  # Cold War Cyan
+        secondary_color = (245, 158, 11)
 
     img = Image.new("RGB", (width, height), color=bg_color)
     draw = ImageDraw.Draw(img)
 
+    # Tactical grid
     for x in range(0, width, 120):
-        draw.line([(x, 0), (x, height)], fill=(30, 30, 35), width=1)
+        draw.line([(x, 0), (x, height)], fill=(24, 32, 45), width=1)
     for y in range(0, height, 120):
-        draw.line([(0, y), (width, y)], fill=(30, 30, 35), width=1)
+        draw.line([(0, y), (width, y)], fill=(24, 32, 45), width=1)
 
-    draw.rectangle([160, 120, width - 160, height - 120], outline=accent_color, width=3)
-    draw.text((200, 160), f"DARKFACTORY CINEMATIC SHOT 0{scene_id}", fill=accent_color)
-    draw.text((200, 210), scene_title.upper(), fill=(220, 220, 220))
-    draw.text((200, height - 200), "STATUS: READY FOR RUNNINGHUB B-ROLL INGESTION", fill=(160, 160, 160))
+    # Outer border & crosshairs
+    margin = 80
+    draw.rectangle([margin, margin, width - margin, height - margin], outline=(40, 50, 70), width=2)
+
+    # Corner brackets
+    for cx, cy in [(margin, margin), (width - margin, margin), (margin, height - margin), (width - margin, height - margin)]:
+        draw.rectangle([cx - 4, cy - 4, cx + 4, cy + 4], fill=accent_color)
+
+    # Headers & Telemetry
+    draw.text((margin + 30, margin + 25), f"SOVIET AIR DEFENCE // CLASSIFIED ARCHIVE // {act_title.upper()}", fill=secondary_color)
+    draw.text((margin + 30, margin + 60), f"TELEMETRY: {ts_marker.upper()}", fill=(240, 245, 250))
+    draw.text((margin + 30, margin + 95), f"VISUAL CLUSTER: {style_type} [35MM ANAMORPHIC]", fill=(140, 160, 180))
+
+    # Center dramatic focal box
+    draw.rectangle([width // 2 - 250, height // 2 - 80, width // 2 + 250, height // 2 + 80], outline=accent_color, width=2)
+    draw.text((width // 2, height // 2 - 20), f"DARKFACTORY SHOT 0{scene_id}", fill=accent_color, anchor="mm")
+    draw.text((width // 2, height // 2 + 25), scene_title.upper()[:45], fill=(220, 230, 240), anchor="mm")
+
+    # Bottom status
+    draw.text((margin + 30, height - margin - 45), "STATUS: ARCHIVAL SYNCHRONIZATION // KODAK 2383 BLEACH BYPASS", fill=(100, 120, 140))
+    draw.text((width - margin - 350, height - margin - 45), "COORDINATES: 54°54'57\"N 37°24'42\"E", fill=secondary_color)
 
     img.save(image_path, "JPEG", quality=95)
     logger.info(f"Generated procedural cinematic plate: {image_path.name}")
@@ -131,8 +163,9 @@ def render_scene_video(
     is_first: bool = False,
     is_last: bool = False,
     transition_sec: float = 0.15,
+    scene_info: Optional[Dict[str, Any]] = None,
 ) -> bool:
-    """Renders a scene clip with adaptive speed-matching and micro-transitions.
+    """Renders a scene clip with adaptive speed-matching, overlays, and micro-transitions.
 
     Supports dual-shot composition for Scene 1 if Beat B video (cena 1b.mp4) is present:
     - Shot 1A (0.0 to 8.44s): Wide bunker siren (cena 1.mp4)
@@ -167,7 +200,8 @@ def render_scene_video(
                 output_mp4=temp_1a,
                 is_first=is_first,
                 is_last=False,
-                transition_sec=transition_sec
+                transition_sec=transition_sec,
+                scene_info=scene_info,
             )
             # Render Shot 1B
             ok_b = render_single_clip(
@@ -179,7 +213,8 @@ def render_scene_video(
                 output_mp4=temp_1b,
                 is_first=False,
                 is_last=is_last,
-                transition_sec=transition_sec
+                transition_sec=transition_sec,
+                scene_info=scene_info,
             )
             if ok_a and ok_b:
                 concat_txt = OUTPUT_DIR / "scene_1_concat.txt"
@@ -204,13 +239,26 @@ def render_scene_video(
         BROLL_DIR / f"cena {scene_id}.mov",
         BROLL_DIR / f"scene_{scene_id}.mov",
     ]
+
+    # Check for tactical vector maps if style is TACTICAL_MAP_MOTION
+    if scene_info and scene_info.get("visual_style_type") == "TACTICAL_MAP_MOTION":
+        map_cands = [
+            DATA_DIR / "final" / "motion_overlays" / "maps" / "map_north_atlantic_north_atlantic_corridor.mp4",
+            DATA_DIR / "final" / "motion_overlays" / "maps" / "map_europe_cold_war_europe_theater.mp4",
+            DATA_DIR / "final" / "motion_overlays" / "tactical_hud_bunker_diagnostic.mp4",
+        ]
+        valid_map = next((m for m in map_cands if m.is_file()), None)
+        if valid_map:
+            video_candidates.insert(0, valid_map)
+
     img_candidates = [
         BROLL_DIR / f"scene_{scene_id}.jpg",
         BROLL_DIR / f"scene_{scene_id}.png",
         BROLL_DIR / f"cena_{scene_id}.jpg",
         BROLL_DIR / f"cena {scene_id}.jpg",
     ]
-    return render_single_clip(
+
+    ok = render_single_clip(
         ffmpeg_bin=ffmpeg_bin,
         clip_candidates=video_candidates,
         fallback_img_candidates=img_candidates,
@@ -219,8 +267,65 @@ def render_scene_video(
         output_mp4=output_mp4,
         is_first=is_first,
         is_last=is_last,
-        transition_sec=transition_sec
+        transition_sec=transition_sec,
+        scene_info=scene_info,
     )
+    if not ok:
+        return False
+
+    # Apply Tactical Overlay (HUD, Lower-Third, or DECLASSIFIED stamp)
+    if scene_info and scene_info.get("overlay_recipe"):
+        try:
+            from src.video.tactical_graphics import TacticalGraphicsEngine, LowerThirdData
+            tg = TacticalGraphicsEngine(default_width=1920, default_height=1080)
+            overlay_cfg = scene_info["overlay_recipe"]
+            template = overlay_cfg.get("template", "tactical_hud")
+            temp_overlay = OUTPUT_DIR / f"temp_overlay_{scene_id}.png"
+
+            if template == "tactical_hud":
+                tg.create_tactical_hud_overlay(
+                    output_png_path=temp_overlay,
+                    coordinates=overlay_cfg.get("coordinates", "54°54'57\"N 37°24'42\"E"),
+                    target_name=scene_info.get("timestamp_marker", "TARGET: SERPUKHOV-15 BUNKER"),
+                    warning_status=overlay_cfg.get("stamp_text", "DEFCON 2 // EARLY WARNING MISSILE RADAR"),
+                )
+            elif template == "declassified_dossier":
+                tg.create_declassified_stamp_overlay(
+                    output_png_path=temp_overlay,
+                    stamp_text=overlay_cfg.get("stamp_text", "TOP SECRET // DECLASSIFIED"),
+                    sub_text=scene_info.get("timestamp_marker", "ARCHIVE ORDER NO. 49-B // EYES ONLY"),
+                )
+            elif template in ("lower_third", "blueprint_notebook", "anatomy_mechanical"):
+                lt_data = overlay_cfg.get("lower_third_data", {})
+                tg.create_cinematic_lower_third(
+                    output_png_path=temp_overlay,
+                    data=LowerThirdData(
+                        title=lt_data.get("title", f"SCENE 0{scene_id}"),
+                        subtitle=lt_data.get("subtitle", scene_info.get("act_title", "DARKFACTORY")),
+                        coordinates=lt_data.get("coordinates", "54.9158° N, 37.4116° E"),
+                        date_timestamp=lt_data.get("date_timestamp", scene_info.get("timestamp_marker", "26 SEP 1983")),
+                        classification=lt_data.get("classification", "TOP SECRET // LEVEL 1 SPECIAL PROTOCOL"),
+                    ),
+                )
+
+            if temp_overlay.exists():
+                temp_overlaid_mp4 = OUTPUT_DIR / f"temp_ov_{scene_id}.mp4"
+                ok_ov = tg.apply_overlay_to_video(
+                    input_video_path=output_mp4,
+                    overlay_png_path=temp_overlay,
+                    output_video_path=temp_overlaid_mp4,
+                    start_time_sec=0.2,
+                    duration_sec=max(1.0, duration - 0.4),
+                    ffmpeg_bin=ffmpeg_bin,
+                )
+                if ok_ov and temp_overlaid_mp4.exists():
+                    shutil.move(str(temp_overlaid_mp4), str(output_mp4))
+                if temp_overlay.exists():
+                    temp_overlay.unlink()
+        except Exception as e:
+            logger.warning(f"Could not apply overlay to Scene {scene_id}: {e}")
+
+    return True
 
 
 def render_single_clip(
@@ -233,6 +338,7 @@ def render_single_clip(
     is_first: bool = False,
     is_last: bool = False,
     transition_sec: float = 0.15,
+    scene_info: Optional[Dict[str, Any]] = None,
 ) -> bool:
     """Renders a single video clip or image with adaptive speed-matching and micro-transitions."""
     video_src = next((c for c in clip_candidates if c.is_file()), None)
@@ -240,7 +346,7 @@ def render_single_clip(
 
     if not video_src and not actual_img:
         fallback_img = BROLL_DIR / f"scene_{scene_id}.jpg"
-        create_procedural_broll_image(fallback_img, scene_id, f"Scene {scene_id}")
+        create_procedural_broll_image(fallback_img, scene_id, f"Scene {scene_id}", scene_info=scene_info)
         actual_img = fallback_img
 
     fps = 30
@@ -386,8 +492,8 @@ def assemble_final_video(
         "-i", str(audio_file),
         "-vf", vf_chain,
         "-c:v", "libx264",
-        "-preset", "medium",
-        "-crf", "17",
+        "-preset", "fast",
+        "-crf", "18",
         "-c:a", "aac",
         "-b:a", "320k",
         "-movflags", "+faststart",
@@ -408,6 +514,12 @@ def assemble_final_video(
 
 
 def main() -> None:
+    import argparse
+    parser = argparse.ArgumentParser(description="DarkFactory Cinematic Video Renderer")
+    parser.add_argument("--limit-scenes", type=int, default=0, help="Limit number of scenes to render (0 for all)")
+    parser.add_argument("--teaser", action="store_true", help="Render only the 3-scene teaser")
+    args, _ = parser.parse_known_args()
+
     BROLL_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     LUTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -429,7 +541,12 @@ def main() -> None:
         script_data = json.load(f)
 
     scenes = script_data.get("scenes", [])
-    logger.info(f"Rendering pilot documentary: {script_data.get('title')}")
+    if args.teaser:
+        scenes = scenes[:3]
+    elif args.limit_scenes > 0:
+        scenes = scenes[:args.limit_scenes]
+
+    logger.info(f"Rendering pilot documentary: {script_data.get('title')} ({len(scenes)} scenes)")
 
     # Discover durations from mastered audio files
     durations = []
@@ -460,7 +577,8 @@ def main() -> None:
             output_mp4=scene_mp4,
             is_first=is_first,
             is_last=is_last,
-            transition_sec=0.15
+            transition_sec=0.15,
+            scene_info=s,
         )
         if success:
             rendered_scenes.append(scene_mp4)

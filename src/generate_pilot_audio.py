@@ -61,6 +61,21 @@ def get_ffmpeg_bin() -> str:
     return ffmpeg_bin or "ffmpeg"
 
 
+def get_audio_duration_probe(file_path: Path) -> float:
+    """Probe audio duration in seconds via FFmpeg."""
+    cmd = [get_ffmpeg_bin(), "-i", str(file_path), "-f", "null", "-"]
+    res = subprocess.run(cmd, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace")
+    for line in res.stderr.splitlines():
+        if "Duration:" in line:
+            try:
+                part = line.split("Duration:")[1].split(",")[0].strip()
+                h, m, s = part.split(":")
+                return float(h) * 3600 + float(m) * 60 + float(s)
+            except Exception:
+                break
+    return 0.0
+
+
 def format_srt_time(seconds: float) -> str:
     """Format seconds into SRT timestamp: HH:MM:SS,mmm"""
     hours = int(seconds // 3600)
@@ -218,12 +233,19 @@ def run_pipeline(voice: str = DEFAULT_VOICE, speed: float = DEFAULT_SPEED) -> di
             info = sf.info(str(scene_mastered))
             dur = float(info.duration)
         else:
-            asyncio.run(generate_scene_edge_fallback(text, scene_mp3))
-            dur = float(scene.get("estimated_duration_sec", 12.0))
+            scene_edge_raw = raw_dir / f"scene_{s_id}_edge_raw.mp3"
+            asyncio.run(generate_scene_edge_fallback(text, scene_edge_raw))
+            try:
+                master_audio(scene_edge_raw, scene_mp3)
+            except Exception:
+                shutil.copy2(scene_edge_raw, scene_mp3)
+            dur = get_audio_duration_probe(scene_mp3)
+            if dur <= 0.0:
+                dur = float(scene.get("estimated_duration_sec", 12.0))
 
         durations.append(dur)
-        scene_mastered_files.append(scene_mastered)
-        print(f"     [OK] Scene {s_id}: {dur:.2f}s | Saved: {scene_mastered.name}")
+        scene_mastered_files.append(scene_mp3)
+        print(f"     [OK] Scene {s_id}: {dur:.2f}s | Saved: {scene_mp3.name}")
 
     # Synthesize Full Combined Intro
     full_text = " ".join(full_text_parts)
@@ -248,7 +270,12 @@ def run_pipeline(voice: str = DEFAULT_VOICE, speed: float = DEFAULT_SPEED) -> di
         shutil.copy2(full_wav, generic_wav)
         shutil.copy2(full_mp3, generic_mp3)
     else:
-        asyncio.run(generate_scene_edge_fallback(full_text, full_mp3))
+        full_edge_raw = raw_dir / "pilot_full_edge_raw.mp3"
+        asyncio.run(generate_scene_edge_fallback(full_text, full_edge_raw))
+        try:
+            master_audio(full_edge_raw, full_mp3)
+        except Exception:
+            shutil.copy2(full_edge_raw, full_mp3)
         shutil.copy2(full_mp3, generic_mp3)
 
     # Subtitles
