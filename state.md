@@ -24,6 +24,7 @@
   - *Master*: Conformidade EBU R128 estrita (**-14.0 LUFS ±0.5, True Peak <= -1.0 dBTP**) e Sidechain Dynamic Ducking (-16dB sob falas).
 - **Cinema Dashboard**: FastAPI Web SPA na porta `8502` com telemetria, visualização de roteiros, audição de áudio e status do pipeline.
 - **Conformidade YouTube & Proteção EDSA**: Relatório de Compliance com pontuação **97/100 (AUTO_REMEDIATED)**, Kit de Disputa Content ID e declaração de conteúdo sintético.
+- **Plano de Unificação Arquitetural Aprovado (`.claude/plans/architecture_unification.plan.md`)**: Padrão Facade / Bridge aprovado para implementação na próxima sessão, conectando os motores avançados de `src/video/` (repurposer, audio_engine, research_engine) aos scripts da raiz com blindagem de roteiro 5 Atos vs Teaser.
 
 ---
 
