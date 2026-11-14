@@ -49,6 +49,7 @@ class GoogleFlowBot:
         omni_queue_file: Path,
         veo3_queue_file: Path,
         dry_run: bool = False,
+        allow_procedural: bool = False,
     ) -> Dict[str, Any]:
         """Dispatches both Omni Flash 1.2 and Veo 3.1 generation queues."""
         if not omni_queue_file.exists() or not veo3_queue_file.exists():
@@ -89,8 +90,15 @@ class GoogleFlowBot:
                     output_file=target_path,
                 )
                 if not success:
-                    logger.warning(f"Google Flow render for Scene {s_id} failed or unauthenticated. Applying fallback...")
-                    self.fallback_to_runninghub_or_procedural(s_id, shot_type="shot_a", target_file=target_path)
+                    logger.warning(f"Google Flow render for Scene {s_id} failed or unauthenticated. Applying RunningHub MiniMax H3 fallback...")
+                    self.fallback_to_runninghub_or_procedural(
+                        s_id,
+                        shot_type="shot_a",
+                        target_file=target_path,
+                        prompt=sc["prompt"],
+                        duration=sc.get("target_duration_sec", 14.5),
+                        allow_procedural=allow_procedural,
+                    )
                 results["omni_flash_renders"].append({"scene_id": s_id, "file": str(target_path), "is_fallback": not success})
 
         # Process Veo 3 / 3.1 4K Tactical Climax scenes (Shot B)
@@ -112,8 +120,15 @@ class GoogleFlowBot:
                     output_file=target_path,
                 )
                 if not success:
-                    logger.warning(f"Google Flow Veo 3.1 render for Scene {s_id} failed. Applying fallback...")
-                    self.fallback_to_runninghub_or_procedural(s_id, shot_type="shot_b", target_file=target_path)
+                    logger.warning(f"Google Flow Veo 3.1 render for Scene {s_id} failed. Applying RunningHub MiniMax H3 fallback...")
+                    self.fallback_to_runninghub_or_procedural(
+                        s_id,
+                        shot_type="shot_b",
+                        target_file=target_path,
+                        prompt=sc["prompt"],
+                        duration=sc.get("target_duration_sec", 8.0),
+                        allow_procedural=allow_procedural,
+                    )
                 results["veo3_renders"].append({"scene_id": s_id, "file": str(target_path), "is_fallback": not success})
 
         return results
@@ -125,29 +140,124 @@ class GoogleFlowBot:
         duration: float,
         output_file: Path,
     ) -> bool:
-        """Launches stealth Playwright session to inject and download clip from Google Flow."""
-        # Check if persistent google session cookies exist
-        cookie_file = self.session_dir / "google_auth_cookies.json"
-        if not cookie_file.exists():
-            logger.info("Google Flow authenticated session cookies not found. Triggering fallback engine.")
+        """Launches stealth Playwright session to inject prompt and download clip from Google Flow."""
+        state_file = self.session_dir / "storage_state.json"
+        has_profile = (self.session_dir / "Default").exists() or state_file.exists()
+        if not has_profile:
+            logger.info("Google Flow persistent session profile not found. Triggering fallback engine.")
             return False
 
-        # In production with live session cookies, Playwright navigates to flow.google.com,
-        # selects the model dropdown (Omni Flash 1.2 or Veo 3.1), pastes the prompt,
-        # monitors the generation progress, and saves the resulting MP4.
+        try:
+            from playwright.sync_api import sync_playwright
+
+            with sync_playwright() as p:
+                launch_kwargs: Dict[str, Any] = {
+                    "user_data_dir": str(self.session_dir),
+                    "headless": True,
+                    "args": ["--disable-blink-features=AutomationControlled"],
+                }
+                context = p.chromium.launch_persistent_context(**launch_kwargs)
+                page = context.new_page()
+
+                flow_url = os.getenv("GOOGLE_FLOW_URL", "https://flow.google.com")
+                page.goto(flow_url, timeout=30000)
+                page.wait_for_load_state("domcontentloaded", timeout=30000)
+
+                # Check if prompt textarea exists
+                prompt_input = page.query_selector('textarea, [contenteditable="true"], input[placeholder*="prompt"]')
+                if not prompt_input:
+                    logger.warning("Prompt input field not located on Google Flow page.")
+                    context.close()
+                    return False
+
+                prompt_input.fill(prompt)
+                time.sleep(1)
+
+                # Submit generation
+                submit_btn = page.query_selector('button:has-text("Generate"), button:has-text("Create"), button[aria-label*="Generate"]')
+                if submit_btn and submit_btn.is_enabled():
+                    submit_btn.click()
+                else:
+                    page.keyboard.press("Enter")
+
+                # Await video element with timeout 90s
+                logger.info(f"Awaiting Google Flow generation for model {model} (timeout=90s)...")
+                video_el = page.wait_for_selector("video[src], a[download*='.mp4']", timeout=90000)
+                if video_el:
+                    src = video_el.get_attribute("src") or video_el.get_attribute("href")
+                    if src and src.startswith("http"):
+                        import urllib.request
+                        urllib.request.urlretrieve(src, str(output_file))
+                        if output_file.exists() and output_file.stat().st_size > 50000:
+                            logger.info(f"✅ Downloaded Google Flow video clip: {output_file.name}")
+                            context.close()
+                            return True
+
+                context.close()
+        except Exception as e:
+            logger.warning(f"Playwright Google Flow execution failed ({e}). Comuting to RunningHub MiniMax H3 fallback.")
+
         return False
 
-    def fallback_to_runninghub_or_procedural(self, scene_id: int, shot_type: str, target_file: Path) -> Path:
-        """Fallback engine: checks if existing B-roll clip exists, else generates procedural plate."""
-        if target_file.exists() and target_file.stat().st_size > 1000:
+    def fallback_to_runninghub_or_procedural(
+        self,
+        scene_id: int,
+        shot_type: str,
+        target_file: Path,
+        prompt: str = "",
+        duration: float = 10.0,
+        allow_procedural: bool = False,
+    ) -> Path:
+        """Fallback engine: attempts RunningHub MiniMax H3 fallback; quarantine if both fail."""
+        if target_file.exists() and target_file.stat().st_size > 50000:
             logger.info(f"Using existing cached B-roll for Scene {scene_id} ({shot_type}): {target_file.name}")
             return target_file
 
-        logger.info(f"Generating high-grade procedural cinematic frame for Scene {scene_id} ({shot_type})...")
-        from render_pilot_video import create_procedural_broll_image
-        image_fallback = target_file.with_suffix(".jpg")
-        create_procedural_broll_image(image_fallback, scene_id=scene_id, scene_title=f"SCENE {scene_id} {shot_type.upper()}")
-        return image_fallback
+        # If procedural is explicitly allowed or no prompt provided (test mode)
+        if allow_procedural or not prompt:
+            logger.warning(f"Generating procedural fallback plate for Scene {scene_id} (test mode)...")
+            from render_pilot_video import create_procedural_broll_image
+            image_fallback = target_file.with_suffix(".jpg")
+            create_procedural_broll_image(image_fallback, scene_id=scene_id, scene_title=f"SCENE {scene_id} {shot_type.upper()}")
+            return image_fallback
+
+        # 1. Primary Fallback: RunningHub MiniMax H3 Cinematic V2 Turbo
+        logger.info(f"Triggering RunningHub MiniMax H3 Cinematic fallback for Scene {scene_id} ({shot_type})...")
+        try:
+            from src.video.minimax_h3_engine import MiniMaxH3VideoEngine
+            engine = MiniMaxH3VideoEngine(output_dir=self.broll_dir)
+            h3_res = engine.generate_video(
+                prompt=prompt,
+                duration_sec=duration,
+                destination_path=target_file,
+                force_procedural=False,
+                allow_procedural_fallback=False,
+            )
+            if h3_res.video_path.exists() and h3_res.video_path.stat().st_size > 50000:
+                logger.info(f"✅ Scene {scene_id} successfully generated via RunningHub MiniMax H3: {h3_res.filename}")
+                if h3_res.video_path != target_file:
+                    import shutil
+                    shutil.copy(str(h3_res.video_path), str(target_file))
+                return target_file
+        except Exception as rh_exc:
+            logger.warning(f"RunningHub MiniMax H3 fallback failed for Scene {scene_id}: {rh_exc}")
+
+        # 2. Hard Quarantine Gate (No fake procedural videos allowed in production!)
+        quarantine_dir = DATA_DIR / "quarantine" / f"scene_{scene_id}_{shot_type}_failure"
+        quarantine_dir.mkdir(parents=True, exist_ok=True)
+        failure_report = {
+            "scene_id": scene_id,
+            "shot_type": shot_type,
+            "prompt": prompt,
+            "duration": duration,
+            "error": "Failed on both Google Flow and RunningHub MiniMax H3. Procedural fallback is permanently disabled.",
+            "timestamp": time.time(),
+        }
+        (quarantine_dir / "quarantine_report.json").write_text(json.dumps(failure_report, indent=2), encoding="utf-8")
+        raise RuntimeError(
+            f"CRITICAL: Scene {scene_id} ({shot_type}) failed to generate on Google Flow and RunningHub MiniMax H3. "
+            f"Procedural fallback is disabled. See quarantine diagnostics at: {quarantine_dir}"
+        )
 
 
 def main() -> None:

@@ -2,12 +2,17 @@
 """DarkFactory Pilot Production Orchestrator.
 
 One-click command center to produce the pilot documentary:
-  - Step 0: Direct (Nolan Dark History Director Screenplay Synthesis)
-  - Step 1: Research Engine (Wikipedia Ground-Truth Extraction)
-  - Step 2: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
-  - Step 3: Broadcast Studio Mastering & SRT Synchronization
-  - Step 4: 4-Stem Master Audio Mixer & Dynamic Sidechain Ducking (Google Flow + MMAudio)
-  - Step 5: Video B-Roll Rendering & Final 1080p Master Assembly
+  - Step 0: Pre-Flight Auth & Session Gate (Google Flow & RunningHub session verification)
+  - Step 1: Direct (Nolan Dark History Director Screenplay Synthesis)
+  - Step 2: Research Engine (Wikipedia Ground-Truth Extraction)
+  - Step 3: Google Flow Stealth Bot & Real AI Video Generation (Veo 3.1 & Omni Flash + MiniMax H3 fallback)
+  - Step 4: TTS / Audio Ingestion (CosyVoice 3 Instruct 2, Kokoro-82M, or Edge-TTS)
+  - Step 5: Broadcast Studio Mastering & SRT Synchronization
+  - Step 6: 4-Stem Master Audio Mixer & Dynamic Sidechain Ducking
+  - Step 7: Video B-Roll Rendering & Final 1080p Master Assembly
+  - Step 8: Shorts Generator (YouTube Shorts 9:16 cuts)
+  - Step 9: YouTube Compliance QC
+  - Step 10: YouTube Algorithm Booster
 """
 import argparse
 import subprocess
@@ -41,13 +46,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Pilot Production Orchestrator")
     parser.add_argument(
         "--step",
-        choices=["direct", "research", "flow", "tts", "tts-local", "master", "sound", "video", "shorts", "qc", "boost", "publish", "all", "all-local"],
+        choices=["auth", "direct", "research", "flow", "tts", "tts-local", "master", "sound", "video", "shorts", "qc", "boost", "publish", "all", "all-local"],
         default=None,
         help="Step to execute"
     )
     parser.add_argument(
         "--phase",
-        choices=["research", "script", "audio", "video", "render", "assembly", "all"],
+        choices=["auth", "research", "script", "audio", "video", "render", "assembly", "all"],
         default=None,
         help="Cinematic phase to execute (alias mapping to pipeline steps)"
     )
@@ -61,20 +66,24 @@ def main() -> None:
     steps = []
     # If phase is specified, map to corresponding steps
     if args.phase:
-        if args.phase == "research":
-            steps = ["research_engine.py"]
+        if args.phase == "auth":
+            steps = ["auth_gate.py"]
+        elif args.phase == "research":
+            steps = ["auth_gate.py", "research_engine.py"]
         elif args.phase == "script":
             steps = ["nolan_director.py"]
         elif args.phase == "audio":
-            steps = ["generate_pilot_audio.py", "cosyvoice_master.py", "audio_mixer_master.py"]
+            steps = ["auth_gate.py", "generate_pilot_audio.py", "cosyvoice_master.py", "audio_mixer_master.py"]
         elif args.phase == "video":
-            steps = ["render_pilot_video.py"]
+            steps = ["auth_gate.py", "google_flow_bot.py", "render_pilot_video.py"]
         elif args.phase in ("render", "assembly"):
             steps = ["render_pilot_video.py", "shorts_generator.py", "youtube_compliance_qc.py"]
         elif args.phase == "all":
             steps = [
+                "auth_gate.py",
                 "nolan_director.py",
                 "research_engine.py",
+                "google_flow_bot.py",
                 "generate_pilot_audio.py",
                 "cosyvoice_master.py",
                 "audio_mixer_master.py",
@@ -86,7 +95,9 @@ def main() -> None:
     else:
         # Default step is "all" if neither step nor phase provided
         step_val = args.step or "all"
-        if step_val == "direct":
+        if step_val == "auth":
+            steps = ["auth_gate.py"]
+        elif step_val == "direct":
             steps = ["nolan_director.py"]
         elif step_val == "research":
             steps = ["research_engine.py"]
@@ -101,7 +112,7 @@ def main() -> None:
         elif step_val == "sound":
             steps = ["audio_mixer_master.py"]
         elif step_val == "video":
-            steps = ["render_pilot_video.py"]
+            steps = ["google_flow_bot.py", "render_pilot_video.py"]
         elif step_val == "shorts":
             steps = ["shorts_generator.py"]
         elif step_val == "qc":
@@ -112,8 +123,10 @@ def main() -> None:
             steps = ["youtube_publisher.py"]
         elif step_val == "all":
             steps = [
+                "auth_gate.py",
                 "nolan_director.py",
                 "research_engine.py",
+                "google_flow_bot.py",
                 "generate_pilot_audio.py",
                 "cosyvoice_master.py",
                 "audio_mixer_master.py",
@@ -124,8 +137,10 @@ def main() -> None:
             ]
         elif step_val == "all-local":
             steps = [
+                "auth_gate.py",
                 "nolan_director.py",
                 "research_engine.py",
+                "google_flow_bot.py",
                 "kokoro_fallback.py",
                 "cosyvoice_master.py",
                 "audio_mixer_master.py",
@@ -143,6 +158,10 @@ def main() -> None:
 
     print(f"\n🎉 ALL STEPS COMPLETED SUCCESSFULLY!")
     print(f"Output video ready at: {PROJECT_ROOT / 'data' / 'output' / 'the_1983_soviet_glitch_final_1080p.mp4'}")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":

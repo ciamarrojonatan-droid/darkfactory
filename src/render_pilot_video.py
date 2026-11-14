@@ -19,6 +19,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -164,6 +165,7 @@ def render_scene_video(
     is_last: bool = False,
     transition_sec: float = 0.15,
     scene_info: Optional[Dict[str, Any]] = None,
+    allow_procedural_fallback: bool = False,
 ) -> bool:
     """Renders a scene clip with adaptive speed-matching, overlays, and micro-transitions.
 
@@ -202,6 +204,7 @@ def render_scene_video(
                 is_last=False,
                 transition_sec=transition_sec,
                 scene_info=scene_info,
+                allow_procedural_fallback=allow_procedural_fallback,
             )
             # Render Shot 1B
             ok_b = render_single_clip(
@@ -215,6 +218,7 @@ def render_scene_video(
                 is_last=is_last,
                 transition_sec=transition_sec,
                 scene_info=scene_info,
+                allow_procedural_fallback=allow_procedural_fallback,
             )
             if ok_a and ok_b:
                 concat_txt = OUTPUT_DIR / "scene_1_concat.txt"
@@ -269,6 +273,7 @@ def render_scene_video(
         is_last=is_last,
         transition_sec=transition_sec,
         scene_info=scene_info,
+        allow_procedural_fallback=allow_procedural_fallback,
     )
     if not ok:
         return False
@@ -339,15 +344,32 @@ def render_single_clip(
     is_last: bool = False,
     transition_sec: float = 0.15,
     scene_info: Optional[Dict[str, Any]] = None,
+    allow_procedural_fallback: bool = False,
 ) -> bool:
     """Renders a single video clip or image with adaptive speed-matching and micro-transitions."""
     video_src = next((c for c in clip_candidates if c.is_file()), None)
     actual_img = next((c for c in fallback_img_candidates if c.is_file()), None)
 
     if not video_src and not actual_img:
-        fallback_img = BROLL_DIR / f"scene_{scene_id}.jpg"
-        create_procedural_broll_image(fallback_img, scene_id, f"Scene {scene_id}", scene_info=scene_info)
-        actual_img = fallback_img
+        if allow_procedural_fallback:
+            fallback_img = BROLL_DIR / f"scene_{scene_id}.jpg"
+            create_procedural_broll_image(fallback_img, scene_id, f"Scene {scene_id}", scene_info=scene_info)
+            actual_img = fallback_img
+        else:
+            quarantine_dir = DATA_DIR / "quarantine" / f"scene_{scene_id}_missing_footage"
+            quarantine_dir.mkdir(parents=True, exist_ok=True)
+            report = {
+                "scene_id": scene_id,
+                "error": "Missing real AI video footage in data/broll/. Procedural fallback is permanently disabled in DarkFactory production.",
+                "searched_clips": [str(c) for c in clip_candidates],
+                "timestamp": time.time(),
+            }
+            (quarantine_dir / "quarantine_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+            raise RuntimeError(
+                f"CRITICAL: Scene {scene_id} has no real AI video footage in {BROLL_DIR}. "
+                f"Procedural fallback is disabled in DarkFactory production. "
+                f"Generate real clips via 'python src/google_flow_bot.py' or check quarantine at: {quarantine_dir}"
+            )
 
     fps = 30
     total_frames = int(duration * fps)
@@ -518,7 +540,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DarkFactory Cinematic Video Renderer")
     parser.add_argument("--limit-scenes", type=int, default=0, help="Limit number of scenes to render (0 for all)")
     parser.add_argument("--teaser", action="store_true", help="Render only the 3-scene teaser")
+    parser.add_argument("--allow-procedural-fallback", action="store_true", help="Allow synthetic procedural plates when video files are missing (ONLY FOR UNIT TESTING)")
+    parser.add_argument("--dry-run", action="store_true", help="Simulate video generation / allow test fallback")
     args, _ = parser.parse_known_args()
+    allow_procedural = args.allow_procedural_fallback or args.dry_run
 
     BROLL_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -579,6 +604,7 @@ def main() -> None:
             is_last=is_last,
             transition_sec=0.15,
             scene_info=s,
+            allow_procedural_fallback=allow_procedural,
         )
         if success:
             rendered_scenes.append(scene_mp4)

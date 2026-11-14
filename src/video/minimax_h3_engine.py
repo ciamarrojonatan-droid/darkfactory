@@ -99,15 +99,17 @@ class MiniMaxH3VideoEngine:
         duration_sec: float = 10.0,
         destination_path: Optional[Union[Path, str]] = None,
         force_procedural: bool = False,
+        allow_procedural_fallback: bool = False,
     ) -> H3VideoResult:
-        """Generates a cinematic video via MiniMax H3 on RunningHub or procedural fallback.
+        """Generates a cinematic video via MiniMax H3 on RunningHub.
 
         Args:
             prompt: Visual narrative & camera movement prompt (injected into Node #35).
             reference_image_path: Input reference image (injected into Node #48 LoadImage 图1).
             duration_sec: Duration in seconds (Node #66 PrimitiveFloat, default 10.0s).
             destination_path: Optional custom output file path.
-            force_procedural: If True, bypasses RunningHub and uses local synthesis.
+            force_procedural: If True, uses local synthesis (for mock testing only).
+            allow_procedural_fallback: If False (default), raises error if RunningHub fails instead of generating dummy footage.
         """
         ref_p: Optional[Path] = None
         if reference_image_path:
@@ -156,11 +158,26 @@ class MiniMaxH3VideoEngine:
                         )
             except Exception as e:
                 logger.warning(
-                    f"RunningHub MiniMax H3 RPA unavailable ({e}). "
-                    f"Activating procedural cinematic fallback synthesis."
+                    f"RunningHub MiniMax H3 RPA execution failed ({e})."
                 )
+                if not allow_procedural_fallback:
+                    # Quarantine failure and raise explicit error
+                    quarantine_dir = BASE_DIR / "data" / "quarantine" / f"minimax_h3_fail_{int(time.time())}"
+                    quarantine_dir.mkdir(parents=True, exist_ok=True)
+                    report = {
+                        "prompt": prompt,
+                        "duration_sec": duration_sec,
+                        "error": str(e),
+                        "timestamp": time.time(),
+                        "engine": "minimax_h3_runninghub",
+                    }
+                    (quarantine_dir / "quarantine_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+                    raise RuntimeError(
+                        f"CRITICAL: RunningHub MiniMax H3 failed ({e}). "
+                        f"Procedural video fallback is disabled in DarkFactory production."
+                    )
 
-        # Procedural fallback synthesis (generates high-definition 16:9 cinematic motion video with audio)
+        # Procedural fallback synthesis (only when force_procedural=True or allow_procedural_fallback=True)
         out_video = self._generate_procedural_video(
             prompt=prompt,
             reference_image_path=ref_p,
