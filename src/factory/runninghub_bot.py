@@ -1358,7 +1358,14 @@ def ensure_chrome_cdp_desktop(account: int, workflow_url: str) -> bool:
     except Exception:
         pass
 
-    target_profile = debug_user_data if debug_user_data.exists() else (BASE_DIR / "data" / "sessions" / f"chrome_cdp_acc{account}")
+    unified_rh_session = BASE_DIR / "chrome_session" / "runninghub"
+    if unified_rh_session.exists() and (unified_rh_session / "storage_state.json").exists():
+        target_profile = unified_rh_session
+        logger.info(f"📂 Usando perfil autenticado do RunningHub: {target_profile}")
+    elif debug_user_data.exists():
+        target_profile = debug_user_data
+    else:
+        target_profile = (BASE_DIR / "data" / "sessions" / f"chrome_cdp_acc{account}")
     target_profile.mkdir(parents=True, exist_ok=True)
 
     cmd = [
@@ -1459,6 +1466,11 @@ def run_factory_bot(
     launch_kwargs = get_playwright_launch_options(account=account, base_dir=BASE_DIR)
     if session_dir:
         launch_kwargs["user_data_dir"] = session_dir
+    else:
+        # Prioritize unified authenticated session from auth_gate.py if present
+        unified_rh_session = BASE_DIR / "chrome_session" / "runninghub"
+        if unified_rh_session.exists() and (unified_rh_session / "storage_state.json").exists():
+            launch_kwargs["user_data_dir"] = str(unified_rh_session)
     user_data_dir = Path(launch_kwargs["user_data_dir"])
 
     logger.info("=" * 65)

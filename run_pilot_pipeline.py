@@ -29,15 +29,19 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 SRC_DIR = PROJECT_ROOT / "src"
 PYTHON_EXE = sys.executable
 
+DRY_RUN_SUPPORTED = {"auth_gate.py", "google_flow_bot.py", "render_pilot_video.py"}
 
-def run_script(script_name: str, dry_run: bool = False) -> bool:
+
+def run_script(script_name: str, dry_run: bool = False, extra_args: list = None) -> bool:
     target = SRC_DIR / script_name
     print(f"\n=======================================================")
     print(f"🎬 EXECUTING: {script_name}")
     print(f"=======================================================")
     cmd = [PYTHON_EXE, str(target)]
-    if dry_run:
+    if dry_run and script_name in DRY_RUN_SUPPORTED:
         cmd.append("--dry-run")
+    if extra_args:
+        cmd.extend(extra_args)
     res = subprocess.run(cmd)
     return res.returncode == 0
 
@@ -55,6 +59,11 @@ def main() -> None:
         choices=["auth", "research", "script", "audio", "video", "render", "assembly", "all"],
         default=None,
         help="Cinematic phase to execute (alias mapping to pipeline steps)"
+    )
+    parser.add_argument(
+        "--teaser",
+        action="store_true",
+        help="Execute teaser slice (Scenes 1 to 3) with Google Flow + Overlays + Master",
     )
     parser.add_argument(
         "--dry-run",
@@ -151,17 +160,19 @@ def main() -> None:
             ]
 
     for s in steps:
-        success = run_script(s, dry_run=args.dry_run)
+        extra = []
+        if args.teaser:
+            if s == "nolan_director.py":
+                extra.extend(["--mode", "teaser"])
+            elif s in ("google_flow_bot.py", "render_pilot_video.py"):
+                extra.append("--teaser")
+        success = run_script(s, dry_run=args.dry_run, extra_args=extra)
         if not success:
             print(f"\n❌ Pipeline failed at step: {s}", file=sys.stderr)
             sys.exit(1)
 
     print(f"\n🎉 ALL STEPS COMPLETED SUCCESSFULLY!")
     print(f"Output video ready at: {PROJECT_ROOT / 'data' / 'output' / 'the_1983_soviet_glitch_final_1080p.mp4'}")
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
