@@ -31,12 +31,12 @@
 
 | Fase / Módulo | Status | Métricas Verificadas no Ambiente |
 | :--- | :--- | :--- |
-| **Pre-Flight Auth Gate** | `ok` | `src/auth_gate.py` validado com sessions persistentes para Google Flow e RunningHub (CLI `--check`, `--login-all`, `--dry-run`) |
+| **Pre-Flight Auth Gate** | `ok` | **100% Autenticado & Ativo**: Google Flow (`flow.google.com`) e RunningHub (`runninghub.ai`) verificados com sucesso via `src/auth_gate.py --check` |
 | **Pesquisa & Fatos Históricos** | `ok` | Roteiro de 40 cenas arquivado em `data/scripts/nolan_soviet_glitch.json` (Incidente Soviético de 1983) |
 | **Roteirização Não-Linear (Nolan)** | `ok` | 5 Atos estruturados com prompts Dual-Shot (Shot A Drama + Shot B Macro) e filas Google Flow (`omni_queue` e `veo3_queue`) |
 | **Engenharia de Voz & Áudio** | `ok` | 40 stems individuais (`scene_1.mp3` a `scene_40.mp3`), `pilot_intro_full.mp3` e mix 4-stems `pilot_final_audio_mix.mp3` (-14 LUFS) |
-| **Fábrica de Vídeo T2V Real** | `ok` | `google_flow_bot.py` integrado à esteira com failover para MiniMax H3. Placas procedurais falsas banidas da produção |
-| **Montagem Master Final** | `ok` | `data/output/the_1983_soviet_glitch_final_1080p.mp4` (**13.90 min / 833.81s**, 68.6 MB, 1080p 2.39:1 Scope) |
+| **Fábrica de Vídeo T2V Real** | `ok` | `google_flow_bot.py` integrado à esteira com failover para MiniMax H3. Placas procedurais antigas removidas de `data/broll/` |
+| **Montagem Master Final** | `ready` | Aguardando novo disparo do pipeline para geração de vídeo real com Google Flow e overlays táticos |
 | **Cinema Dashboard (:8502)** | `ok` | Testes de API aprovados com 100% de sucesso · Pronto para inicialização via `run_dashboard.bat` |
 | **Qualidade & Testes (Pytest)** | `ok` | **265 passed, 2 skipped** (100% de cobertura nos módulos de Auth Gate, Failover e Quarentena de Vídeo) |
 | **YouTube Compliance QC** | `ok` | Status `AUTO_REMEDIATED` (Score: 97/100) com Legal Dispute Kit e sem bloqueios |
